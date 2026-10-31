@@ -1,0 +1,15 @@
+'use strict';
+const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const vm=require('node:vm');
+const window={};const context=vm.createContext({window,URL});vm.runInContext(fs.readFileSync(path.join(__dirname,'..','js/kernel/browserPolicy.js'),'utf8'),context);
+const resolve=window.VoidBrowserPolicy.resolve;
+assert.equal(resolve('https://example.com/path'),'https://example.com/path');assert.equal(resolve('http://localhost:8080'),'http://localhost:8080/');assert.equal(resolve('example.com'),'https://example.com/');assert.equal(resolve('backrooms mystery'),'https://duckduckgo.com/?q=backrooms%20mystery');assert.equal(resolve(''),null);
+for(const bad of ['javascript:alert(1)','data:text/html,hello','file:///etc/passwd','vbscript:msgbox(1)','ftp://example.com'])assert.throws(()=>resolve(bad),undefined,bad);
+assert.throws(()=>resolve('x'.repeat(2049)));const browserHtml=fs.readFileSync(path.join(__dirname,'..','apps/void-browserx/index.html'),'utf8');
+assert.match(browserHtml,/js\/brain\/hippocampus\/webMemory\.js/);
+assert.match(browserHtml,/js\/brain\/webSearch\.js/);
+for(const id of ['newTabBtn','bookmarkBtn','bookmarksBtn','historyBtn','searchResults','externalSearch','refreshSearch'])assert.match(browserHtml,new RegExp('id=\"'+id+'\"'));
+const browserLogic=fs.readFileSync(path.join(__dirname,'..','apps/void-browserx/js/extracted-01.js'),'utf8');
+assert.match(browserLogic,/cordovaHost\.InAppBrowser/);
+const shellHtml=fs.readFileSync(path.join(__dirname,'..','index.html'),'utf8');
+assert.match(shellHtml,/universalSearchPanel/);assert.match(shellHtml,/voidbrowserx_pending_search_v1/);assert.match(shellHtml,/voidbrowserx_bookmarks_v1/);
+console.log('PASS: VoidBrowserX URL policy, search/memory integration, tabs/bookmarks, and Cordova browser fallback');
