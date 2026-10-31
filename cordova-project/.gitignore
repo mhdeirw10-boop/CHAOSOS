@@ -1,0 +1,24 @@
+# Node and Cordova build output
+node_modules/
+cordova-project/node_modules/
+cordova-project/platforms/
+cordova-project/plugins/
+.gradle/
+local.properties
+
+# Private credentials and signing material
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+*.mobileprovision
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.log
