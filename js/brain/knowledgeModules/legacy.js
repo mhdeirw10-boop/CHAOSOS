@@ -1,0 +1,2 @@
+/* Compatibility facade for older knowledge modules; canonical phrase data now lives in js/brain/words/. */
+(function(g){'use strict';const W=g.CHAOSWords;if(!W){g.CHAOSLegacyKnowledge={version:'3.1.3',entries:{},match:()=>null};return}g.CHAOSLegacyKnowledge={version:'3.1.3',entries:W.entries(),match(query){const hit=W.match(query);return hit?{key:hit.key,answer:hit.answer,module:hit.module}:null}};})(window);
