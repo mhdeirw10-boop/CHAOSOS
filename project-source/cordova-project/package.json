@@ -1,0 +1,26 @@
+{
+  "name": "eye-of-chaos-voidos",
+  "displayName": "CHAOSOS",
+  "version": "3.1.6",
+  "description": "CHAOSOS v3.1.6 experimental web-first operating environment with modular app runtime, local CHAOSAI context routing, and VoidTube enhancements",
+  "private": true,
+  "scripts": {
+    "prepare:android": "cordova prepare android",
+    "build:android": "cordova build android",
+    "build:android:debug": "cordova build android --debug"
+  },
+  "devDependencies": {
+    "cordova": "^12.0.0",
+    "cordova-android": "^14.0.1"
+  },
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-screen-orientation": {}
+    }
+  }
+}
