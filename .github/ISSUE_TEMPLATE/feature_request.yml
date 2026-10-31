@@ -1,0 +1,30 @@
+name: Feature proposal
+description: Propose a capability or a change to an existing feature.
+title: "[Feature]: "
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What user problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Permissions, privacy, safety, and compatibility considerations
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives or trade-offs
+    validations:
+      required: false
+      
