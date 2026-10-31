@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="description"
+    content="نظام التحكم والترمينال - عين الفوضى">
+
+<title>CHAOSOS Local Core | عين الفوضى</title>
+
+<link rel="stylesheet" href="../css/theme.css">
+<link rel="stylesheet" href="../css/layout.css">
+
+
+<style>
+
+/* ==========================================================
+   1. واجهة الترمينال
+   ========================================================== */
+
+.terminal-wrapper {
+
+    padding: 120px 6% 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+/* ==========================================================
+   2. القائمة العلوية الخاصة بالـTerminal
+   ========================================================== */
+
+#terminalTopNav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+/* ==========================================================
+   3. الهاتف
+   إخفاء روابط الـTerminal العلوية
+   ========================================================== */
+
+@media (max-width: 750px) {
+
+    #terminalTopNav {
+
+        display: none !important;
+
+    }
+
+}
+
+
+/* ==========================================================
+   4. سجل محادثات CHAOS SYSTEM
+   ========================================================== */
+
+.history-sidebar {
+
+    position: fixed;
+
+    top: 0;
+
+    right: -300px;
+
+    width: 280px;
+
+    max-width: 85vw;
+
+    height: 100vh;
+
+    background: #0d0d12;
+
+    border-left: 1px solid #1a1a24;
+
+    transition: right 0.3s ease;
+
+    z-index: 300;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.history-sidebar.active {
+
+    right: 0;
+
+}
+
+
+/* ==========================================================
+   5. رأس سجل المحادثات
+   ========================================================== */
+
+.history-sidebar-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom: 1px solid #1a1a24;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.history-sidebar-header h3 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+    color: #00ff66;
+
+}
+
+
+/* ==========================================================
+   6. زر إغلاق سجل المحادثات
+   ========================================================== */
+
+#closeHistorySidebar {
+
+    background: none;
+
+    border: 1px solid #333;
+
+    color: #fff;
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 4px;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+
+#closeHistorySidebar:hover {
+
+    color: #00ff66;
+
+    border-color: #00ff66;
+
+}
+
+
+/* ==========================================================
+   7. زر محادثة جديدة
+   ========================================================== */
+
+#newChatBtn {
+
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    padding: 8px;
+
+    background: transparent;
+
+    border: 1px solid #00ff66;
+
+    color: #00ff66;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+}
+
+
+#newChatBtn:hover {
+
+    background: #0d1a12;
+
+}
+
+
+/* ==========================================================
+   8. قائمة سجل المحادثات
+   ========================================================== */
+
+.history-list {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    overflow-y: auto;
+
+    flex-grow: 1;
+
+}
+
+
+.history-item {
+
+    padding: 8px 10px;
+
+    margin-bottom: 8px;
+
+    background: #13131a;
+
+    border: 1px solid #1a1a24;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.history-item:hover,
+.history-item.active {
+    border-color: #00ff66;
+}
+
+.history-item.active {
+    background: #0d1a12;
+}
+
+.history-item:focus-visible {
+    outline: 2px solid #00ff66;
+    outline-offset: 2px;
+}
+
+
+/* ==========================================================
+   9. رابط العودة داخل سجل المحادثات
+   ========================================================== */
+
+.back-link {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border: 1px solid #333;
+
+    color: #888;
+
+    text-decoration: none;
+
+    border-radius: 4px;
+
+}
+
+
+.back-link:hover {
+
+    color: #00ff66;
+
+    border-color: #00ff66;
+
+}
+
+
+/* ==========================================================
+   10. شريط الإدخال والإرسال
+   ========================================================== */
+
+.terminal-input-row {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 15px;
+
+    border-top: 1px solid #333;
+
+    color: #00ff66;
+}
+
+.terminal-prompt {
+
+    flex: 0 0 auto;
+
+    color: #00ff66;
+
+    font-family: monospace;
+
+    user-select: none;
+}
+
+.terminal-input-row input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    background: transparent;
+
+    border: 0;
+
+    outline: 0;
+
+    color: #fff;
+
+    font: inherit;
+}
+
+.terminal-input-row input::placeholder {
+
+    color: #777;
+}
+
+#sendBtn {
+
+    flex: 0 0 auto;
+
+    width: 40px;
+    height: 36px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 1px solid #00ff66;
+
+    color: #00ff66;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    line-height: 1;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.1s ease;
+}
+
+#sendBtn:hover {
+
+    background: #00ff66;
+
+    color: #050507;
+}
+
+#sendBtn:active {
+
+    transform: scale(0.94);
+}
+
+#sendBtn:focus-visible {
+
+    outline: 2px solid #fff;
+
+    outline-offset: 2px;
+}
+
+@media (max-width: 750px) {
+
+    .terminal-input-row {
+
+        padding: 12px;
+
+    }
+
+    #sendBtn {
+
+        width: 42px;
+        height: 38px;
+
+    }
+}
+
+
+/* v1.3: conversation management controls */
+.history-search-label { display:block; margin:0 0 6px; color:#9ba5b7; font-size:12px; }
+.history-search { width:100%; box-sizing:border-box; padding:10px; margin-bottom:10px; border:1px solid #30313d; border-radius:6px; background:#090a10; color:#f4f5f7; font:inherit; }
+.history-empty { padding:12px; color:#9ba5b7; font-size:13px; }
+.history-item { padding:8px; white-space:normal; }
+.history-select { width:100%; padding:6px; border:0; background:transparent; color:inherit; text-align:right; font:inherit; cursor:pointer; overflow-wrap:anywhere; }
+.history-actions { display:flex; gap:6px; margin-top:6px; }
+.history-action { padding:4px 7px; border:1px solid #343744; border-radius:4px; background:#171820; color:#d6d9e0; font-size:11px; cursor:pointer; }
+.history-action.danger { border-color:#633238; color:#ff9b9b; }
+.terminal-status { min-height:1em; margin:6px 0; color:#8ddca9; font-size:12px; overflow-wrap:anywhere; }
+.history-sidebar { overflow-y:auto; }
+
+</style>
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <meta name="theme-color" content="#090a10">
+<script>
+try { if (localStorage.getItem('chaosTheme') === 'light-text') document.addEventListener('DOMContentLoaded', () => document.body.classList.add('theme-light-text'), { once: true }); } catch (_) {}
+</script>
+
+<script src="../js/appCatalog.js"></script>
+<script src="../js/brain/security/trainingData.js"></script><script src="../js/brain/localNgramModel.js"></script>
+    <script src="../js/brain/dailyLanguage.js"></script>
+<script src="../js/brain/inputClassifier.js"></script>
+<script src="../js/brain/conversationMemory.js"></script>
+
+<style id="voidos-system-menu-styles">
+.system-menu-layer{position:fixed;inset:0;z-index:420;visibility:hidden;pointer-events:none}
+.system-menu-layer.active{visibility:visible;pointer-events:auto}
+.system-menu-backdrop{position:absolute;inset:0;width:100%;height:100%;border:0;background:#020208b8;opacity:0;transition:opacity .22s}
+.system-menu-layer.active .system-menu-backdrop{opacity:1}
+.system-menu-drawer{position:absolute;top:0;right:0;width:min(345px,88vw);height:100%;overflow:auto;padding:20px 15px calc(24px + env(safe-area-inset-bottom));background:linear-gradient(180deg,#171322,#090a10 72%);border-left:1px solid #e43b5548;box-shadow:-18px 0 55px #000b;transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column;gap:9px}
+.system-menu-layer.active .system-menu-drawer{transform:translateX(0)}
+.system-menu-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid #ffffff18}
+.system-menu-top strong{color:#ff8094;font-size:15px;letter-spacing:.04em}
+.system-menu-top small{display:block;color:#9996ad;font-size:10px;margin-top:4px}
+.system-menu-close{width:36px;height:36px;border:1px solid #ffffff20;border-radius:10px;background:#ffffff07;color:#fff}
+.system-menu-label{font-size:10px;color:#8d91a5;margin:12px 3px 0;letter-spacing:.1em}
+.system-menu-link{display:flex;align-items:center;gap:12px;text-align:right;padding:12px;width:100%;border:1px solid #ffffff15;border-radius:12px;background:#ffffff06;color:#f4f4f8;font:inherit;font-size:12px;cursor:pointer}
+.system-menu-link:active{transform:scale(.985);background:#211a31}
+.system-menu-symbol{width:34px;height:34px;display:grid;place-items:center;flex:0 0 auto;border-radius:10px;background:#4d1c31;color:#ffb1bf;font-size:17px}
+.system-menu-link small{display:block;color:#9499ab;font-size:10px;line-height:1.5;margin-top:3px}
+.system-menu-foot{margin-top:auto;color:#888da0;line-height:1.65;font-size:10px;padding:13px 4px 0}
+@media(prefers-reduced-motion:reduce){.system-menu-drawer,.system-menu-backdrop{transition:none}}
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ==========================================================
+     HEADER
+     ========================================================== -->
+
+<header>
+
+
+    <!-- شعار CHAOS SYSTEM -->
+
+    <a
+        class="logo"
+        href="../index.html">
+
+        CHAOS <b>SYSTEM</b>
+
+    </a>
+
+
+    <!-- القائمة الرئيسية: إعدادات النظام والتنقل وأدوات CHAOS SYSTEM -->
+    <button id="menu" type="button" aria-label="فتح قائمة النظام" aria-controls="systemMenuDrawer" aria-expanded="false" title="قائمة النظام">☰</button>
+
+
+    <!-- ======================================================
+         القائمة العلوية الخاصة بالـTerminal
+         تختفي على الهاتف
+         ====================================================== -->
+
+    <nav id="terminalTopNav">
+
+
+        <!-- سجل المحادثات -->
+
+        <button
+            id="openHistorySidebar"
+            type="button"
+            aria-controls="historySidebar"
+            aria-expanded="false"
+            style="
+                background:none;
+                border:1px solid #00ff66;
+                color:#00ff66;
+                padding:4px 8px;
+                border-radius:4px;
+                cursor:pointer;
+            "
+            data-i18n="historyBtn">
+
+            📜 السجل
+
+        </button>
+
+
+        <!-- العودة للموقع -->
+
+        <a
+            href="../index.html"
+            style="
+                color:#00ff66;
+                text-decoration:none;
+            "
+            data-i18n="backBtn">
+
+            ← العودة للموقع الرئيسي
+
+        </a>
+
+
+        <!-- اللغة -->
+
+        <button
+            id="langToggle"
+            style="
+                background:none;
+                border:1px solid #00ff66;
+                color:#00ff66;
+                padding:4px 8px;
+                border-radius:4px;
+                cursor:pointer;
+            "
+            data-i18n="langBtn">
+
+            🌐 English
+
+        </button>
+
+
+    </nav>
+
+</header>
+
+<section id="systemMenuLayer" class="system-menu-layer" aria-hidden="true">
+  <button id="systemMenuBackdrop" class="system-menu-backdrop" type="button" aria-label="إغلاق قائمة النظام"></button>
+  <aside id="systemMenuDrawer" class="system-menu-drawer" role="dialog" aria-modal="true" aria-label="قائمة CHAOSOS">
+    <div class="system-menu-top"><div><strong>EYE OF CHAOS</strong><small>CHAOSOS · CHAOS SYSTEM</small></div><button id="closeSystemMenu" class="system-menu-close" type="button" aria-label="إغلاق القائمة">✕</button></div>
+    <div class="system-menu-label">التنقل</div>
+    <button class="system-menu-link" type="button" data-system-menu-action="home"><span class="system-menu-symbol">⌂</span><span>الشاشة الرئيسية<small>العودة إلى مشغّل CHAOSOS</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="settings"><span class="system-menu-symbol">⚙</span><span>إعدادات النظام<small>المظهر، شاشة القفل، الخصوصية والذاكرة</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="manager"><span class="system-menu-symbol">▦</span><span>مدير التطبيقات<small>حالة التطبيقات والصلاحيات</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="commands"><span class="system-menu-symbol">⌘</span><span>مركز أوامر CHAOS<small>المساعدة والأوامر الذكية</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="discover"><span class="system-menu-symbol">⌕</span><span>مستكشف التطبيقات والويب<small>تفاصيل التطبيقات والبحث عبر الإنترنت</small></span></button>
+    <div class="system-menu-label">حالة النظام</div>
+    <button class="system-menu-link" type="button" data-system-menu-action="controls"><span class="system-menu-symbol">☷</span><span>مركز التحكم<small>الإشعارات والمظهر والسطوع</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="recent"><span class="system-menu-symbol">▢</span><span>التطبيقات الحديثة<small>متابعة التطبيق المفتوح سابقًا</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="lock-settings"><span class="system-menu-symbol">⌁</span><span>إعدادات شاشة القفل<small>السحب أو رمز PIN اختياري</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="lock"><span class="system-menu-symbol">◉</span><span>قفل CHAOSOS الآن<small>قفل داخل الواجهة التجريبية فقط</small></span></button>
+    <button class="system-menu-link" type="button" data-system-menu-action="history"><span class="system-menu-symbol">▤</span><span>سجل المحادثات<small>بحث، إعادة تسمية، أو حذف جلسات محلية</small></span></button>
+    <p class="system-menu-foot">الاتصال والسطوع والبطارية في لوحة CHAOSOS حالات محاكاة، وليست تحكمًا مباشرًا بأجهزة أندرويد.</p>
+  </aside>
+</section>
+
+
+
+<!-- ==========================================================
+     TERMINAL
+     ========================================================== -->
+
+<main class="terminal-wrapper">
+
+
+    <div
+        class="terminal"
+        style="width: 100%;">
+
+
+        <div>
+
+            SYSTEM ARCHIVE // TERMINAL v1.3.0
+
+        </div>
+
+
+        <pre id="out">> SYSTEM READY...
+> Type 'help' to view available commands.</pre>
+
+
+        <div class="terminal-input-row">
+
+            <span class="terminal-prompt" aria-hidden="true">&gt;</span>
+
+            <input
+                type="text"
+                id="cmd"
+                data-i18n-ph="inputPlaceholder"
+                placeholder="اكتب رسالة أو أمرًا…"
+                autofocus
+                autocomplete="off"
+                enterkeyhint="send"
+                aria-label="أدخل رسالتك">
+
+            <button
+                type="button"
+                id="sendBtn"
+                aria-label="إرسال"
+                title="إرسال">
+
+                ↵
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+<!-- CHAOSOS local-first cloud operations panel -->
+<section id="chaosCloudConsole" aria-labelledby="chaosCloudTitle" style="max-width:920px;margin:18px auto;padding:16px;border:1px solid #30303b;border-radius:12px;background:#101017;color:#e9e9f2;box-sizing:border-box">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div><h2 id="chaosCloudTitle" style="margin:0 0 5px;font-size:1.1rem;color:#00e676">مركز السحابة والخدمات</h2><p style="margin:0;opacity:.8;font-size:.9rem">محلي أولًا — لا يُرسل سجل المحادثة تلقائيًا.</p></div>
+    <span id="chaosCloudState" role="status" aria-live="polite">السحابة متوقفة افتراضيًا</span>
+  </div>
+  <details style="margin-top:12px"><summary style="cursor:pointer;padding:8px 0">إعداد اتصال خادم خاص (HTTPS)</summary>
+    <label for="chaosCloudUrl" style="display:block;margin:10px 0 5px">عنوان الخادم الأساسي</label>
+    <input id="chaosCloudUrl" type="url" inputmode="url" autocomplete="url" placeholder="https://your-server.example" style="width:100%;box-sizing:border-box;padding:10px;border-radius:7px;border:1px solid #454553;background:#09090e;color:#fff">
+    <label for="chaosCloudTimeout" style="display:block;margin:10px 0 5px">مهلة الاتصال (مللي ثانية)</label>
+    <input id="chaosCloudTimeout" type="number" min="1000" max="30000" step="1000" value="7000" style="width:100%;box-sizing:border-box;padding:10px;border-radius:7px;border:1px solid #454553;background:#09090e;color:#fff">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+      <button id="chaosCloudSave" type="button">حفظ الإعدادات</button><button id="chaosCloudEnable" type="button">تفعيل الاتصال</button><button id="chaosCloudDisable" type="button">إيقاف السحابة</button><button id="chaosCloudHealth" type="button">فحص صحة الخادم</button>
+    </div>
+  </details>
+  <pre id="chaosCloudDetails" aria-live="polite" style="white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0 0;padding:10px;background:#08080d;border-radius:8px;max-height:180px;overflow:auto">لا يوجد اتصال نشط. هذا طبيعي؛ السحابة معطلة افتراضيًا.</pre>
+</section>
+
+<!-- ==========================================================
+     HISTORY SIDEBAR
+     سجل محادثات CHAOS SYSTEM
+     ========================================================== -->
+
+<aside
+    id="historySidebar"
+    class="history-sidebar"
+    aria-label="سجل المحادثات">
+
+
+    <div class="history-sidebar-header">
+
+
+        <h3
+            data-i18n="sidebarTitle">
+
+            سجل المحادثات
+
+        </h3>
+
+
+        <button
+            id="closeHistorySidebar"
+            aria-label="إغلاق سجل المحادثات">
+
+            ×
+
+        </button>
+
+
+    </div>
+
+
+    <!-- محادثة جديدة -->
+
+    <button
+        id="newChatBtn"
+        data-i18n="newChatBtn">
+
+        + محادثة جديدة
+
+    </button>
+
+    <label class="history-search-label" for="historySearch">البحث في المحادثات</label>
+    <input id="historySearch" class="history-search" type="search" placeholder="عنوان أو كلمة من رسالة…" autocomplete="off">
+
+    <p id="terminalStatus" class="terminal-status" role="status" aria-live="polite"></p>
+
+    <!-- قائمة المحادثات -->
+
+    <ul
+        id="historyList"
+        class="history-list">
+
+    </ul>
+
+
+
+</aside>
+
+
+<!-- ==========================================================
+     FOOTER
+     ========================================================== -->
+
+<footer>
+
+
+    <p>
+
+        &copy;
+
+        <span id="year"></span>
+
+        EYE OF CHAOS. All rights reserved.
+
+    </p>
+
+
+</footer>
+
+
+<!-- ==========================================================
+     CHAOS SYSTEM CORE
+     ========================================================== -->
+
+<script src="../js/config.js"></script>
+
+<script src="../js/brain/canon.js"></script>
+
+
+
+<script src="../js/brain/translator.js"></script>
+
+
+
+<script src="../js/brain/hippocampus/memory.js"></script>
+
+<script src="../js/brain/generator.js"></script>
+
+<script src="../js/brain/coreEngine.js"></script>
+  
+<script src="../js/brain/aiPersona.js"></script>
+<script src="../js/brain/context.js"></script>
+<script src="../js/brain/emotions.js"></script>
+<script src="../js/brain/knowledgeModules/registry.js"></script><script src="../js/brain/words/registry.js"></script><script src="../js/brain/words/greetings.js"></script><script src="../js/brain/words/identity.js"></script><script src="../js/brain/words/aiTools.js"></script><script src="../js/brain/words/ordinary.js"></script><script src="../js/brain/words/relationships.js"></script><script src="../js/brain/words/locations.js"></script><script src="../js/brain/words/countries.js"></script><script src="../js/brain/words/archive.js
