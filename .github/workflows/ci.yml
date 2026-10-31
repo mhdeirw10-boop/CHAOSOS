@@ -19,4 +19,3 @@ jobs:
           node-version: 22
       - name: Run regression tests, rebuild the Cordova mirror, and audit release files
         run: npm run check
-        
