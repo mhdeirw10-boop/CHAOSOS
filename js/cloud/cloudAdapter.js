@@ -10,4 +10,3 @@
  async function health(){return request('/health')}
  g.CHAOSCloud={version:'2.9.0',status,configure,request,health,disabledResponse:()=>({ok:false,code:'CLOUD_DISABLED'})};
 })(window);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
