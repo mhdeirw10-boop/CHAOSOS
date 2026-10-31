@@ -1,0 +1,2968 @@
+{
+  "schema": 1,
+  "project": "CHAOSOS v3.1.6 experimental web-first OS runtime release candidate",
+  "generatedAt": "2026-10-31T17:58:21.835Z",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "name": ".gitattributes",
+      "ext": "file",
+      "size": 95,
+      "folder": ""
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "name": "bug_report.yml",
+      "ext": "yml",
+      "size": 1260,
+      "folder": ".github/ISSUE_TEMPLATE"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/critical_feedback.yml",
+      "name": "critical_feedback.yml",
+      "ext": "yml",
+      "size": 754,
+      "folder": ".github/ISSUE_TEMPLATE"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "name": "feature_request.yml",
+      "ext": "yml",
+      "size": 718,
+      "folder": ".github/ISSUE_TEMPLATE"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "name": "PULL_REQUEST_TEMPLATE.md",
+      "ext": "md",
+      "size": 203,
+      "folder": ".github"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "name": "ci.yml",
+      "ext": "yml",
+      "size": 422,
+      "folder": ".github/workflows"
+    },
+    {
+      "path": ".gitignore",
+      "name": ".gitignore",
+      "ext": "file",
+      "size": 328,
+      "folder": ""
+    },
+    {
+      "path": "apps/chaos-lab/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1590,
+      "folder": "apps/chaos-lab/css"
+    },
+    {
+      "path": "apps/chaos-lab/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 3267,
+      "folder": "apps/chaos-lab"
+    },
+    {
+      "path": "apps/chaos-lab/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 351,
+      "folder": "apps/chaos-lab/js"
+    },
+    {
+      "path": "apps/chaos-lab/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 2542,
+      "folder": "apps/chaos-lab/js"
+    },
+    {
+      "path": "apps/chaosai-center/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 4413,
+      "folder": "apps/chaosai-center/css"
+    },
+    {
+      "path": "apps/chaosai-center/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 31123,
+      "folder": "apps/chaosai-center"
+    },
+    {
+      "path": "apps/chaosai-center/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 361,
+      "folder": "apps/chaosai-center/js"
+    },
+    {
+      "path": "apps/chaosai-center/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 1996,
+      "folder": "apps/chaosai-center/js"
+    },
+    {
+      "path": "apps/chaosai-center/js/extracted-02.js",
+      "name": "extracted-02.js",
+      "ext": "js",
+      "size": 4571,
+      "folder": "apps/chaosai-center/js"
+    },
+    {
+      "path": "apps/chaosai-center/js/extracted-03.js",
+      "name": "extracted-03.js",
+      "ext": "js",
+      "size": 2123,
+      "folder": "apps/chaosai-center/js"
+    },
+    {
+      "path": "apps/chaosai-center/js/extracted-04.js",
+      "name": "extracted-04.js",
+      "ext": "js",
+      "size": 20921,
+      "folder": "apps/chaosai-center/js"
+    },
+    {
+      "path": "apps/void-arcade/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1707,
+      "folder": "apps/void-arcade/css"
+    },
+    {
+      "path": "apps/void-arcade/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 2042,
+      "folder": "apps/void-arcade"
+    },
+    {
+      "path": "apps/void-arcade/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 355,
+      "folder": "apps/void-arcade/js"
+    },
+    {
+      "path": "apps/void-arcade/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 5084,
+      "folder": "apps/void-arcade/js"
+    },
+    {
+      "path": "apps/void-browserx/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 5648,
+      "folder": "apps/void-browserx/css"
+    },
+    {
+      "path": "apps/void-browserx/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 9171,
+      "folder": "apps/void-browserx"
+    },
+    {
+      "path": "apps/void-browserx/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 359,
+      "folder": "apps/void-browserx/js"
+    },
+    {
+      "path": "apps/void-browserx/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 16735,
+      "folder": "apps/void-browserx/js"
+    },
+    {
+      "path": "apps/void-calculator/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1445,
+      "folder": "apps/void-calculator/css"
+    },
+    {
+      "path": "apps/void-calculator/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 5606,
+      "folder": "apps/void-calculator"
+    },
+    {
+      "path": "apps/void-calculator/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 363,
+      "folder": "apps/void-calculator/js"
+    },
+    {
+      "path": "apps/void-calculator/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 4466,
+      "folder": "apps/void-calculator/js"
+    },
+    {
+      "path": "apps/void-calendar/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 2191,
+      "folder": "apps/void-calendar/css"
+    },
+    {
+      "path": "apps/void-calendar/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 5487,
+      "folder": "apps/void-calendar"
+    },
+    {
+      "path": "apps/void-calendar/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 359,
+      "folder": "apps/void-calendar/js"
+    },
+    {
+      "path": "apps/void-calendar/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 3659,
+      "folder": "apps/void-calendar/js"
+    },
+    {
+      "path": "apps/void-camera/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1355,
+      "folder": "apps/void-camera/css"
+    },
+    {
+      "path": "apps/void-camera/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 1412,
+      "folder": "apps/void-camera"
+    },
+    {
+      "path": "apps/void-camera/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 355,
+      "folder": "apps/void-camera/js"
+    },
+    {
+      "path": "apps/void-camera/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 1835,
+      "folder": "apps/void-camera/js"
+    },
+    {
+      "path": "apps/void-discovery/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 4365,
+      "folder": "apps/void-discovery/css"
+    },
+    {
+      "path": "apps/void-discovery/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 3420,
+      "folder": "apps/void-discovery"
+    },
+    {
+      "path": "apps/void-discovery/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 361,
+      "folder": "apps/void-discovery/js"
+    },
+    {
+      "path": "apps/void-discovery/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 11746,
+      "folder": "apps/void-discovery/js"
+    },
+    {
+      "path": "apps/void-downloads/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1355,
+      "folder": "apps/void-downloads/css"
+    },
+    {
+      "path": "apps/void-downloads/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 1531,
+      "folder": "apps/void-downloads"
+    },
+    {
+      "path": "apps/void-downloads/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 361,
+      "folder": "apps/void-downloads/js"
+    },
+    {
+      "path": "apps/void-downloads/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 2115,
+      "folder": "apps/void-downloads/js"
+    },
+    {
+      "path": "apps/void-files/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 5992,
+      "folder": "apps/void-files/css"
+    },
+    {
+      "path": "apps/void-files/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 4849,
+      "folder": "apps/void-files"
+    },
+    {
+      "path": "apps/void-files/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 353,
+      "folder": "apps/void-files/js"
+    },
+    {
+      "path": "apps/void-files/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 14174,
+      "folder": "apps/void-files/js"
+    },
+    {
+      "path": "apps/void-gallery/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1355,
+      "folder": "apps/void-gallery/css"
+    },
+    {
+      "path": "apps/void-gallery/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 1120,
+      "folder": "apps/void-gallery"
+    },
+    {
+      "path": "apps/void-gallery/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 357,
+      "folder": "apps/void-gallery/js"
+    },
+    {
+      "path": "apps/void-gallery/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 1266,
+      "folder": "apps/void-gallery/js"
+    },
+    {
+      "path": "apps/void-game-manager/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 3858,
+      "folder": "apps/void-game-manager/css"
+    },
+    {
+      "path": "apps/void-game-manager/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 4068,
+      "folder": "apps/void-game-manager"
+    },
+    {
+      "path": "apps/void-game-manager/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 367,
+      "folder": "apps/void-game-manager/js"
+    },
+    {
+      "path": "apps/void-game-manager/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 11065,
+      "folder": "apps/void-game-manager/js"
+    },
+    {
+      "path": "apps/void-mail/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1355,
+      "folder": "apps/void-mail/css"
+    },
+    {
+      "path": "apps/void-mail/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 1405,
+      "folder": "apps/void-mail"
+    },
+    {
+      "path": "apps/void-mail/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 351,
+      "folder": "apps/void-mail/js"
+    },
+    {
+      "path": "apps/void-mail/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 2481,
+      "folder": "apps/void-mail/js"
+    },
+    {
+      "path": "apps/void-manager/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 3862,
+      "folder": "apps/void-manager/css"
+    },
+    {
+      "path": "apps/void-manager/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 8334,
+      "folder": "apps/void-manager"
+    },
+    {
+      "path": "apps/void-manager/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 357,
+      "folder": "apps/void-manager/js"
+    },
+    {
+      "path": "apps/void-manager/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 10310,
+      "folder": "apps/void-manager/js"
+    },
+    {
+      "path": "apps/void-messages/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1355,
+      "folder": "apps/void-messages/css"
+    },
+    {
+      "path": "apps/void-messages/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 1305,
+      "folder": "apps/void-messages"
+    },
+    {
+      "path": "apps/void-messages/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 359,
+      "folder": "apps/void-messages/js"
+    },
+    {
+      "path": "apps/void-messages/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 1509,
+      "folder": "apps/void-messages/js"
+    },
+    {
+      "path": "apps/void-notes/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1600,
+      "folder": "apps/void-notes/css"
+    },
+    {
+      "path": "apps/void-notes/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 5341,
+      "folder": "apps/void-notes"
+    },
+    {
+      "path": "apps/void-notes/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 353,
+      "folder": "apps/void-notes/js"
+    },
+    {
+      "path": "apps/void-notes/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 4148,
+      "folder": "apps/void-notes/js"
+    },
+    {
+      "path": "apps/void-phone/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1355,
+      "folder": "apps/void-phone/css"
+    },
+    {
+      "path": "apps/void-phone/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 1648,
+      "folder": "apps/void-phone"
+    },
+    {
+      "path": "apps/void-phone/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 353,
+      "folder": "apps/void-phone/js"
+    },
+    {
+      "path": "apps/void-phone/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 1503,
+      "folder": "apps/void-phone/js"
+    },
+    {
+      "path": "apps/void-planner/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 1853,
+      "folder": "apps/void-planner/css"
+    },
+    {
+      "path": "apps/void-planner/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 5794,
+      "folder": "apps/void-planner"
+    },
+    {
+      "path": "apps/void-planner/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 357,
+      "folder": "apps/void-planner/js"
+    },
+    {
+      "path": "apps/void-planner/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 2814,
+      "folder": "apps/void-planner/js"
+    },
+    {
+      "path": "apps/void-store/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 130,
+      "folder": "apps/void-store/css"
+    },
+    {
+      "path": "apps/void-store/css/style.css",
+      "name": "style.css",
+      "ext": "css",
+      "size": 14976,
+      "folder": "apps/void-store/css"
+    },
+    {
+      "path": "apps/void-store/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 11186,
+      "folder": "apps/void-store"
+    },
+    {
+      "path": "apps/void-store/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 18039,
+      "folder": "apps/void-store/js"
+    },
+    {
+      "path": "apps/void-store/js/extracted-01.js",
+      "name": "extracted-01.js",
+      "ext": "js",
+      "size": 931,
+      "folder": "apps/void-store/js"
+    },
+    {
+      "path": "apps/void-store/js/extracted-02.js",
+      "name": "extracted-02.js",
+      "ext": "js",
+      "size": 468,
+      "folder": "apps/void-store/js"
+    },
+    {
+      "path": "apps/voidtube/css/app.css",
+      "name": "app.css",
+      "ext": "css",
+      "size": 3749,
+      "folder": "apps/voidtube/css"
+    },
+    {
+      "path": "apps/voidtube/css/styles.css",
+      "name": "styles.css",
+      "ext": "css",
+      "size": 11076,
+      "folder": "apps/voidtube/css"
+    },
+    {
+      "path": "apps/voidtube/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 11452,
+      "folder": "apps/voidtube"
+    },
+    {
+      "path": "apps/voidtube/js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 20299,
+      "folder": "apps/voidtube/js"
+    },
+    {
+      "path": "apps/voidtube/js/recommendationEngine.js",
+      "name": "recommendationEngine.js",
+      "ext": "js",
+      "size": 3234,
+      "folder": "apps/voidtube/js"
+    },
+    {
+      "path": "apps/voidtube/js/videos.js",
+      "name": "videos.js",
+      "ext": "js",
+      "size": 4571,
+      "folder": "apps/voidtube/js"
+    },
+    {
+      "path": "assets/character-sair-placeholder.svg",
+      "name": "character-sair-placeholder.svg",
+      "ext": "svg",
+      "size": 1278,
+      "folder": "assets"
+    },
+    {
+      "path": "assets/character-yasin-placeholder.svg",
+      "name": "character-yasin-placeholder.svg",
+      "ext": "svg",
+      "size": 1346,
+      "folder": "assets"
+    },
+    {
+      "path": "assets/eye-of-chaos-192.png",
+      "name": "eye-of-chaos-192.png",
+      "ext": "png",
+      "size": 9438,
+      "folder": "assets"
+    },
+    {
+      "path": "assets/eye-of-chaos-512.png",
+      "name": "eye-of-chaos-512.png",
+      "ext": "png",
+      "size": 26552,
+      "folder": "assets"
+    },
+    {
+      "path": "assets/eye-of-chaos-icon.svg",
+      "name": "eye-of-chaos-icon.svg",
+      "ext": "svg",
+      "size": 524,
+      "folder": "assets"
+    },
+    {
+      "path": "CHANGELOG_GLOBAL_INTEGRATION_EXPERIMENT.md",
+      "name": "CHANGELOG_GLOBAL_INTEGRATION_EXPERIMENT.md",
+      "ext": "md",
+      "size": 1449,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_2_1.md",
+      "name": "CHANGELOG_v1_2_1.md",
+      "ext": "md",
+      "size": 1761,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_3_0.md",
+      "name": "CHANGELOG_v1_3_0.md",
+      "ext": "md",
+      "size": 2775,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_4_0.md",
+      "name": "CHANGELOG_v1_4_0.md",
+      "ext": "md",
+      "size": 2302,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_4_1.md",
+      "name": "CHANGELOG_v1_4_1.md",
+      "ext": "md",
+      "size": 729,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_5_0.md",
+      "name": "CHANGELOG_v1_5_0.md",
+      "ext": "md",
+      "size": 1968,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_6_0.md",
+      "name": "CHANGELOG_v1_6_0.md",
+      "ext": "md",
+      "size": 599,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_7_0.md",
+      "name": "CHANGELOG_v1_7_0.md",
+      "ext": "md",
+      "size": 1274,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_8_0.md",
+      "name": "CHANGELOG_v1_8_0.md",
+      "ext": "md",
+      "size": 557,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v1_9_0.md",
+      "name": "CHANGELOG_v1_9_0.md",
+      "ext": "md",
+      "size": 1727,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_0_0.md",
+      "name": "CHANGELOG_v2_0_0.md",
+      "ext": "md",
+      "size": 1441,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_1_0.md",
+      "name": "CHANGELOG_v2_1_0.md",
+      "ext": "md",
+      "size": 3072,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_1_1.md",
+      "name": "CHANGELOG_v2_1_1.md",
+      "ext": "md",
+      "size": 1431,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_2_0.md",
+      "name": "CHANGELOG_v2_2_0.md",
+      "ext": "md",
+      "size": 920,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_3_0.md",
+      "name": "CHANGELOG_v2_3_0.md",
+      "ext": "md",
+      "size": 1543,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_4_0.md",
+      "name": "CHANGELOG_v2_4_0.md",
+      "ext": "md",
+      "size": 1646,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_4_1.md",
+      "name": "CHANGELOG_v2_4_1.md",
+      "ext": "md",
+      "size": 5482,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_4_2.md",
+      "name": "CHANGELOG_v2_4_2.md",
+      "ext": "md",
+      "size": 3991,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_5_0.md",
+      "name": "CHANGELOG_v2_5_0.md",
+      "ext": "md",
+      "size": 2512,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_5_1.md",
+      "name": "CHANGELOG_v2_5_1.md",
+      "ext": "md",
+      "size": 738,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_6_0.md",
+      "name": "CHANGELOG_v2_6_0.md",
+      "ext": "md",
+      "size": 3095,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_7_0.md",
+      "name": "CHANGELOG_v2_7_0.md",
+      "ext": "md",
+      "size": 2520,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v2_9_0.md",
+      "name": "CHANGELOG_v2_9_0.md",
+      "ext": "md",
+      "size": 1913,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_0_0.md",
+      "name": "CHANGELOG_v3_0_0.md",
+      "ext": "md",
+      "size": 1134,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_1_0.md",
+      "name": "CHANGELOG_v3_1_0.md",
+      "ext": "md",
+      "size": 1182,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_1_1_COSMIC_PRESENCE_EXPERIMENTAL.md",
+      "name": "CHANGELOG_v3_1_1_COSMIC_PRESENCE_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 916,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_1_2_HYBRID_VOICE_EXPERIMENTAL.md",
+      "name": "CHANGELOG_v3_1_2_HYBRID_VOICE_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 1843,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_1_3_KERNEL_WORDS_APP_INTEGRATION_EXPERIMENTAL.md",
+      "name": "CHANGELOG_v3_1_3_KERNEL_WORDS_APP_INTEGRATION_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 1602,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_1_4_MODULAR_WORDS_EXPERIMENTAL.md",
+      "name": "CHANGELOG_v3_1_4_MODULAR_WORDS_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 887,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_1_5_NATURAL_LANGUAGE_SECRET_PERSONA_EXPERIMENTAL.md",
+      "name": "CHANGELOG_v3_1_5_NATURAL_LANGUAGE_SECRET_PERSONA_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 1534,
+      "folder": ""
+    },
+    {
+      "path": "CHANGELOG_v3_1_6.md",
+      "name": "CHANGELOG_v3_1_6.md",
+      "ext": "md",
+      "size": 2008,
+      "folder": ""
+    },
+    {
+      "path": "CHAOS_COMMAND_CENTER_AND_BOOT_UPDATE.md",
+      "name": "CHAOS_COMMAND_CENTER_AND_BOOT_UPDATE.md",
+      "ext": "md",
+      "size": 959,
+      "folder": ""
+    },
+    {
+      "path": "chaos-commands.html",
+      "name": "chaos-commands.html",
+      "ext": "html",
+      "size": 13918,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSAI_BROWSER_APPS_ACCOUNT_INTEGRATION_EXPERIMENT.md",
+      "name": "CHAOSAI_BROWSER_APPS_ACCOUNT_INTEGRATION_EXPERIMENT.md",
+      "ext": "md",
+      "size": 2422,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSAI_VOICE_AND_INTEGRATION_UPDATE.md",
+      "name": "CHAOSAI_VOICE_AND_INTEGRATION_UPDATE.md",
+      "ext": "md",
+      "size": 1930,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_LOCAL_LANGUAGE_CORE.md",
+      "name": "CHAOSOS_LOCAL_LANGUAGE_CORE.md",
+      "ext": "md",
+      "size": 5706,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_4_1_RELEASE_REPORT.md",
+      "name": "CHAOSOS_v2_4_1_RELEASE_REPORT.md",
+      "ext": "md",
+      "size": 3868,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_4_2_DEEP_AUDIT_REPORT.md",
+      "name": "CHAOSOS_v2_4_2_DEEP_AUDIT_REPORT.md",
+      "ext": "md",
+      "size": 2716,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_4_2_RELEASE_REPORT.md",
+      "name": "CHAOSOS_v2_4_2_RELEASE_REPORT.md",
+      "ext": "md",
+      "size": 4267,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_5_0_FINALIZATION_REPORT.md",
+      "name": "CHAOSOS_v2_5_0_FINALIZATION_REPORT.md",
+      "ext": "md",
+      "size": 3671,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_5_0_INTEGRATED_WORKSPACE_REPORT.md",
+      "name": "CHAOSOS_v2_5_0_INTEGRATED_WORKSPACE_REPORT.md",
+      "ext": "md",
+      "size": 3154,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_5_1_EXPERIMENTAL_REPORT.md",
+      "name": "CHAOSOS_v2_5_1_EXPERIMENTAL_REPORT.md",
+      "ext": "md",
+      "size": 1767,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_6_0_ARCHITECTURE.md",
+      "name": "CHAOSOS_v2_6_0_ARCHITECTURE.md",
+      "ext": "md",
+      "size": 5939,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_6_0_IMPLEMENTATION_REPORT.md",
+      "name": "CHAOSOS_v2_6_0_IMPLEMENTATION_REPORT.md",
+      "ext": "md",
+      "size": 5379,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_7_0_MODULAR_COGNITION_REPORT.md",
+      "name": "CHAOSOS_v2_7_0_MODULAR_COGNITION_REPORT.md",
+      "ext": "md",
+      "size": 4942,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_8_0_TERMINAL_CLOUD_REPORT.md",
+      "name": "CHAOSOS_v2_8_0_TERMINAL_CLOUD_REPORT.md",
+      "ext": "md",
+      "size": 1866,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v2_9_0_IMPLEMENTATION_REPORT.md",
+      "name": "CHAOSOS_v2_9_0_IMPLEMENTATION_REPORT.md",
+      "ext": "md",
+      "size": 4060,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v3_0_0_IMPLEMENTATION_REPORT.md",
+      "name": "CHAOSOS_v3_0_0_IMPLEMENTATION_REPORT.md",
+      "ext": "md",
+      "size": 4925,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v3_1_1_COSMIC_PRESENCE_TEST_REPORT.md",
+      "name": "CHAOSOS_v3_1_1_COSMIC_PRESENCE_TEST_REPORT.md",
+      "ext": "md",
+      "size": 3672,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v3_1_2_HYBRID_VOICE_TEST_REPORT.md",
+      "name": "CHAOSOS_v3_1_2_HYBRID_VOICE_TEST_REPORT.md",
+      "ext": "md",
+      "size": 3116,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v3_1_3_KERNEL_WORDS_APP_INTEGRATION_TEST_REPORT.md",
+      "name": "CHAOSOS_v3_1_3_KERNEL_WORDS_APP_INTEGRATION_TEST_REPORT.md",
+      "ext": "md",
+      "size": 4514,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v3_1_4_MODULAR_WORDS_TEST_REPORT.md",
+      "name": "CHAOSOS_v3_1_4_MODULAR_WORDS_TEST_REPORT.md",
+      "ext": "md",
+      "size": 1471,
+      "folder": ""
+    },
+    {
+      "path": "CHAOSOS_v3_1_5_NATURAL_LANGUAGE_SECRET_PERSONA_TEST_REPORT.md",
+      "name": "CHAOSOS_v3_1_5_NATURAL_LANGUAGE_SECRET_PERSONA_TEST_REPORT.md",
+      "ext": "md",
+      "size": 2456,
+      "folder": ""
+    },
+    {
+      "path": "chapters.html",
+      "name": "chapters.html",
+      "ext": "html",
+      "size": 19348,
+      "folder": ""
+    },
+    {
+      "path": "characters.html",
+      "name": "characters.html",
+      "ext": "html",
+      "size": 15786,
+      "folder": ""
+    },
+    {
+      "path": "cloud/.env.example",
+      "name": ".env.example",
+      "ext": "example",
+      "size": 295,
+      "folder": "cloud"
+    },
+    {
+      "path": "cloud/chaosai-voice-proxy.cjs",
+      "name": "chaosai-voice-proxy.cjs",
+      "ext": "cjs",
+      "size": 4012,
+      "folder": "cloud"
+    },
+    {
+      "path": "cloud/providers/openai-compatible.cjs",
+      "name": "openai-compatible.cjs",
+      "ext": "cjs",
+      "size": 2692,
+      "folder": "cloud/providers"
+    },
+    {
+      "path": "cloud/server.cjs",
+      "name": "server.cjs",
+      "ext": "cjs",
+      "size": 9222,
+      "folder": "cloud"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "name": "CODE_OF_CONDUCT.md",
+      "ext": "md",
+      "size": 932,
+      "folder": ""
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "name": "CONTRIBUTING.md",
+      "ext": "md",
+      "size": 2684,
+      "folder": ""
+    },
+    {
+      "path": "core.js",
+      "name": "core.js",
+      "ext": "js",
+      "size": 2830,
+      "folder": ""
+    },
+    {
+      "path": "css/desktop-workspace.css",
+      "name": "desktop-workspace.css",
+      "ext": "css",
+      "size": 3890,
+      "folder": "css"
+    },
+    {
+      "path": "css/lang.css",
+      "name": "lang.css",
+      "ext": "css",
+      "size": 532,
+      "folder": "css"
+    },
+    {
+      "path": "css/layout.css",
+      "name": "layout.css",
+      "ext": "css",
+      "size": 7809,
+      "folder": "css"
+    },
+    {
+      "path": "css/settings-enhancements.css",
+      "name": "settings-enhancements.css",
+      "ext": "css",
+      "size": 4507,
+      "folder": "css"
+    },
+    {
+      "path": "css/settings-phone.css",
+      "name": "settings-phone.css",
+      "ext": "css",
+      "size": 6213,
+      "folder": "css"
+    },
+    {
+      "path": "css/theme.css",
+      "name": "theme.css",
+      "ext": "css",
+      "size": 787,
+      "folder": "css"
+    },
+    {
+      "path": "DERIVATIVE_PROJECTS.md",
+      "name": "DERIVATIVE_PROJECTS.md",
+      "ext": "md",
+      "size": 1467,
+      "folder": ""
+    },
+    {
+      "path": "diagnostics.html",
+      "name": "diagnostics.html",
+      "ext": "html",
+      "size": 3932,
+      "folder": ""
+    },
+    {
+      "path": "documentation/architecture/ARCHITECTURE.md",
+      "name": "ARCHITECTURE.md",
+      "ext": "md",
+      "size": 4847,
+      "folder": "documentation/architecture"
+    },
+    {
+      "path": "documentation/boot/assets/boot-sequence-storyboard-reference.png",
+      "name": "boot-sequence-storyboard-reference.png",
+      "ext": "png",
+      "size": 294095,
+      "folder": "documentation/boot/assets"
+    },
+    {
+      "path": "documentation/boot/BOOT_SEQUENCE.md",
+      "name": "BOOT_SEQUENCE.md",
+      "ext": "md",
+      "size": 2367,
+      "folder": "documentation/boot"
+    },
+    {
+      "path": "documentation/COMMUNITY_MODEL.md",
+      "name": "COMMUNITY_MODEL.md",
+      "ext": "md",
+      "size": 970,
+      "folder": "documentation"
+    },
+    {
+      "path": "documentation/README.md",
+      "name": "README.md",
+      "ext": "md",
+      "size": 548,
+      "folder": "documentation"
+    },
+    {
+      "path": "documentation/RELEASE_PROCESS.md",
+      "name": "RELEASE_PROCESS.md",
+      "ext": "md",
+      "size": 966,
+      "folder": "documentation"
+    },
+    {
+      "path": "documentation/RELEASE_STATUS.md",
+      "name": "RELEASE_STATUS.md",
+      "ext": "md",
+      "size": 1412,
+      "folder": "documentation"
+    },
+    {
+      "path": "documentation/security/APP_TRUST_AND_SIGNING.md",
+      "name": "APP_TRUST_AND_SIGNING.md",
+      "ext": "md",
+      "size": 3594,
+      "folder": "documentation/security"
+    },
+    {
+      "path": "GLOBAL_INTEGRATION_EXPERIMENT.md",
+      "name": "GLOBAL_INTEGRATION_EXPERIMENT.md",
+      "ext": "md",
+      "size": 2844,
+      "folder": ""
+    },
+    {
+      "path": "index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 98143,
+      "folder": ""
+    },
+    {
+      "path": "js/accountManager.js",
+      "name": "accountManager.js",
+      "ext": "js",
+      "size": 7496,
+      "folder": "js"
+    },
+    {
+      "path": "js/app.js",
+      "name": "app.js",
+      "ext": "js",
+      "size": 27530,
+      "folder": "js"
+    },
+    {
+      "path": "js/appCatalog.js",
+      "name": "appCatalog.js",
+      "ext": "js",
+      "size": 18969,
+      "folder": "js"
+    },
+    {
+      "path": "js/brain/aiPersona.js",
+      "name": "aiPersona.js",
+      "ext": "js",
+      "size": 2090,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/appConnectors/ai.js",
+      "name": "ai.js",
+      "ext": "js",
+      "size": 1265,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/appConnectors/extras.js",
+      "name": "extras.js",
+      "ext": "js",
+      "size": 4749,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/appConnectors/files.js",
+      "name": "files.js",
+      "ext": "js",
+      "size": 1686,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/appConnectors/media.js",
+      "name": "media.js",
+      "ext": "js",
+      "size": 2488,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/appConnectors/personalData.js",
+      "name": "personalData.js",
+      "ext": "js",
+      "size": 3600,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/appConnectors/productivity.js",
+      "name": "productivity.js",
+      "ext": "js",
+      "size": 3918,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/appConnectors/system.js",
+      "name": "system.js",
+      "ext": "js",
+      "size": 2166,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/appConnectors/terminal.js",
+      "name": "terminal.js",
+      "ext": "js",
+      "size": 1982,
+      "folder": "js/brain/appConnectors"
+    },
+    {
+      "path": "js/brain/canon.js",
+      "name": "canon.js",
+      "ext": "js",
+      "size": 3982,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/cognition/adaptiveAgent.js",
+      "name": "adaptiveAgent.js",
+      "ext": "js",
+      "size": 13230,
+      "folder": "js/brain/cognition"
+    },
+    {
+      "path": "js/brain/cognition/cognitiveEngine.js",
+      "name": "cognitiveEngine.js",
+      "ext": "js",
+      "size": 3929,
+      "folder": "js/brain/cognition"
+    },
+    {
+      "path": "js/brain/cognition/decisionEngine.js",
+      "name": "decisionEngine.js",
+      "ext": "js",
+      "size": 8809,
+      "folder": "js/brain/cognition"
+    },
+    {
+      "path": "js/brain/cognition/languageEngine.js",
+      "name": "languageEngine.js",
+      "ext": "js",
+      "size": 12393,
+      "folder": "js/brain/cognition"
+    },
+    {
+      "path": "js/brain/cognition/localLanguageRuntime.js",
+      "name": "localLanguageRuntime.js",
+      "ext": "js",
+      "size": 9572,
+      "folder": "js/brain/cognition"
+    },
+    {
+      "path": "js/brain/cognition/userModel.js",
+      "name": "userModel.js",
+      "ext": "js",
+      "size": 5676,
+      "folder": "js/brain/cognition"
+    },
+    {
+      "path": "js/brain/context.js",
+      "name": "context.js",
+      "ext": "js",
+      "size": 3209,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/contextEngine.js",
+      "name": "contextEngine.js",
+      "ext": "js",
+      "size": 1978,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/conversationMemory.js",
+      "name": "conversationMemory.js",
+      "ext": "js",
+      "size": 21463,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/coreEngine.js",
+      "name": "coreEngine.js",
+      "ext": "js",
+      "size": 4672,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/dailyLanguage.js",
+      "name": "dailyLanguage.js",
+      "ext": "js",
+      "size": 78282,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/diagnostics.js",
+      "name": "diagnostics.js",
+      "ext": "js",
+      "size": 6748,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/emotions.js",
+      "name": "emotions.js",
+      "ext": "js",
+      "size": 6706,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/engine/games/Game Loop & States.js",
+      "name": "Game Loop & States.js",
+      "ext": "js",
+      "size": 1664,
+      "folder": "js/brain/engine/games"
+    },
+    {
+      "path": "js/brain/engine/games/GDScript Analyzer.js",
+      "name": "GDScript Analyzer.js",
+      "ext": "js",
+      "size": 3326,
+      "folder": "js/brain/engine/games"
+    },
+    {
+      "path": "js/brain/engine/games/Nodes & Movement.js",
+      "name": "Nodes & Movement.js",
+      "ext": "js",
+      "size": 2020,
+      "folder": "js/brain/engine/games"
+    },
+    {
+      "path": "js/brain/engine/games/NPC/behaviorDirector.js",
+      "name": "behaviorDirector.js",
+      "ext": "js",
+      "size": 838,
+      "folder": "js/brain/engine/games/NPC"
+    },
+    {
+      "path": "js/brain/engine/games/NPC/learningCore.js",
+      "name": "learningCore.js",
+      "ext": "js",
+      "size": 1625,
+      "folder": "js/brain/engine/games/NPC"
+    },
+    {
+      "path": "js/brain/engine/games/NPC/memoryLink.js",
+      "name": "memoryLink.js",
+      "ext": "js",
+      "size": 785,
+      "folder": "js/brain/engine/games/NPC"
+    },
+    {
+      "path": "js/brain/engine/games/Physics & Collisions.js",
+      "name": "Physics & Collisions.js",
+      "ext": "js",
+      "size": 2631,
+      "folder": "js/brain/engine/games"
+    },
+    {
+      "path": "js/brain/engine/web_builder/commerceLogic.js",
+      "name": "commerceLogic.js",
+      "ext": "js",
+      "size": 728,
+      "folder": "js/brain/engine/web_builder"
+    },
+    {
+      "path": "js/brain/engine/web_builder/siteStructureGenerator.js",
+      "name": "siteStructureGenerator.js",
+      "ext": "js",
+      "size": 1137,
+      "folder": "js/brain/engine/web_builder"
+    },
+    {
+      "path": "js/brain/engine/web_builder/uiStylingEngine.js",
+      "name": "uiStylingEngine.js",
+      "ext": "js",
+      "size": 801,
+      "folder": "js/brain/engine/web_builder"
+    },
+    {
+      "path": "js/brain/generator.js",
+      "name": "generator.js",
+      "ext": "js",
+      "size": 2607,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/hauntingPersona.js",
+      "name": "hauntingPersona.js",
+      "ext": "js",
+      "size": 4528,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/hippocampus/hippocampus.js",
+      "name": "hippocampus.js",
+      "ext": "js",
+      "size": 4431,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/hippocampus/longTerm.js",
+      "name": "longTerm.js",
+      "ext": "js",
+      "size": 3057,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/hippocampus/memory.js",
+      "name": "memory.js",
+      "ext": "js",
+      "size": 3204,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/hippocampus/NPC Memory.js",
+      "name": "NPC Memory.js",
+      "ext": "js",
+      "size": 2947,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/hippocampus/personaMemory.js",
+      "name": "personaMemory.js",
+      "ext": "js",
+      "size": 3573,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/hippocampus/savedMemory.js",
+      "name": "savedMemory.js",
+      "ext": "js",
+      "size": 6381,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/hippocampus/shortTerm.js",
+      "name": "shortTerm.js",
+      "ext": "js",
+      "size": 1625,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/hippocampus/webMemory.js",
+      "name": "webMemory.js",
+      "ext": "js",
+      "size": 4198,
+      "folder": "js/brain/hippocampus"
+    },
+    {
+      "path": "js/brain/inputClassifier.js",
+      "name": "inputClassifier.js",
+      "ext": "js",
+      "size": 1119,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/intentRouter.js",
+      "name": "intentRouter.js",
+      "ext": "js",
+      "size": 2291,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/keyboard/textEngine.js",
+      "name": "textEngine.js",
+      "ext": "js",
+      "size": 5825,
+      "folder": "js/brain/keyboard"
+    },
+    {
+      "path": "js/brain/keyboard/virtualKey.js",
+      "name": "virtualKey.js",
+      "ext": "js",
+      "size": 2521,
+      "folder": "js/brain/keyboard"
+    },
+    {
+      "path": "js/brain/knowledgeModules/appAccess.js",
+      "name": "appAccess.js",
+      "ext": "js",
+      "size": 2607,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/astronomy.js",
+      "name": "astronomy.js",
+      "ext": "js",
+      "size": 3462,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/biology.js",
+      "name": "biology.js",
+      "ext": "js",
+      "size": 4181,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/calculator.js",
+      "name": "calculator.js",
+      "ext": "js",
+      "size": 2698,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/chemistry.js",
+      "name": "chemistry.js",
+      "ext": "js",
+      "size": 4128,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/computerScience.js",
+      "name": "computerScience.js",
+      "ext": "js",
+      "size": 3987,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/cybersecurity.js",
+      "name": "cybersecurity.js",
+      "ext": "js",
+      "size": 2827,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/earthScience.js",
+      "name": "earthScience.js",
+      "ext": "js",
+      "size": 3162,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/ecology.js",
+      "name": "ecology.js",
+      "ext": "js",
+      "size": 2612,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/economics.js",
+      "name": "economics.js",
+      "ext": "js",
+      "size": 2858,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/engineering.js",
+      "name": "engineering.js",
+      "ext": "js",
+      "size": 2874,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/general.js",
+      "name": "general.js",
+      "ext": "js",
+      "size": 487,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/genetics.js",
+      "name": "genetics.js",
+      "ext": "js",
+      "size": 2183,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/legacy.js",
+      "name": "legacy.js",
+      "ext": "js",
+      "size": 414,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/linguistics.js",
+      "name": "linguistics.js",
+      "ext": "js",
+      "size": 2220,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/links.js",
+      "name": "links.js",
+      "ext": "js",
+      "size": 3356,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/materialsScience.js",
+      "name": "materialsScience.js",
+      "ext": "js",
+      "size": 2414,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/mathematics.js",
+      "name": "mathematics.js",
+      "ext": "js",
+      "size": 3448,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/medicine.js",
+      "name": "medicine.js",
+      "ext": "js",
+      "size": 2998,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/neuroscience.js",
+      "name": "neuroscience.js",
+      "ext": "js",
+      "size": 2256,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/physics.js",
+      "name": "physics.js",
+      "ext": "js",
+      "size": 4323,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/projectFiles.js",
+      "name": "projectFiles.js",
+      "ext": "js",
+      "size": 2628,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/psychology.js",
+      "name": "psychology.js",
+      "ext": "js",
+      "size": 2743,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/registry.js",
+      "name": "registry.js",
+      "ext": "js",
+      "size": 2518,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/robotics.js",
+      "name": "robotics.js",
+      "ext": "js",
+      "size": 2165,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/scientificMethod.js",
+      "name": "scientificMethod.js",
+      "ext": "js",
+      "size": 2999,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/socialScience.js",
+      "name": "socialScience.js",
+      "ext": "js",
+      "size": 2891,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/statistics.js",
+      "name": "statistics.js",
+      "ext": "js",
+      "size": 2452,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/knowledgeModules/stories.js",
+      "name": "stories.js",
+      "ext": "js",
+      "size": 1822,
+      "folder": "js/brain/knowledgeModules"
+    },
+    {
+      "path": "js/brain/localNgramModel.js",
+      "name": "localNgramModel.js",
+      "ext": "js",
+      "size": 13811,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/personaEngine.js",
+      "name": "personaEngine.js",
+      "ext": "js",
+      "size": 1465,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/security/index.js",
+      "name": "index.js",
+      "ext": "js",
+      "size": 2273,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/security/input.js",
+      "name": "input.js",
+      "ext": "js",
+      "size": 608,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/security/navigation.js",
+      "name": "navigation.js",
+      "ext": "js",
+      "size": 631,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/security/policy.js",
+      "name": "policy.js",
+      "ext": "js",
+      "size": 1557,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/security/rateLimit.js",
+      "name": "rateLimit.js",
+      "ext": "js",
+      "size": 689,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/security/storage.js",
+      "name": "storage.js",
+      "ext": "js",
+      "size": 944,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/security/storageLimits.js",
+      "name": "storageLimits.js",
+      "ext": "js",
+      "size": 985,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/security/trainingData.js",
+      "name": "trainingData.js",
+      "ext": "js",
+      "size": 1854,
+      "folder": "js/brain/security"
+    },
+    {
+      "path": "js/brain/translator.js",
+      "name": "translator.js",
+      "ext": "js",
+      "size": 1837,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/voice/chaosPresenceAudio.js",
+      "name": "chaosPresenceAudio.js",
+      "ext": "js",
+      "size": 6851,
+      "folder": "js/brain/voice"
+    },
+    {
+      "path": "js/brain/voice/hybridVoice.js",
+      "name": "hybridVoice.js",
+      "ext": "js",
+      "size": 6384,
+      "folder": "js/brain/voice"
+    },
+    {
+      "path": "js/brain/voice/voiceEngine.js",
+      "name": "voiceEngine.js",
+      "ext": "js",
+      "size": 7571,
+      "folder": "js/brain/voice"
+    },
+    {
+      "path": "js/brain/voice/voiceStudio.js",
+      "name": "voiceStudio.js",
+      "ext": "js",
+      "size": 1554,
+      "folder": "js/brain/voice"
+    },
+    {
+      "path": "js/brain/webSearch.js",
+      "name": "webSearch.js",
+      "ext": "js",
+      "size": 8257,
+      "folder": "js/brain"
+    },
+    {
+      "path": "js/brain/words/aiTools.js",
+      "name": "aiTools.js",
+      "ext": "js",
+      "size": 2946,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/archive.js",
+      "name": "archive.js",
+      "ext": "js",
+      "size": 3658,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/banter.js",
+      "name": "banter.js",
+      "ext": "js",
+      "size": 3294,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/commands.js",
+      "name": "commands.js",
+      "ext": "js",
+      "size": 4930,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/countries.js",
+      "name": "countries.js",
+      "ext": "js",
+      "size": 4493,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/courtesy.js",
+      "name": "courtesy.js",
+      "ext": "js",
+      "size": 3253,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/darkThemes.js",
+      "name": "darkThemes.js",
+      "ext": "js",
+      "size": 3141,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/emotions.js",
+      "name": "emotions.js",
+      "ext": "js",
+      "size": 4469,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/greetings.js",
+      "name": "greetings.js",
+      "ext": "js",
+      "size": 4129,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/identity.js",
+      "name": "identity.js",
+      "ext": "js",
+      "size": 6965,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/jokes.js",
+      "name": "jokes.js",
+      "ext": "js",
+      "size": 1035,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/knowledgeBase.js",
+      "name": "knowledgeBase.js",
+      "ext": "js",
+      "size": 6277,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/links.js",
+      "name": "links.js",
+      "ext": "js",
+      "size": 2429,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/locations.js",
+      "name": "locations.js",
+      "ext": "js",
+      "size": 2367,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/naturalConversation.js",
+      "name": "naturalConversation.js",
+      "ext": "js",
+      "size": 5368,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/ordinary.js",
+      "name": "ordinary.js",
+      "ext": "js",
+      "size": 9806,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/philosophy.js",
+      "name": "philosophy.js",
+      "ext": "js",
+      "size": 3996,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/registry.js",
+      "name": "registry.js",
+      "ext": "js",
+      "size": 3679,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/relationships.js",
+      "name": "relationships.js",
+      "ext": "js",
+      "size": 2832,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/secrets.js",
+      "name": "secrets.js",
+      "ext": "js",
+      "size": 3627,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/stories.js",
+      "name": "stories.js",
+      "ext": "js",
+      "size": 1399,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/brain/words/technology.js",
+      "name": "technology.js",
+      "ext": "js",
+      "size": 6313,
+      "folder": "js/brain/words"
+    },
+    {
+      "path": "js/chaos-hub.js",
+      "name": "chaos-hub.js",
+      "ext": "js",
+      "size": 365,
+      "folder": "js"
+    },
+    {
+      "path": "js/chaos-layer.js",
+      "name": "chaos-layer.js",
+      "ext": "js",
+      "size": 20213,
+      "folder": "js"
+    },
+    {
+      "path": "js/chaosPresence.js",
+      "name": "chaosPresence.js",
+      "ext": "js",
+      "size": 7314,
+      "folder": "js"
+    },
+    {
+      "path": "js/chapters.js",
+      "name": "chapters.js",
+      "ext": "js",
+      "size": 4914,
+      "folder": "js"
+    },
+    {
+      "path": "js/characters.js",
+      "name": "characters.js",
+      "ext": "js",
+      "size": 6052,
+      "folder": "js"
+    },
+    {
+      "path": "js/cloud/aiGateway.js",
+      "name": "aiGateway.js",
+      "ext": "js",
+      "size": 4208,
+      "folder": "js/cloud"
+    },
+    {
+      "path": "js/cloud/cloudAdapter.js",
+      "name": "cloudAdapter.js",
+      "ext": "js",
+      "size": 3657,
+      "folder": "js/cloud"
+    },
+    {
+      "path": "js/cloud/syncEngine.js",
+      "name": "syncEngine.js",
+      "ext": "js",
+      "size": 5353,
+      "folder": "js/cloud"
+    },
+    {
+      "path": "js/config.js",
+      "name": "config.js",
+      "ext": "js",
+      "size": 1418,
+      "folder": "js"
+    },
+    {
+      "path": "js/kernel/adaptiveTaskPlanner.js",
+      "name": "adaptiveTaskPlanner.js",
+      "ext": "js",
+      "size": 5706,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/appCapabilityBridge.js",
+      "name": "appCapabilityBridge.js",
+      "ext": "js",
+      "size": 15013,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/appLifecycleManager.js",
+      "name": "appLifecycleManager.js",
+      "ext": "js",
+      "size": 4445,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/appManager.js",
+      "name": "appManager.js",
+      "ext": "js",
+      "size": 3558,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/browserPolicy.js",
+      "name": "browserPolicy.js",
+      "ext": "js",
+      "size": 916,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/defaultTaskHandlers.js",
+      "name": "defaultTaskHandlers.js",
+      "ext": "js",
+      "size": 2943,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/diagnostics.js",
+      "name": "diagnostics.js",
+      "ext": "js",
+      "size": 1943,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/eventBus.js",
+      "name": "eventBus.js",
+      "ext": "js",
+      "size": 516,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/fileAccess.js",
+      "name": "fileAccess.js",
+      "ext": "js",
+      "size": 3976,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/healthManager.js",
+      "name": "healthManager.js",
+      "ext": "js",
+      "size": 4625,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/intentEngine.js",
+      "name": "intentEngine.js",
+      "ext": "js",
+      "size": 6713,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/kernel.js",
+      "name": "kernel.js",
+      "ext": "js",
+      "size": 4482,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/osRuntime.js",
+      "name": "osRuntime.js",
+      "ext": "js",
+      "size": 1855,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/osServices.js",
+      "name": "osServices.js",
+      "ext": "js",
+      "size": 4625,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/permissionManager.js",
+      "name": "permissionManager.js",
+      "ext": "js",
+      "size": 2365,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/presenceDirector.js",
+      "name": "presenceDirector.js",
+      "ext": "js",
+      "size": 2838,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/resultBus.js",
+      "name": "resultBus.js",
+      "ext": "js",
+      "size": 461,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/runtimeOrchestrator.js",
+      "name": "runtimeOrchestrator.js",
+      "ext": "js",
+      "size": 5329,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/serviceRegistry.js",
+      "name": "serviceRegistry.js",
+      "ext": "js",
+      "size": 1369,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/serviceSupervisor.js",
+      "name": "serviceSupervisor.js",
+      "ext": "js",
+      "size": 5469,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/sessionManager.js",
+      "name": "sessionManager.js",
+      "ext": "js",
+      "size": 2246,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/taskManager.js",
+      "name": "taskManager.js",
+      "ext": "js",
+      "size": 8168,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/taskRouter.js",
+      "name": "taskRouter.js",
+      "ext": "js",
+      "size": 4576,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/kernel/unifiedCore.js",
+      "name": "unifiedCore.js",
+      "ext": "js",
+      "size": 12120,
+      "folder": "js/kernel"
+    },
+    {
+      "path": "js/platform/androidBridge.js",
+      "name": "androidBridge.js",
+      "ext": "js",
+      "size": 2658,
+      "folder": "js/platform"
+    },
+    {
+      "path": "js/settings-phone.js",
+      "name": "settings-phone.js",
+      "ext": "js",
+      "size": 11356,
+      "folder": "js"
+    },
+    {
+      "path": "js/settingsEnhancements.js",
+      "name": "settingsEnhancements.js",
+      "ext": "js",
+      "size": 27959,
+      "folder": "js"
+    },
+    {
+      "path": "js/system-core.js",
+      "name": "system-core.js",
+      "ext": "js",
+      "size": 11721,
+      "folder": "js"
+    },
+    {
+      "path": "js/terminal/terminalCloudConsole.js",
+      "name": "terminalCloudConsole.js",
+      "ext": "js",
+      "size": 3258,
+      "folder": "js/terminal"
+    },
+    {
+      "path": "js/terminalLanguage.js",
+      "name": "terminalLanguage.js",
+      "ext": "js",
+      "size": 2274,
+      "folder": "js"
+    },
+    {
+      "path": "languageRules.js",
+      "name": "languageRules.js",
+      "ext": "js",
+      "size": 3476,
+      "folder": ""
+    },
+    {
+      "path": "LICENSE",
+      "name": "LICENSE",
+      "ext": "file",
+      "size": 11358,
+      "folder": ""
+    },
+    {
+      "path": "manifest.webmanifest",
+      "name": "manifest.webmanifest",
+      "ext": "webmanifest",
+      "size": 837,
+      "folder": ""
+    },
+    {
+      "path": "NOTICE",
+      "name": "NOTICE",
+      "ext": "file",
+      "size": 961,
+      "folder": ""
+    },
+    {
+      "path": "ORIGIN.md",
+      "name": "ORIGIN.md",
+      "ext": "md",
+      "size": 528,
+      "folder": ""
+    },
+    {
+      "path": "package.json",
+      "name": "package.json",
+      "ext": "json",
+      "size": 492,
+      "folder": ""
+    },
+    {
+      "path": "project-source/cordova-project/.gitignore",
+      "name": ".gitignore",
+      "ext": "file",
+      "size": 77,
+      "folder": "project-source/cordova-project"
+    },
+    {
+      "path": "project-source/cordova-project/config.xml",
+      "name": "config.xml",
+      "ext": "xml",
+      "size": 1591,
+      "folder": "project-source/cordova-project"
+    },
+    {
+      "path": "project-source/cordova-project/package.json",
+      "name": "package.json",
+      "ext": "json",
+      "size": 740,
+      "folder": "project-source/cordova-project"
+    },
+    {
+      "path": "project-source/cordova-project/res/icon.png",
+      "name": "icon.png",
+      "ext": "png",
+      "size": 9438,
+      "folder": "project-source/cordova-project/res"
+    },
+    {
+      "path": "README.md",
+      "name": "README.md",
+      "ext": "md",
+      "size": 7859,
+      "folder": ""
+    },
+    {
+      "path": "README/01_SYSTEM_OVERVIEW.txt",
+      "name": "01_SYSTEM_OVERVIEW.txt",
+      "ext": "txt",
+      "size": 1464,
+      "folder": "README"
+    },
+    {
+      "path": "README/02_KERNEL_AND_RUNTIME.txt",
+      "name": "02_KERNEL_AND_RUNTIME.txt",
+      "ext": "txt",
+      "size": 1166,
+      "folder": "README"
+    },
+    {
+      "path": "README/03_CHAOSAI_LOCAL_LANGUAGE.txt",
+      "name": "03_CHAOSAI_LOCAL_LANGUAGE.txt",
+      "ext": "txt",
+      "size": 1362,
+      "folder": "README"
+    },
+    {
+      "path": "README/04_VOICE_FOUNDRY.txt",
+      "name": "04_VOICE_FOUNDRY.txt",
+      "ext": "txt",
+      "size": 3120,
+      "folder": "README"
+    },
+    {
+      "path": "README/05_VOID_GAME_MANAGER.txt",
+      "name": "05_VOID_GAME_MANAGER.txt",
+      "ext": "txt",
+      "size": 967,
+      "folder": "README"
+    },
+    {
+      "path": "README/06_VOIDTUBE_ASSETS.txt",
+      "name": "06_VOIDTUBE_ASSETS.txt",
+      "ext": "txt",
+      "size": 505,
+      "folder": "README"
+    },
+    {
+      "path": "README/07_VOIDBROWSERX.txt",
+      "name": "07_VOIDBROWSERX.txt",
+      "ext": "txt",
+      "size": 835,
+      "folder": "README"
+    },
+    {
+      "path": "README/08_CORDOVA_ANDROID.txt",
+      "name": "08_CORDOVA_ANDROID.txt",
+      "ext": "txt",
+      "size": 1086,
+      "folder": "README"
+    },
+    {
+      "path": "README/09_OPTIONAL_CLOUD_FOUNDATION.txt",
+      "name": "09_OPTIONAL_CLOUD_FOUNDATION.txt",
+      "ext": "txt",
+      "size": 1024,
+      "folder": "README"
+    },
+    {
+      "path": "README/10_TESTING_AND_RELEASE.txt",
+      "name": "10_TESTING_AND_RELEASE.txt",
+      "ext": "txt",
+      "size": 817,
+      "folder": "README"
+    },
+    {
+      "path": "README/11_FILE_PATHS_MAP.txt",
+      "name": "11_FILE_PATHS_MAP.txt",
+      "ext": "txt",
+      "size": 1213,
+      "folder": "README"
+    },
+    {
+      "path": "README/12_KERNEL_WORDS_APP_INTEGRATION.txt",
+      "name": "12_KERNEL_WORDS_APP_INTEGRATION.txt",
+      "ext": "txt",
+      "size": 1833,
+      "folder": "README"
+    },
+    {
+      "path": "README/13_MODULAR_WORDS_ARCHITECTURE.txt",
+      "name": "13_MODULAR_WORDS_ARCHITECTURE.txt",
+      "ext": "txt",
+      "size": 1926,
+      "folder": "README"
+    },
+    {
+      "path": "README/14_NATURAL_VOCABULARY_SECRET_PERSONA.txt",
+      "name": "14_NATURAL_VOCABULARY_SECRET_PERSONA.txt",
+      "ext": "txt",
+      "size": 1321,
+      "folder": "README"
+    },
+    {
+      "path": "README/README.txt",
+      "name": "README.txt",
+      "ext": "txt",
+      "size": 2535,
+      "folder": "README"
+    },
+    {
+      "path": "README/V3_1_6_OS_EVOLUTION.txt",
+      "name": "V3_1_6_OS_EVOLUTION.txt",
+      "ext": "txt",
+      "size": 1232,
+      "folder": "README"
+    },
+    {
+      "path": "scripts/prepare-release.cjs",
+      "name": "prepare-release.cjs",
+      "ext": "cjs",
+      "size": 1424,
+      "folder": "scripts"
+    },
+    {
+      "path": "SECURITY.md",
+      "name": "SECURITY.md",
+      "ext": "md",
+      "size": 1518,
+      "folder": ""
+    },
+    {
+      "path": "settings.html",
+      "name": "settings.html",
+      "ext": "html",
+      "size": 20950,
+      "folder": ""
+    },
+    {
+      "path": "sw.js",
+      "name": "sw.js",
+      "ext": "js",
+      "size": 11508,
+      "folder": ""
+    },
+    {
+      "path": "terminal.html",
+      "name": "terminal.html",
+      "ext": "html",
+      "size": 762,
+      "folder": ""
+    },
+    {
+      "path": "terminal/index.html",
+      "name": "index.html",
+      "ext": "html",
+      "size": 28783,
+      "folder": "terminal"
+    },
+    {
+      "path": "tests/account-unification-tests.cjs",
+      "name": "account-unification-tests.cjs",
+      "ext": "cjs",
+      "size": 2339,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/adaptive-agent-v300-tests.cjs",
+      "name": "adaptive-agent-v300-tests.cjs",
+      "ext": "cjs",
+      "size": 3174,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/app-capability-bridge-v270-tests.cjs",
+      "name": "app-capability-bridge-v270-tests.cjs",
+      "ext": "cjs",
+      "size": 5781,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/app-catalog-tests.cjs",
+      "name": "app-catalog-tests.cjs",
+      "ext": "cjs",
+      "size": 1139,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/browser-tests.cjs",
+      "name": "browser-tests.cjs",
+      "ext": "cjs",
+      "size": 1830,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/CHAOSOS_v2_5_0_VALIDATION.md",
+      "name": "CHAOSOS_v2_5_0_VALIDATION.md",
+      "ext": "md",
+      "size": 1170,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/chaosos-v316-os-intelligence-tests.cjs",
+      "name": "chaosos-v316-os-intelligence-tests.cjs",
+      "ext": "cjs",
+      "size": 2135,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/cloud-ai-provider-tests.cjs",
+      "name": "cloud-ai-provider-tests.cjs",
+      "ext": "cjs",
+      "size": 1609,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/cloud-ai-server-tests.cjs",
+      "name": "cloud-ai-server-tests.cjs",
+      "ext": "cjs",
+      "size": 2082,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/cloud-foundation-tests.cjs",
+      "name": "cloud-foundation-tests.cjs",
+      "ext": "cjs",
+      "size": 1231,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/cloud-sync-v290-tests.cjs",
+      "name": "cloud-sync-v290-tests.cjs",
+      "ext": "cjs",
+      "size": 2455,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/cognitive-os-v260-tests.cjs",
+      "name": "cognitive-os-v260-tests.cjs",
+      "ext": "cjs",
+      "size": 8695,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/cognitive-routing-v270-tests.cjs",
+      "name": "cognitive-routing-v270-tests.cjs",
+      "ext": "cjs",
+      "size": 2728,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/conversation-memory-tests.cjs",
+      "name": "conversation-memory-tests.cjs",
+      "ext": "cjs",
+      "size": 3666,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/cosmic-presence-v311-tests.cjs",
+      "name": "cosmic-presence-v311-tests.cjs",
+      "ext": "cjs",
+      "size": 1756,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/desktop-settings-store-v250-tests.cjs",
+      "name": "desktop-settings-store-v250-tests.cjs",
+      "ext": "cjs",
+      "size": 1602,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/engine-tests.cjs",
+      "name": "engine-tests.cjs",
+      "ext": "cjs",
+      "size": 3684,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/game-manager-v300-tests.cjs",
+      "name": "game-manager-v300-tests.cjs",
+      "ext": "cjs",
+      "size": 1386,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/game-manager-v310-tests.cjs",
+      "name": "game-manager-v310-tests.cjs",
+      "ext": "cjs",
+      "size": 1041,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/generate-project-index.cjs",
+      "name": "generate-project-index.cjs",
+      "ext": "cjs",
+      "size": 1130,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/hybrid-voice-v312-tests.cjs",
+      "name": "hybrid-voice-v312-tests.cjs",
+      "ext": "cjs",
+      "size": 2951,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/kernel-tests.cjs",
+      "name": "kernel-tests.cjs",
+      "ext": "cjs",
+      "size": 4898,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/kernel-words-integration-v313-tests.cjs",
+      "name": "kernel-words-integration-v313-tests.cjs",
+      "ext": "cjs",
+      "size": 6126,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/knowledge-modules-v270-tests.cjs",
+      "name": "knowledge-modules-v270-tests.cjs",
+      "ext": "cjs",
+      "size": 5909,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/local-language-tests.cjs",
+      "name": "local-language-tests.cjs",
+      "ext": "cjs",
+      "size": 4969,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/local-model-core-tests.cjs",
+      "name": "local-model-core-tests.cjs",
+      "ext": "cjs",
+      "size": 1825,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/manager-tests.cjs",
+      "name": "manager-tests.cjs",
+      "ext": "cjs",
+      "size": 1777,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/memory-integration-tests.cjs",
+      "name": "memory-integration-tests.cjs",
+      "ext": "cjs",
+      "size": 3702,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/natural-vocabulary-v315-tests.cjs",
+      "name": "natural-vocabulary-v315-tests.cjs",
+      "ext": "cjs",
+      "size": 3979,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/project-manifest-v250-tests.cjs",
+      "name": "project-manifest-v250-tests.cjs",
+      "ext": "cjs",
+      "size": 1677,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/release-audit.cjs",
+      "name": "release-audit.cjs",
+      "ext": "cjs",
+      "size": 10945,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/release-consistency-tests.cjs",
+      "name": "release-consistency-tests.cjs",
+      "ext": "cjs",
+      "size": 5609,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/release-v310-tests.cjs",
+      "name": "release-v310-tests.cjs",
+      "ext": "cjs",
+      "size": 3156,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/run-all-tests.cjs",
+      "name": "run-all-tests.cjs",
+      "ext": "cjs",
+      "size": 1171,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/runtime-language-v310-tests.cjs",
+      "name": "runtime-language-v310-tests.cjs",
+      "ext": "cjs",
+      "size": 2539,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/security-hardening-tests.cjs",
+      "name": "security-hardening-tests.cjs",
+      "ext": "cjs",
+      "size": 2646,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/security-tests.cjs",
+      "name": "security-tests.cjs",
+      "ext": "cjs",
+      "size": 3133,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/shared-core-v290-tests.cjs",
+      "name": "shared-core-v290-tests.cjs",
+      "ext": "cjs",
+      "size": 2225,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/system-core-compat-tests.cjs",
+      "name": "system-core-compat-tests.cjs",
+      "ext": "cjs",
+      "size": 1854,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/system-menu-settings-tests.cjs",
+      "name": "system-menu-settings-tests.cjs",
+      "ext": "cjs",
+      "size": 4272,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/task-router-v250-tests.cjs",
+      "name": "task-router-v250-tests.cjs",
+      "ext": "cjs",
+      "size": 2057,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/unified-core-v290-tests.cjs",
+      "name": "unified-core-v290-tests.cjs",
+      "ext": "cjs",
+      "size": 3921,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/voice-foundry-v300-tests.cjs",
+      "name": "voice-foundry-v300-tests.cjs",
+      "ext": "cjs",
+      "size": 3280,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/voice-proxy-v312-tests.cjs",
+      "name": "voice-proxy-v312-tests.cjs",
+      "ext": "cjs",
+      "size": 2207,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/voidtube-recommendations-v250-tests.cjs",
+      "name": "voidtube-recommendations-v250-tests.cjs",
+      "ext": "cjs",
+      "size": 1859,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/web-search-tests.cjs",
+      "name": "web-search-tests.cjs",
+      "ext": "cjs",
+      "size": 2592,
+      "folder": "tests"
+    },
+    {
+      "path": "tests/words-modularization-v314-tests.cjs",
+      "name": "words-modularization-v314-tests.cjs",
+      "ext": "cjs",
+      "size": 2672,
+      "folder": "tests"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "name": "THIRD_PARTY_NOTICES.md",
+      "ext": "md",
+      "size": 968,
+      "folder": ""
+    },
+    {
+      "path": "UPGRADE_GLOBAL_SMART_OS.md",
+      "name": "UPGRADE_GLOBAL_SMART_OS.md",
+      "ext": "md",
+      "size": 2007,
+      "folder": ""
+    },
+    {
+      "path": "V2_1_0_PHONE_FOUNDATION.md",
+      "name": "V2_1_0_PHONE_FOUNDATION.md",
+      "ext": "md",
+      "size": 3072,
+      "folder": ""
+    },
+    {
+      "path": "V2_2_0_COSMIC_LOCK_EXPERIMENTAL.md",
+      "name": "V2_2_0_COSMIC_LOCK_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 562,
+      "folder": ""
+    },
+    {
+      "path": "V2_3_0_SYSTEM_SETTINGS_EXPERIMENTAL.md",
+      "name": "V2_3_0_SYSTEM_SETTINGS_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 1031,
+      "folder": ""
+    },
+    {
+      "path": "V2_4_0_APP_DISCOVERY_ORIENTATION_EXPERIMENTAL.md",
+      "name": "V2_4_0_APP_DISCOVERY_ORIENTATION_EXPERIMENTAL.md",
+      "ext": "md",
+      "size": 1178,
+      "folder": ""
+    },
+    {
+      "path": "V3_1_6_TEST_REPORT.md",
+      "name": "V3_1_6_TEST_REPORT.md",
+      "ext": "md",
+      "size": 2598,
+      "folder": ""
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "name": "VALIDATION_REPORT.md",
+      "ext": "md",
+      "size": 2773,
+      "folder": ""
+    }
+  ]
+}

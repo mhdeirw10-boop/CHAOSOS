@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>الشخصيات | عين الفوضى</title>
+
+    <!-- ملفات النظام الأساسية -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/lang.css">
+
+    <style>
+        /* =========================================
+           CHARACTERS PAGE
+           صفحة الشخصيات - Eye of Chaos
+           ========================================= */
+
+        .characters-page {
+            width: min(1100px, 94%);
+            margin: 0 auto;
+            padding: 30px 0 60px;
+        }
+
+        /* رأس الصفحة */
+
+        .characters-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .characters-header h1 {
+            margin: 0 0 10px;
+            font-size: 2rem;
+        }
+
+        .characters-header p {
+            margin: 0;
+            opacity: 0.75;
+            line-height: 1.8;
+        }
+
+        /* البحث */
+
+        .characters-tools {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .characters-search {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 15px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+
+            background: rgba(255,255,255,0.04);
+            color: inherit;
+
+            outline: none;
+        }
+
+        .characters-search:focus {
+            border-color: rgba(255,255,255,0.35);
+        }
+
+        /* شبكة الشخصيات */
+
+        .characters-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 18px;
+        }
+
+        /* بطاقة الشخصية */
+
+        .character-card {
+            overflow: hidden;
+
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: 14px;
+
+            background: rgba(255,255,255,0.035);
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        /* صورة الشخصية */
+
+        .character-image {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+
+            object-fit: cover;
+
+            display: block;
+
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* معلومات البطاقة */
+
+        .character-info {
+            padding: 16px;
+        }
+
+        .character-name {
+            margin: 0 0 6px;
+            font-size: 1.2rem;
+        }
+
+        .character-type {
+            display: inline-block;
+
+            margin-bottom: 10px;
+            padding: 4px 8px;
+
+            border-radius: 6px;
+
+            background: rgba(255,255,255,0.08);
+
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .character-description {
+            margin: 0 0 15px;
+
+            line-height: 1.7;
+            opacity: 0.75;
+
+            font-size: 0.9rem;
+        }
+
+        .character-button {
+            width: 100%;
+
+            padding: 10px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+
+            background: transparent;
+            color: inherit;
+
+            cursor: pointer;
+        }
+
+        .character-button:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        /* لا توجد نتائج */
+
+        .no-results {
+            display: none;
+
+            text-align: center;
+            padding: 40px 10px;
+
+            opacity: 0.65;
+        }
+
+        /* نافذة الملف */
+
+        .character-modal {
+            position: fixed;
+
+            inset: 0;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: rgba(0,0,0,0.75);
+
+            z-index: 999;
+        }
+
+        .character-modal.active {
+            display: flex;
+        }
+
+        .character-modal-content {
+            width: min(700px, 100%);
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding: 25px;
+
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 16px;
+
+            background: #111;
+
+            box-sizing: border-box;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 400px;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            float: left;
+
+            border: none;
+            background: transparent;
+
+            color: inherit;
+
+            font-size: 1.5rem;
+
+            cursor: pointer;
+        }
+
+        .modal-title {
+            margin-top: 0;
+        }
+
+        .modal-description {
+            line-height: 1.9;
+            opacity: 0.85;
+        }
+
+        /* الهاتف */
+
+        @media (max-width: 600px) {
+
+            .characters-page {
+                padding-top: 20px;
+            }
+
+            .characters-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .characters-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .character-info {
+                padding: 12px;
+            }
+
+            .character-name {
+                font-size: 1rem;
+            }
+
+            .character-description {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+
+            .characters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#090a10">
+<script>
+try { if (localStorage.getItem('chaosTheme') === 'light-text') document.addEventListener('DOMContentLoaded', () => document.body.classList.add('theme-light-text'), { once: true }); } catch (_) {}
+</script>
+
+</head>
+
+<body>
+
+    <main class="characters-page">
+
+        <!-- رأس الصفحة -->
+
+        <header class="characters-header">
+
+            <h1>الشخصيات</h1>
+
+            <p>
+                سجلات الشخصيات المرتبطة بعالم عين الفوضى.
+                <br>
+                بعض الملفات قد تكون غير مكتملة.
+            </p>
+
+        </header>
+
+
+        <!-- أدوات البحث -->
+
+        <section class="characters-tools">
+
+            <input
+                id="characterSearch"
+                class="characters-search"
+                type="search"
+                placeholder="ابحث عن شخصية..."
+                autocomplete="off"
+            >
+
+        </section>
+
+
+        <!-- الشخصيات -->
+
+        <section
+            id="charactersGrid"
+            class="characters-grid"
+        >
+
+            <!--
+                مثال أول.
+                عدّل البيانات لاحقًا حسب معلومات الشخصية الرسمية.
+            -->
+
+            <article
+                class="character-card"
+                data-name="سائر الفراغ"
+            >
+
+                <img
+                    class="character-image"
+                    src="assets/character-sair-placeholder.svg"
+                    alt="سائر الفراغ"
+                    onerror="this.alt='الصورة غير متاحة'; this.style.display='none';"
+                >
+
+                <div class="character-info">
+
+                    <h2 class="character-name">
+                        سائر الفراغ
+                    </h2>
+
+                    <span class="character-type">
+                        شخصية
+                    </span>
+
+                    <p class="character-description">
+                        وصف الشخصية يُضاف هنا من السجل الرسمي.
+                    </p>
+
+                    <button
+                        class="character-button"
+                        onclick="openCharacter('sair')"
+                    >
+                        عرض الملف
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- شخصية ثانية -->
+
+            <article
+                class="character-card"
+                data-name="ياسين"
+            >
+
+                <img
+                    class="character-image"
+                    src="assets/character-yasin-placeholder.svg"
+                    alt="ياسين"
+                    onerror="this.alt='الصورة غير متاحة'; this.style.display='none';"
+                >
+
+                <div class="character-info">
+
+                    <h2 class="character-name">
+                        ياسين
+                    </h2>
+
+                    <span class="character-type">
+                        شخصية
+                    </span>
+
+                    <p class="character-description">
+                        وصف الشخصية يُضاف هنا من السجل الرسمي.
+                    </p>
+
+                    <button
+                        class="character-button"
+                        onclick="openCharacter('yasin')"
+                    >
+                        عرض الملف
+                    </button>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- لا توجد نتائج -->
+
+        <div
+            id="noResults"
+            class="no-results"
+        >
+            لا توجد شخصية مطابقة لعملية البحث.
+        </div>
+
+    </main>
+
+
+    <!-- نافذة تفاصيل الشخصية -->
+
+    <div
+        id="characterModal"
+        class="character-modal"
+        onclick="closeCharacter(event)"
+    >
+
+        <div
+            class="character-modal-content"
+            onclick="event.stopPropagation()"
+        >
+
+            <button
+                class="modal-close"
+                onclick="closeCharacter()"
+                aria-label="إغلاق"
+            >
+                ×
+            </button>
+
+            <img
+                id="modalImage"
+                class="modal-image"
+                src=""
+                alt=""
+            >
+
+            <h2
+                id="modalTitle"
+                class="modal-title"
+            ></h2>
+
+            <p
+                id="modalDescription"
+                class="modal-description"
+            ></p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================================
+           بيانات الشخصيات
+           ========================================= */
+
+        const characters = {
+
+            sair: {
+                name: "سائر الفراغ",
+
+                image:
+                    "assets/character-sair-placeholder.svg",
+
+                description:
+                    "ضع هنا الوصف الرسمي للشخصية."
+            },
+
+            yasin: {
+                name: "ياسين",
+
+                image:
+                    "assets/character-yasin-placeholder.svg",
+
+                description:
+                    "ضع هنا الوصف الرسمي للشخصية."
+            }
+
+        };
+
+
+        /* =========================================
+           فتح ملف الشخصية
+           ========================================= */
+
+        function openCharacter(id) {
+
+            const character = characters[id];
+
+            if (!character) {
+                return;
+            }
+
+            document.getElementById("modalTitle")
+                .textContent = character.name;
+
+            document.getElementById("modalDescription")
+                .textContent = character.description;
+
+            const image =
+                document.getElementById("modalImage");
+
+            image.src = character.image;
+            image.alt = character.name;
+
+            document
+                .getElementById("characterModal")
+                .classList.add("active");
+        }
+
+
+        /* =========================================
+           إغلاق الملف
+           ========================================= */
+
+        function closeCharacter(event) {
+
+            if (
+                event &&
+                event.target !==
+                document.getElementById("characterModal")
+            ) {
+                return;
+            }
+
+            document
+                .getElementById("characterModal")
+                .classList.remove("active");
+        }
+
+
+        /* =========================================
+           البحث
+           ========================================= */
+
+        const searchInput =
+            document.getElementById("characterSearch");
+
+        const cards =
+            document.querySelectorAll(".character-card");
+
+        const noResults =
+            document.getElementById("noResults");
+
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const query =
+                    this.value
+                        .trim()
+                        .toLowerCase();
+
+                let visibleCount = 0;
+
+                cards.forEach(function (card) {
+
+                    const name =
+                        card.dataset.name
+                            .toLowerCase();
+
+                    const matches =
+                        name.includes(query);
+
+                    card.style.display =
+                        matches ? "" : "none";
+
+                    if (matches) {
+                        visibleCount++;
+                    }
+
+                });
+
+                noResults.style.display =
+                    visibleCount === 0
+                        ? "block"
+                        : "none";
+            }
+        );
+
+
+        /* =========================================
+           ESC لإغلاق الملف
+           ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+                    closeCharacter();
+                }
+
+            }
+        );
+
+    </script>
+
+
+<script>
+// Progressive Web App support is available on HTTPS/localhost; file:// previews skip it safely.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(error => console.warn('[Eye of Chaos] Offline cache unavailable:', error)));
+}
+</script>
+<script src="js/brain/security/policy.js"></script>
+<script src="js/brain/security/input.js"></script>
+<script src="js/brain/security/storage.js"></script>
+<script src="js/brain/security/index.js"></script>
+<script src="js/kernel/eventBus.js"></script><script src="js/kernel/resultBus.js"></script><script src="js/kernel/serviceRegistry.js"></script><script src="js/kernel/intentEngine.js"></script><script src="js/kernel/taskRouter.js"></script><script src="js/kernel/diagnostics.js"></script><script src="js/kernel/kernel.js"></script><script src="js/chaos-layer.js"></script>
+<script src="js/cloud/syncEngine.js"></script>
+<script src="js/brain/cognition/languageEngine.js"></script>
+<script src="js/kernel/unifiedCore.js"></script>
+<script src="js/system-core.js"></script>
+<script src="js/brain/cognition/adaptiveAgent.js"></script><script src="js/chaosPresence.js"></script></body>
+</html>
