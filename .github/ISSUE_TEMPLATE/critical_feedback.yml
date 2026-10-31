@@ -1,0 +1,30 @@
+name: Critical feedback
+description: Explain what is bad, broken, confusing, or needs redesign.
+title: "[Critical feedback]: "
+labels: [feedback, needs-triage]
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is the problem?
+      description: Be direct. The project welcomes negative assessments.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Why does it matter?
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What should change?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Examples, reproduction steps, screenshots, or logs
+    validations:
+      required: false
