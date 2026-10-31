@@ -1,0 +1,27 @@
+/* CHAOSOS App Manager v2.4.2. Registry for apps present in the launcher. */
+(function(g){'use strict';const apps=[
+{id:'terminal',title:'CHAOS SYSTEM / نواة اللغة',path:'terminal/index.html',icon:'⌘',core:true,permissions:['storage','network']},
+{id:'characters',title:'أرشيف الشخصيات',path:'characters.html',icon:'👁',core:true,permissions:['storage']},
+{id:'chapters',title:'أرشيف الفصول',path:'chapters.html',icon:'▤',core:true,permissions:['storage']},
+{id:'settings',title:'إعدادات CHAOSOS',path:'settings.html',icon:'⚙',core:true,permissions:['storage']},
+{id:'chaos-lab',title:'CHAOS Lab',path:'apps/chaos-lab/index.html',icon:'◈',core:false,permissions:['storage']},
+{id:'void-arcade',title:'Void Arcade',path:'apps/void-arcade/index.html',icon:'✦',core:false,permissions:['storage']},
+{id:'void-game-manager',title:'Void Game Manager — مدير الألعاب',path:'apps/void-game-manager/index.html',icon:'🎮',core:true,permissions:['storage']},
+{id:'tube',title:'VoidTube',path:'apps/voidtube/index.html',icon:'▶',core:false,permissions:['storage']},
+{id:'store',title:'Void Store',path:'apps/void-store/index.html',icon:'▦',core:true,permissions:['network','storage']},
+{id:'notes',title:'Void Notes',path:'apps/void-notes/index.html',icon:'▤',core:false,permissions:['storage']},
+{id:'calculator',title:'Void Calculator',path:'apps/void-calculator/index.html',icon:'⌗',core:true,permissions:[]},
+{id:'planner',title:'Void Planner',path:'apps/void-planner/index.html',icon:'✓',core:false,permissions:['storage','notifications']},
+{id:'files',title:'Void Files',path:'apps/void-files/index.html',icon:'▣',core:false,permissions:['storage']},
+{id:'calendar',title:'Void Calendar',path:'apps/void-calendar/index.html',icon:'▦',core:false,permissions:['storage','notifications']},
+{id:'browser',title:'VoidBrowserX',path:'apps/void-browserx/index.html',icon:'🌐',core:false,permissions:['network','storage']},
+{id:'manager',title:'مدير التطبيقات',path:'apps/void-manager/index.html',icon:'▤',core:true,permissions:['storage']},
+{id:'chaosai-center',title:'مركز إدراك CHAOSAI',path:'apps/chaosai-center/index.html',icon:'◈',core:true,permissions:['storage','network']},
+{id:'phone',title:'الهاتف',path:'apps/void-phone/index.html',icon:'☎',core:false,permissions:['storage']},
+{id:'messages',title:'الرسائل',path:'apps/void-messages/index.html',icon:'✉',core:false,permissions:['storage']},
+{id:'mail',title:'البريد',path:'apps/void-mail/index.html',icon:'＠',core:false,permissions:[]},
+{id:'camera',title:'الكاميرا',path:'apps/void-camera/index.html',icon:'◎',core:false,permissions:['camera','storage']},
+{id:'gallery',title:'المعرض',path:'apps/void-gallery/index.html',icon:'▧',core:false,permissions:['storage']},
+{id:'downloads',title:'التنزيلات',path:'apps/void-downloads/index.html',icon:'↓',core:false,permissions:['storage']},
+{id:'discovery',title:'مستكشف التطبيقات والويب',path:'apps/void-discovery/index.html',icon:'⌕',core:true,permissions:['network','storage']}
+];function list(){return apps.map(a=>({...a,state:g.VoidPermissionManager?.get(a.id)||{enabled:true,grants:{}}}))}function get(id){const a=apps.find(x=>x.id===String(id).toLowerCase());return a?{...a,state:g.VoidPermissionManager?.get(a.id)||{enabled:true,grants:{}}}:null}function byPath(path){return apps.find(a=>a.path===path)||null}g.VoidAppManager={version:'3.0.0',list,get,byPath}})(window);

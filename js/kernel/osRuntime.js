@@ -1,0 +1,9 @@
+/* CHAOSOS OS Runtime v3.1.6 — managed app/process lifecycle for the web runtime. */
+(function(g){'use strict';const apps=new Map(),events=g.VoidEventBus;let sequence=0;
+function launch(id,meta={}){const key=String(id||'').trim();if(!key)return{ok:false,code:'INVALID_APP_ID'};const old=apps.get(key);if(old&&old.state==='running'){old.lastFocusedAt=Date.now();events?.emit('app:focused',{id:key});return{ok:true,app:{...old},existing:true};}const app={id:key,title:String(meta.title||key),path:String(meta.path||''),state:'running',pid:++sequence,startedAt:Date.now(),lastFocusedAt:Date.now(),permissions:Array.isArray(meta.permissions)?meta.permissions.slice():[]};apps.set(key,app);events?.emit('app:launched',{...app});return{ok:true,app:{...app}};}
+function suspend(id){const a=apps.get(String(id));if(!a)return{ok:false,code:'APP_NOT_FOUND'};a.state='suspended';a.suspendedAt=Date.now();events?.emit('app:suspended',{id:a.id,pid:a.pid});return{ok:true,app:{...a}};}
+function resume(id){const a=apps.get(String(id));if(!a)return{ok:false,code:'APP_NOT_FOUND'};a.state='running';a.lastFocusedAt=Date.now();events?.emit('app:resumed',{id:a.id,pid:a.pid});return{ok:true,app:{...a}};}
+function terminate(id){const a=apps.get(String(id));if(!a)return{ok:false,code:'APP_NOT_FOUND'};a.state='terminated';a.terminatedAt=Date.now();apps.delete(String(id));events?.emit('app:terminated',{id:a.id,pid:a.pid});return{ok:true};}
+function list(){return[...apps.values()].map(a=>({...a}));}function stats(){return{running: [...apps.values()].filter(a=>a.state==='running').length,suspended:[...apps.values()].filter(a=>a.state==='suspended').length,total:apps.size,nextPid:sequence+1};}
+g.VoidOSRuntime={version:'3.1.6',launch,suspend,resume,terminate,list,stats,health:()=>({ok:true,mode:'web-runtime',nativeKernel:false,processCount:apps.size})};
+})(window);
