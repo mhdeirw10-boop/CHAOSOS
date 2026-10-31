@@ -1,0 +1,7 @@
+VOIDTUBE LOCAL MEDIA ASSETS
+
+Asset directory: apps/voidtube/assets/
+
+Place locally owned or properly licensed image, icon, poster, and other static media assets in this directory. Reference assets by paths relative to the relevant VoidTube HTML/CSS/JavaScript file. Avoid large duplicated copies and never include private or copyrighted files without permission.
+
+The old inline README.txt instruction for this directory was moved here so that application folders no longer contain separate README files.
