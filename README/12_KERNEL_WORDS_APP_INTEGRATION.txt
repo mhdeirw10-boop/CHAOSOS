@@ -1,0 +1,26 @@
+CHAOSOS v3.1.3 EXPERIMENTAL — HISTORICAL PATH MAP (SUPERSEDED IN v3.1.4)
+
+KERNEL HEALTH: js/kernel/healthManager.js
+PRESENCE DIRECTOR: js/kernel/presenceDirector.js
+ADAPTIVE TASK PLANNER: js/kernel/adaptiveTaskPlanner.js
+APP LIFECYCLE: js/kernel/appLifecycleManager.js
+
+WORD MODULES:
+- js/brain/words/registry.js — normalisation, registration, lookup, module orchestration
+- js/brain/words/commands.js — explicit executable command words only
+- js/brain/words/identity.js — system identity and project terms
+- js/brain/words/ordinary.js — ordinary questions only; specialized phrases are split into relationships.js, locations.js, and countries.js
+- js/brain/words/archive.js and darkThemes.js — archive and dark vocabulary; stories.js handles story requests
+- js/brain/words/banter.js — playful responses; jokes.js handles joke requests
+- js/brain/words/links.js — curated education/source links; availability is not checked live
+- The old js/brain/commands.js compatibility shim was removed in v3.1.4; the only command dispatcher is js/brain/words/commands.js.
+- js/brain/knowledgeModules/legacy.js — compatibility adapter over CHAOSWords
+
+APP INTEGRATION:
+- apps/void-manager/index.html — diagnostics, activity, favorites and export
+- apps/chaosai-center/index.html — health check, explicit recovery confirmation and bounded diagnostic planning
+- apps/void-game-manager/index.html — local presence and shared application usage indicators
+
+The usage log stores app identifiers/paths/times/counts, not prompts or application contents. The supervisor never restarts services automatically; safe recovery must be requested explicitly.
+
+For the current module map, see README/13_MODULAR_WORDS_ARCHITECTURE.txt. The unused js/brain/knowledge.js table was migrated into js/brain/words/knowledgeBase.js in v3.1.4.

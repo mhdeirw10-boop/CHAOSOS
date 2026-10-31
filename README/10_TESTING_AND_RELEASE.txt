@@ -1,0 +1,13 @@
+TESTING AND RELEASE CHECKLIST
+
+Run the available local regression suites from eye_of_chaos_site/:
+  node tests/run-all-tests.cjs
+
+The release process should also:
+- regenerate project-index.json using tests/generate-project-index.cjs;
+- run tests/release-audit.cjs and tests/release-consistency-tests.cjs;
+- verify that critical source files match their counterparts in cordova-project/www/;
+- inspect JavaScript syntax and HTML local references;
+- unpack the final ZIP into a clean directory and rerun tests there.
+
+Automated Node.js tests and static audits do not prove visual correctness in WebView, hardware audio behavior, runtime permission outcomes, performance on a real phone, a successful APK build, or production security. Those must be reported as separate checks, never inferred from passing unit tests.

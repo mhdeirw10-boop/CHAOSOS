@@ -1,0 +1,14 @@
+CHAOSAI LOCAL LANGUAGE RUNTIME
+
+IMPORTANT PATHS
+- js/brain/cognition/localLanguageRuntime.js — new v3.1.0 hybrid local language runtime.
+- js/brain/cognition/adaptiveAgent.js — bounded planning agent.
+- js/brain/cognition/cognitiveEngine.js — intent analysis, outcome feedback, and optional explicit cloud requests.
+- js/brain/cognition/languageEngine.js — plan and routing language layer.
+- js/brain/localNgramModel.js — statistical bigram/trigram generation from a bounded local corpus.
+- js/brain/knowledgeModules/ — domain-specific local knowledge modules.
+- js/brain/hippocampus/ — local memory components.
+
+The runtime prioritizes exact local calculations, registered knowledge modules, and declared system capabilities. It keeps short conversational context in memory for the current page session; it does not automatically save raw prompts as training data. Statistical text generation is exposed separately and labelled as generated, not verified fact.
+
+This is closer to a compact language assistant because it combines intent classification, retrieval, local context, safe computation, and an optional statistical generator. It is NOT a trained transformer/LLM and does not have human-like general reasoning. A real neural model would require a trained model file and an inference runtime, or an explicitly configured external provider.

@@ -1,0 +1,10 @@
+VOID GAME MANAGER
+
+PRIMARY PATH
+- apps/void-game-manager/index.html — local game library UI, IndexedDB import storage, play sessions, favorites, filters, stats, and exports.
+- js/appCatalog.js — catalog of built-in project apps, including the game manager entry.
+- tests/game-manager-v300-tests.cjs and tests/game-manager-v310-tests.cjs — manager regression tests.
+
+Built-in catalog entries open local project apps. Standalone HTML imports are stored in IndexedDB and opened in a sandboxed iframe. The v3.1.0 import policy is local-first: imported HTML is bounded in size, validated as HTML, and run without same-origin privileges; external network references are rejected or blocked by the isolated content policy.
+
+The manager does not install APKs, inspect Android's installed-game list, or read another app's private storage. It records its own game launches and playtime only. Exported statistics are a user-triggered JSON download; they are not uploaded.

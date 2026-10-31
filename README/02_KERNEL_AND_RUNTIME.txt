@@ -1,0 +1,13 @@
+KERNEL AND LOCAL RUNTIME
+
+PRIMARY PATHS
+- js/kernel/kernel.js — shared kernel facade and registered application services.
+- js/kernel/eventBus.js — in-page publish/subscribe events.
+- js/kernel/serviceRegistry.js — named service metadata and optional invoke handlers.
+- js/kernel/unifiedCore.js — bounded tool registry, plans, safety checks, and explainable local execution.
+- js/kernel/runtimeOrchestrator.js — v3.1.0 orchestration facade with module inventory, explicit capability checks, and health reporting.
+- js/platform/androidBridge.js — reports declared native capabilities; it does not bypass permissions.
+
+The runtime is independent of Android APIs for its core tasks: routing, eventing, local storage, local knowledge, and web-app launch can work in a normal browser/WebView. Hardware-specific actions remain optional adapters. An unavailable native feature must return an explicit unavailable result rather than pretending to succeed.
+
+Mutating tool calls require explicit confirmation metadata. The runtime should not execute user-generated code, issue shell commands, or treat a registered app path as permission to read its private data.

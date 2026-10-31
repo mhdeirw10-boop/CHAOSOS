@@ -1,0 +1,12 @@
+CORDOVA AND ANDROID PACKAGING
+
+PROJECT PATHS
+- cordova-project/config.xml — Cordova application metadata and plugin declarations.
+- cordova-project/package.json — JavaScript project metadata and scripts.
+- cordova-project/www/ — packaged web application payload.
+- project-source/cordova-project/ — preserved project-source copy used by existing tooling.
+- js/platform/androidBridge.js — capability contract for optional native integrations.
+
+The web runtime should remain useful without native plugins. Cordova plugins can expose selected features, but native behavior requires a declared plugin, proper Android manifest configuration, and runtime permission handling. Code must report missing capability/denied permission clearly.
+
+This experimental archive does not assert that an APK was built, installed, or physically tested. Build commands are recorded in package.json. Native OS replacement, background services that outlive Android restrictions, arbitrary app management, and privileged access require a separately designed native implementation and platform review.

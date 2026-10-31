@@ -1,0 +1,10 @@
+VOIDBROWSERX
+
+PRIMARY PATHS
+- apps/void-browserx/ — browser application UI.
+- js/brain/webSearch.js — public search provider requests and safe URL validation.
+- js/brain/hippocampus/webMemory.js — bounded local search-result memory.
+
+Search depends on provider availability, network access, CORS behavior, and each provider's current API. The app can show a provider or network failure rather than inventing search results. Search memory stores limited results obtained by the user; it is not a general web crawler. Some websites deny embedding in iframes, and an optional Cordova InAppBrowser path may be available in a packaged build.
+
+The app's local permissions are not Android's native permissions. Avoid entering credentials on untrusted pages. The app does not automatically send conversation history to search providers.

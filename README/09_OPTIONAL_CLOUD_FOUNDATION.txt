@@ -1,0 +1,12 @@
+OPTIONAL CLOUD FOUNDATION
+
+PRIMARY PATHS
+- cloud/server.cjs — experimental Node.js development server.
+- cloud/providers/openai-compatible.cjs — optional model-provider adapter.
+- js/cloud/cloudAdapter.js — opt-in browser client boundary.
+- js/cloud/aiGateway.js — explicit cloud AI request interface.
+- js/cloud/syncEngine.js — manual, consent-gated synchronization.
+
+Cloud features are disabled by default and are not published by this project archive. A local development server is not a production service. Never put provider API keys in client JavaScript or public repository files.
+
+Before production deployment, add verified authentication, TLS termination, permanent storage and migrations, deletion/retention policy, rate limiting across instances, monitoring, and independent security testing. Review the upstream AI provider's data policies before sending content. Only the user's explicitly approved prompt/preferences may be sent for a request; raw conversation history must not be silently attached.

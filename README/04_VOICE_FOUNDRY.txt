@@ -1,0 +1,29 @@
+VOICE FOUNDRY
+
+FILES
+- js/brain/voice/voiceEngine.js — v3.1.0 procedural electronic voice engine; it synthesizes sound at runtime using Web Audio and does not require downloaded or prerecorded voice files.
+- js/brain/voice/voiceStudio.js — controls in the CHAOSAI Cognitive Center.
+- apps/chaosai-center/index.html — voice text, pitch, speed, volume, preview, and stop controls.
+
+The procedural mode aims for a deliberately synthetic/machine-like texture. It uses oscillators, envelopes, filters, pauses, and generated noise bursts. It will sound more like an electronic machine than natural human speech; the waveform is not a neural speech model, and Arabic intelligibility is limited by design. It does not require Android's installed voices.
+
+The optional platform mode delegates to the Web Speech API only when selected and available. The procedural mode must remain usable without that API. Playback starts after a user action because browsers restrict automatic audio playback. The stop control cancels scheduled sources.
+
+
+COSMIC PRESENCE EXPERIMENT (v3.1.1-experimental)
+- js/brain/voice/chaosPresenceAudio.js — local procedural ambience cues: awakening, thinking, warning, heartbeat, and release. It uses Web Audio oscillators, filters, generated noise, and envelopes; no audio assets, network calls, or remote TTS are used.
+- apps/chaosai-center/index.html — buttons for explicit playback and a collapsed optional short-phrase speech panel. Audio never autoplays.
+- sw.js — caches the new module under a bumped shell cache name.
+
+Limitations: these are designed sound effects, not a natural human voice or a neural speech model. The existing procedural speech engine has limited intelligibility. Actual Android playback still needs device/WebView testing.
+
+Validation report: CHAOSOS_v3_1_1_COSMIC_PRESENCE_TEST_REPORT.md. The report separates Node/source tests from physical Android verification.
+
+
+HYBRID VOICE EXPERIMENT (v3.1.2-experimental)
+- js/brain/voice/hybridVoice.js routes optional speech through a configured trusted HTTPS proxy, then falls back to the local procedural voice if remote speech is unavailable.
+- cloud/chaosai-voice-proxy.cjs is a Node.js handler example for POST /api/chaosai/voice. It reads ELEVENLABS_API_KEY only from server environment variables and pins the voice ID to server configuration; the browser never stores the provider key.
+- The client sends only the selected phrase and voice-generation settings after the user presses a speech button. A configured proxy may receive that text.
+- A proxy is not bundled/deployed automatically: the endpoint must be hosted by the project owner, with provider terms, model availability, network security, and rate limits verified. If no endpoint is configured or a request fails, the app returns to local procedural speech.
+- The local speech fallback remains synthetic and has limited intelligibility; the remote path is not available offline. Cosmic ambience effects remain fully local.
+- Tests: tests/hybrid-voice-v312-tests.cjs and tests/voice-proxy-v312-tests.cjs. No APK or physical-device audio test is claimed.
