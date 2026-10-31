@@ -1,0 +1,22 @@
+SYSTEM OVERVIEW — CHAOSOS v3.1.0
+
+CHAOSOS combines a mobile-first web shell, local applications, a shared JavaScript kernel, knowledge modules, cognitive routing, and a Cordova packaging project.
+
+MAIN ENTRY POINTS
+- index.html: operating-system-like home shell and application launcher.
+- terminal/index.html: CHAOS SYSTEM conversation/command interface.
+- apps/chaosai-center/index.html: cognition, local language runtime, services, task queue, optional cloud controls, and procedural voice controls.
+- apps/void-game-manager/index.html: local web-game library and imported standalone HTML games.
+- settings.html: system preferences and diagnostics.
+- chapters.html and characters.html: Eye of Chaos archives.
+
+CORE DIRECTORIES
+- js/kernel/: event bus, service registry, permission/contracts, task handling, and runtime orchestration.
+- js/brain/: CHAOS SYSTEM cognition, language, knowledge modules, memory, security, and local voice.
+- apps/: built-in applications.
+- cloud/: optional experimental Node.js development server and provider adapter.
+- cordova-project/: Android packaging workspace.
+- tests/: repeatable Node.js regression tests and release audits.
+- README/: consolidated English project documentation.
+
+This is a web-first OS-like environment. It does not replace Android's kernel, cannot silently access other applications' private storage, and cannot gain privileged Android controls without explicit native plugins and Android permissions.
