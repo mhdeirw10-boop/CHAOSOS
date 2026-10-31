@@ -1,0 +1,28 @@
+IMPORTANT FILE PATHS
+
+System home: index.html
+Terminal: terminal/index.html
+CHAOSAI center: apps/chaosai-center/index.html
+Game manager: apps/void-game-manager/index.html
+System kernel: js/kernel/kernel.js
+Unified orchestration facade: js/kernel/unifiedCore.js
+Runtime orchestrator: js/kernel/runtimeOrchestrator.js
+Event bus: js/kernel/eventBus.js
+Service registry: js/kernel/serviceRegistry.js
+CHAOSAI hybrid local language runtime: js/brain/cognition/localLanguageRuntime.js
+Bounded planning agent: js/brain/cognition/adaptiveAgent.js
+Statistical local language model: js/brain/localNgramModel.js
+Knowledge modules: js/brain/knowledgeModules/
+Voice engine: js/brain/voice/voiceEngine.js
+Voice studio controls: js/brain/voice/voiceStudio.js
+System-wide unobtrusive CHAOSAI presence: js/chaosPresence.js
+App catalog: js/appCatalog.js
+Android capability contract: js/platform/androidBridge.js
+Optional cloud server: cloud/server.cjs
+Cordova manifest: cordova-project/config.xml
+Cordova web payload: cordova-project/www/
+Tests: tests/
+Central documentation: README/
+
+Cosmic voice effects: js/brain/voice/chaosPresenceAudio.js
+Cosmic voice controls: apps/chaosai-center/index.html (CHAOSAI Cosmic Presence section)

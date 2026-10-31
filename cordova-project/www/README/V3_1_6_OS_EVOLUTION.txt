@@ -1,0 +1,28 @@
+CHAOSOS V3.1.6 — OS EVOLUTION EXPERIMENTAL
+
+NEW OS RUNTIME
+- js/kernel/osRuntime.js
+- js/kernel/kernel.js (v3.1.6 metadata and routing integration)
+- js/kernel/osServices.js (supervised OS runtime service)
+- js/app.js (shell application lifecycle integration)
+
+CHAOSAI CONTEXT / INTENT / PERSONA
+- js/brain/contextEngine.js
+- js/brain/intentRouter.js
+- js/brain/personaEngine.js
+- js/brain/cognition/localLanguageRuntime.js (integration)
+
+APPLICATION MODULARIZATION
+All 20 apps now have an app-local css/app.css and js/app.js entry point. Inline CSS and JavaScript were extracted into app-local CSS/JS folders where present. Existing app modules were preserved.
+
+VOIDTUBE
+- apps/voidtube/index.html: mobile bottom navigation and central + button.
+- apps/voidtube/css/app.css: Eye of Chaos styling and mobile layout.
+- apps/voidtube/js/app.js: IndexedDB local media storage, comments, replies, simulated follower bots.
+- Local video duration limit remains 60 minutes.
+
+TEST REPORT
+See V3_1_6_TEST_REPORT.md.
+
+IMPORTANT BOUNDARIES
+This is a web/Android-WebView OS-like runtime, not a native OS kernel. Bot followers are simulated and clearly labelled. Local media is not uploaded to a server. No Android APK/device test is claimed.

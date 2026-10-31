@@ -1,0 +1,32 @@
+CHAOSOS v3.1.4 — Modular Words Architecture
+
+The words system stores conversational phrase data separately from executable commands.
+
+Word modules under js/brain/words/:
+- registry.js — normalization, registration, matching, and resolution
+- greetings.js — greetings
+- identity.js — CHAOS SYSTEM identity and project ownership
+- aiTools.js — AI tool/provider names
+- ordinary.js — ordinary questions and conversational phrases
+- relationships.js — relationship terms
+- locations.js — places and directions
+- countries.js — country-name phrase responses
+- archive.js — secrets, access, unknown and risk vocabulary
+- darkThemes.js — dark/horror vocabulary
+- banter.js — insults and short banter responses
+- stories.js — local story-request handler
+- jokes.js — local joke-request handler
+- links.js — curated educational-link intent
+- knowledgeBase.js — migrated legacy keyword responses
+- commands.js — explicit commands only: help, status, about, clear, and their aliases
+
+The command module is an internal dispatch table. Users do not need to open it; the terminal help surface should describe supported commands. Word modules only provide phrase matches or bounded handlers and do not execute arbitrary code.
+
+The old js/brain/commands.js compatibility shim and unused js/brain/knowledge.js global knowledgeBase were removed after all script references were migrated. The website and Cordova www copies must remain identical.
+
+
+V3.1.5 EXTENSION
+- New modules: courtesy.js, emotions.js, technology.js, philosophy.js, naturalConversation.js, secrets.js.
+- Arabic normalization is more consistent; whole-phrase fallback prioritizes longer matches.
+- `resolveHandlers()` runs pattern handlers ahead of static lookup to keep intent handlers from being bypassed by a generic language fallback.
+- See README/14_NATURAL_VOCABULARY_SECRET_PERSONA.txt for the secret-persona rule and privacy limits.
