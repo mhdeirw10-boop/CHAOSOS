@@ -1,0 +1,40 @@
+:root {
+  --bg: #050507;
+  --panel: #0d0e12;
+  --line: #1d2029;
+  --text: #d8dae5;
+  --muted: #8a8f9e;
+  --a: #9e1b1b;
+  --a-glow: rgba(158, 27, 27, 0.3);
+}
+
+/* --- ثيم الأبيض البارد (لراحة القراءة وسهولة الرؤية) --- */
+body.theme-light-text {
+  --text: #f0f2f5;
+  --muted: #b0b8c4;
+  --line: #2a2e3d;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card, fieldset, nav, header, footer {
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.nav-links a {
+  color: var(--text) !important;
+  text-decoration: none;
+  padding: 10px 0;
+  display: block;
+}
+
+.nav-links {
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  padding: 15px;
+}

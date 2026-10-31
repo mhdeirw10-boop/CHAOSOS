@@ -1,0 +1,52 @@
+/* Add-on styles only; original settings logic and controls remain untouched. */
+.settings-extension { margin-top: 22px; }
+.settings-extension .setting-card { margin-top: 16px; }
+.settings-extension p { line-height: 1.7; }
+.settings-extension textarea { display:block; width:100%; min-height:92px; resize:vertical; margin:12px 0; padding:12px; border:1px solid #343744; border-radius:8px; background:#090a0f; color:#f3f4f6; font:inherit; }
+.settings-extension button { max-width:100%; white-space:normal; }
+.extension-actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:12px; }
+.extension-btn { padding:10px 13px; border:1px solid #00ff66; border-radius:7px; background:#07130c; color:#00ff66; }
+.extension-btn.danger { border-color:#e05252; color:#ff8d8d; background:#1a090b; }
+.extension-status { margin-top:10px; min-height:1.5em; color:#9debb7; font-size:.9rem; overflow-wrap:anywhere; }
+.saved-memory-list { list-style:none; padding:0; margin:14px 0 0; display:grid; gap:9px; }
+.saved-memory-item { display:flex; align-items:flex-start; gap:10px; justify-content:space-between; padding:12px; border:1px solid #292d38; border-radius:8px; background:#0c0d12; }
+.saved-memory-text { flex:1; min-width:0; white-space:pre-wrap; overflow-wrap:anywhere; }
+.saved-memory-date { display:block; color:#858b9a; font-size:.75rem; margin-top:6px; }
+.saved-memory-item .extension-btn { flex:0 0 auto; padding:6px 9px; }
+.extension-muted { color:#999eac; font-size:.85rem; }
+@media (max-width:600px) {
+  .settings-container { width:100%; padding:22px 14px; }
+  .settings-container h1 { font-size:1.45rem; line-height:1.5; overflow-wrap:anywhere; }
+  .setting-card { padding:16px !important; }
+  .extension-actions { flex-direction:column; }
+  .extension-actions button { width:100%; }
+  .saved-memory-item { flex-direction:column; }
+  .saved-memory-item .extension-btn { width:100%; }
+}
+
+.diagnostics-output { max-height:360px; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; padding:12px; border:1px solid #292d38; border-radius:8px; background:#08090e; color:#c6f5d4; font:12px/1.65 ui-monospace,monospace; }
+#chaosBackupFile { max-width:100%; }
+
+.extension-search { display:block; box-sizing:border-box; width:100%; margin:8px 0 12px; padding:10px; border:1px solid #343744; border-radius:8px; background:#090a0f; color:#f3f4f6; font:inherit; }
+
+.extension-toggle { display:flex; align-items:center; gap:10px; margin:12px 0; color:#e3e6ee; }
+.extension-toggle input { width:20px; height:20px; accent-color:#00ff66; }
+
+
+/* v2.3.0 VoidOS system settings and responsive hamburger navigation */
+.settings-extension .system-preferences-card{border:1px solid #e43b5550!important;background:linear-gradient(145deg,#161221,#0a0b11)!important}
+.settings-extension .system-preferences-card h3{color:#ff8ca0}
+.extension-field{display:block;margin:13px 0;color:#e3e6ee;font-size:.92rem}
+.extension-field select,.extension-field input[type="range"]{display:block;width:100%;margin-top:8px;min-height:40px;border:1px solid #343744;border-radius:8px;background:#090a0f;color:#f3f4f6;padding:8px;accent-color:#e43b55}
+.settings-extension [hidden],.settings-container .setting-card[hidden]{display:none!important}
+#settingsNavigationCard{scroll-margin-top:82px}
+.settings-extension .setting-card{scroll-margin-top:80px}
+.settings-extension .extension-btn:focus-visible,#openSidebar:focus-visible,#closeSidebar:focus-visible{outline:2px solid #00ff66;outline-offset:3px}
+.sidebar{z-index:350;overflow:auto}
+@media(max-width:600px){.settings-extension .system-preferences-card .extension-actions{display:grid;grid-template-columns:1fr}.settings-extension .system-preferences-card .extension-actions button{width:100%}#openSidebar{position:sticky;top:8px;z-index:120;margin:10px 12px 0 auto}}
+
+.menu-btn{display:inline-flex;align-items:center;gap:8px;position:relative;z-index:210;margin:12px 12px 0 auto;padding:10px 14px;border:1px solid #00ff66;border-radius:8px;background:#07130c;color:#00ff66;font:inherit;font-size:13px;cursor:pointer}
+#sidebar .sidebar-links{display:flex;flex-direction:column;gap:5px;padding:20px 12px}
+#sidebar .sidebar-links a{display:block;padding:13px 14px;color:#00ff66!important;text-decoration:none;border:1px solid transparent;border-radius:8px;line-height:1.5;overflow-wrap:anywhere}
+#sidebar .sidebar-links a:hover,#sidebar .sidebar-links a.active{background:#0d0d12;border-color:#00ff6650}
+#sidebar .sidebar-links a:focus-visible{outline:2px solid #00ff66;outline-offset:2px}

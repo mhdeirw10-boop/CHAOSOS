@@ -1,0 +1,388 @@
+/* ==========================================
+   1. الإعدادات العامة والأساسية للنظام
+   ========================================== */
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #08080b;
+  color: #fff;
+}
+
+/* ==========================================
+   2. الهيدر والقائمة العلوية
+   ========================================== */
+header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #050507dd;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line, #1a1a24);
+}
+
+.logo {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+/* زر الهامبرغر للجوال */
+#menu {
+  background: transparent;
+  border: 1px solid #00ff66;
+  color: #00ff66;
+  font-size: 18px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* روابط القائمة */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav a {
+  color: #00ff66 !important;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ==========================================
+   3. الأزرار والعناصر المشتركة
+   ========================================== */
+.btn {
+  color: #00ff66 !important;
+  border: 1px solid #00ff66;
+  padding: 8px 16px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.btn.ghost {
+  color: #888 !important;
+  border-color: #333;
+}
+
+/* ==========================================
+   4. هيكل الأقسام والنصوص (عام)
+   ========================================== */
+.hero {
+  min-height: 100vh;
+  padding: 150px 8% 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero > div:first-child {
+  max-width: 700px;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+  margin: 20px 0;
+}
+
+section {
+  padding: 110px 8%;
+  border-top: 1px solid var(--line, #1a1a24);
+}
+
+h2 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  margin: 10px 0 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.cards.three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+article {
+  background: var(--panel, #0d0d12);
+  border: 1px solid var(--line, #1a1a24);
+  padding: 28px;
+}
+
+.chapter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line, #1a1a24);
+}
+
+/* ==========================================
+   5. واجهة الترمينال (Terminal)
+   ========================================== */
+.terminal {
+  max-width: 900px;
+  background: #020203;
+  border: 1px solid #333;
+  font-family: monospace;
+  direction: ltr;
+  text-align: left;
+}
+
+.terminal > div {
+  padding: 10px 15px;
+  border-bottom: 1px solid #333;
+  color: var(--muted, #888);
+}
+
+.terminal pre {
+  min-height: 160px;
+  padding: 20px;
+  color: var(--a, #00ff66);
+  white-space: pre-wrap;
+}
+
+.terminal label {
+  display: block;
+  padding: 15px;
+  border-top: 1px solid #333;
+  color: var(--a, #00ff66);
+}
+
+.terminal input {
+  background: none;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  font: inherit;
+  width: 90%;
+}
+
+footer {
+  text-align: center;
+  padding: 35px;
+  color: var(--muted, #888);
+  border-top: 1px solid var(--line, #1a1a24);
+}
+
+
+/* ==========================================================
+   6. بيئة الكمبيوتر (Desktop Environment - شاشات أكبر من 751px)
+   ========================================================== */
+@media (min-width: 751px) {
+  /* إخفاء زر الهامبرغر في الكمبيوتر */
+  #menu {
+    display: none;
+  }
+
+  /* تحديد الحد الأقصى لعرض المحتوى وتنظيمه في المنتصف مع الحفاظ على المسافات */
+  main, section {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+
+/* ==========================================================
+   7. بيئة الهاتف (Mobile Environment - شاشات أقل من 750px)
+   ========================================================== */
+@media (max-width: 750px) {
+  /* إظهار زر الهامبرغر في الجوال */
+  #menu {
+    display: block;
+  }
+
+  /* تنسيق قائمة الجوال المنسدلة عند التفعيل */
+  header nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #08080bdd;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--line, #1a1a24);
+    padding: 20px;
+    gap: 15px;
+  }
+
+  header.active nav {
+    display: flex;
+  }
+
+  /* إعادة ترتيب عناصر الـ Hero لتناسب شاشات الهواتف الضيقة */
+  .hero {
+    flex-direction: column;
+    padding-top: 120px;
+  }
+
+  /* جعل البطاقات تظهر عمودياً (عمود واحد) في الجوال */
+  .cards, .cards.three {
+    grid-template-columns: 1fr;
+  }
+}
+/* ==========================================================
+   8. القائمة الجانبية - Sidebar
+   ========================================================== */
+
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-width: 85vw;
+  height: 100vh;
+
+  background: #08080b;
+  border-left: 1px solid var(--line, #1a1a24);
+
+  z-index: 200;
+
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.45);
+}
+
+/* عند فتح القائمة */
+#sidebar.active {
+  transform: translateX(0);
+}
+
+/* رأس القائمة */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px;
+  border-bottom: 1px solid var(--line, #1a1a24);
+
+  color: #00ff66;
+  font-weight: 900;
+}
+
+/* زر الإغلاق */
+#closeSidebar {
+  background: transparent;
+  border: 1px solid #333;
+  color: #fff;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-size: 22px;
+  line-height: 1;
+}
+
+#closeSidebar:hover {
+  color: #00ff66;
+  border-color: #00ff66;
+}
+
+/* روابط القائمة الجانبية */
+.sidebar-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding: 20px 12px;
+}
+
+/* نستخدم specificity أعلى حتى لا تتأثر بقواعد nav العامة */
+#sidebar .sidebar-navigation a {
+  display: block;
+
+  padding: 14px 16px;
+
+  color: #00ff66 !important;
+  text-decoration: none;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    padding-right 0.2s ease;
+}
+
+#sidebar .sidebar-navigation a:hover {
+  background: #0d0d12;
+  border-color: var(--line, #1a1a24);
+  padding-right: 20px;
+}
+
+/* أسفل القائمة */
+.sidebar-footer {
+  margin-top: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 20px;
+
+  color: var(--muted, #888);
+
+  border-top: 1px solid var(--line, #1a1a24);
+}
+
+/* ==========================================================
+   9. القائمة الجانبية على الهاتف
+   ========================================================== */
+
+@media (max-width: 750px) {
+
+  #sidebar {
+    width: 280px;
+  }
+
+}
+
+/* ==========================================================
+   10. القائمة الجانبية على الكمبيوتر
+   ========================================================== */
+
+@media (min-width: 751px) {
+
+  /*
+   * الهامبرغر مخفي أصلًا على الكمبيوتر،
+   * لذلك نخفي الـSidebar أيضًا.
+   */
+  #sidebar {
+    display: none;
+  }
+
+}
