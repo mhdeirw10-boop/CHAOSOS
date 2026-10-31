@@ -41,4 +41,3 @@
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true}); else init();
   g.CHAOSTerminalCloudConsole={refresh:refresh,health:health};
 })(window);
- 
