@@ -35,4 +35,3 @@ const ShortTermMemory = {
         return "SHORT_TERM_RESET: تم مسح الذاكرة المؤقتة والفورية بنجاح.";
     }
 };
-  
