@@ -760,4 +760,91 @@ try { if (localStorage.getItem('chaosTheme') === 'light-text') document.addEvent
 <script src="../js/brain/aiPersona.js"></script>
 <script src="../js/brain/context.js"></script>
 <script src="../js/brain/emotions.js"></script>
-<script src="../js/brain/knowledgeModules/registry.js"></script><script src="../js/brain/words/registry.js"></script><script src="../js/brain/words/greetings.js"></script><script src="../js/brain/words/identity.js"></script><script src="../js/brain/words/aiTools.js"></script><script src="../js/brain/words/ordinary.js"></script><script src="../js/brain/words/relationships.js"></script><script src="../js/brain/words/locations.js"></script><script src="../js/brain/words/countries.js"></script><script src="../js/brain/words/archive.js
+<script src="../js/brain/knowledgeModules/registry.js"></script><script src="../js/brain/words/registry.js"></script><script src="../js/brain/words/greetings.js"></script><script src="../js/brain/words/identity.js"></script><script src="../js/brain/words/aiTools.js"></script><script src="../js/brain/words/ordinary.js"></script><script src="../js/brain/words/relationships.js"></script><script src="../js/brain/words/locations.js"></script><script src="../js/brain/words/countries.js"></script><script src="../js/brain/words/archive.js"></script><script src="../js/brain/words/darkThemes.js"></script><script src="../js/brain/words/banter.js"></script><script src="../js/brain/words/stories.js"></script><script src="../js/brain/words/jokes.js"></script><script src="../js/brain/words/links.js"></script><script src="../js/brain/words/knowledgeBase.js"></script><script src="../js/brain/words/courtesy.js"></script><script src="../js/brain/words/emotions.js"></script><script src="../js/brain/words/technology.js"></script><script src="../js/brain/words/philosophy.js"></script><script src="../js/brain/words/naturalConversation.js"></script><script src="../js/brain/words/secrets.js"></script><script src="../js/brain/knowledgeModules/legacy.js"></script><script src="../js/brain/knowledgeModules/general.js"></script><script src="../js/brain/knowledgeModules/links.js"></script><script src="../js/brain/knowledgeModules/stories.js"></script><script src="../js/brain/knowledgeModules/biology.js"></script><script src="../js/brain/knowledgeModules/physics.js"></script><script src="../js/brain/knowledgeModules/chemistry.js"></script><script src="../js/brain/knowledgeModules/mathematics.js"></script><script src="../js/brain/knowledgeModules/calculator.js"></script><script src="../js/brain/knowledgeModules/astronomy.js"></script><script src="../js/brain/knowledgeModules/earthScience.js"></script><script src="../js/brain/knowledgeModules/computerScience.js"></script><script src="../js/brain/knowledgeModules/engineering.js"></script><script src="../js/brain/knowledgeModules/socialScience.js"></script><script src="../js/brain/knowledgeModules/scientificMethod.js"></script><script src="../js/brain/knowledgeModules/medicine.js"></script><script src="../js/brain/knowledgeModules/statistics.js"></script><script src="../js/brain/knowledgeModules/ecology.js"></script><script src="../js/brain/knowledgeModules/materialsScience.js"></script><script src="../js/brain/knowledgeModules/psychology.js"></script><script src="../js/brain/knowledgeModules/economics.js"></script><script src="../js/brain/knowledgeModules/linguistics.js"></script><script src="../js/brain/knowledgeModules/robotics.js"></script><script src="../js/brain/knowledgeModules/cybersecurity.js"></script><script src="../js/brain/knowledgeModules/neuroscience.js"></script><script src="../js/brain/knowledgeModules/genetics.js"></script><script src="../js/brain/knowledgeModules/appAccess.js"></script><script src="../js/brain/knowledgeModules/projectFiles.js"></script>
+<script src="../js/brain/words/commands.js"></script>
+<script src="../js/brain/diagnostics.js"></script>
+
+<script src="../js/brain/hippocampus/webMemory.js"></script>
+
+<script src="../js/brain/webSearch.js"></script>
+
+<script src="../js/brain/hippocampus/longTerm.js"></script>
+
+<script src="../js/brain/hippocampus/hippocampus.js"></script>
+
+
+<!-- ==========================================================
+     KEYBOARD / INPUT ENGINE
+     virtualKey.js = مراقبة إدخال اختيارية
+     textEngine.js = تحليل اللغة والتعلم المحلي
+     ========================================================== -->
+
+<script src="../js/brain/keyboard/textEngine.js"></script>
+<script src="../js/brain/keyboard/virtualKey.js"></script>
+
+
+<!-- التشغيل المركزي -->
+
+<script src="../js/brain/hippocampus/savedMemory.js"></script>
+<script src="../js/brain/hauntingPersona.js"></script>
+<script src="../js/brain/engine/games/Physics &amp; Collisions.js"></script>
+<script src="../js/brain/engine/games/GDScript Analyzer.js"></script>
+<script src="../js/brain/engine/games/Game Loop &amp; States.js"></script>
+<script src="../js/brain/engine/games/Nodes &amp; Movement.js"></script>
+<script src="../js/terminalLanguage.js"></script>
+<script src="../js/app.js"></script>
+
+
+
+
+
+
+
+
+<script>
+// Progressive Web App support is available on HTTPS/localhost; file:// previews skip it safely.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('../sw.js').catch(error => console.warn('[Eye of Chaos] Offline cache unavailable:', error)));
+}
+</script>
+<script src="../js/brain/security/policy.js"></script>
+<script src="../js/brain/security/input.js"></script>
+<script src="../js/brain/security/storage.js"></script>
+<script src="../js/brain/security/rateLimit.js"></script>
+<script src="../js/brain/security/navigation.js"></script>
+<script src="../js/brain/security/storageLimits.js"></script>
+<script src="../js/brain/security/index.js"></script>
+<script src="../js/kernel/eventBus.js"></script>
+<script src="../js/kernel/resultBus.js"></script>
+<script src="../js/kernel/serviceRegistry.js"></script><script src="../js/kernel/permissionManager.js"></script><script src="../js/kernel/appManager.js"></script><script src="../js/kernel/browserPolicy.js"></script>
+<script src="../js/kernel/intentEngine.js"></script>
+<script src="../js/kernel/fileAccess.js"></script>
+<script src="../js/kernel/taskRouter.js"></script>
+<script src="../js/kernel/diagnostics.js"></script>
+<script src="../js/kernel/kernel.js"></script>
+<script src="../js/kernel/appCapabilityBridge.js"></script><script src="../js/brain/appConnectors/productivity.js"></script><script src="../js/brain/appConnectors/media.js"></script><script src="../js/brain/appConnectors/system.js"></script><script src="../js/brain/appConnectors/ai.js"></script><script src="../js/brain/appConnectors/terminal.js"></script><script src="../js/brain/appConnectors/personalData.js"></script><script src="../js/brain/appConnectors/files.js"></script><script src="../js/brain/appConnectors/extras.js"></script><script src="../js/chaos-layer.js"></script>
+<script src="../js/kernel/sessionManager.js"></script>
+<script src="../js/kernel/taskManager.js"></script>
+<script src="../js/kernel/serviceSupervisor.js"></script>
+<script src="../js/platform/androidBridge.js"></script>
+<script src="../js/brain/cognition/userModel.js"></script>
+<script src="../js/brain/cognition/decisionEngine.js"></script>
+<script src="../js/brain/cognition/cognitiveEngine.js"></script>
+<script src="../js/kernel/defaultTaskHandlers.js"></script>
+<script src="../js/kernel/presenceDirector.js"></script><script src="../js/kernel/healthManager.js"></script><script src="../js/kernel/adaptiveTaskPlanner.js"></script><script src="../js/kernel/appLifecycleManager.js"></script><script src="../js/kernel/osServices.js"></script>
+<script src="../js/cloud/cloudAdapter.js"></script>
+<script src="../js/cloud/aiGateway.js"></script>
+<script src="../js/cloud/syncEngine.js"></script>
+<script src="../js/brain/cognition/languageEngine.js"></script>
+<script src="../js/kernel/unifiedCore.js"></script>
+<script src="../js/brain/cognition/adaptiveAgent.js"></script>
+<script src="../js/brain/voice/voiceEngine.js"></script>
+<script src="../js/brain/cognition/localLanguageRuntime.js"></script>
+<script src="../js/kernel/runtimeOrchestrator.js"></script>
+<script src="../js/terminal/terminalCloudConsole.js"></script>
+<script src="../js/system-core.js"></script>
+<script src="../js/accountManager.js"></script>
+<script src="../js/chaosPresence.js"></script><script src="../js/brain/contextEngine.js"></script><script src="../js/brain/intentRouter.js"></script><script src="../js/brain/personaEngine.js"></script><script src="../js/kernel/osRuntime.js"></script>
+</body>
+
+</html>
