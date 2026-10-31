@@ -1,0 +1,21 @@
+/* دعم اللغة العربية (افتراضي) */
+html[lang="ar"], [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+body[dir="rtl"], html[lang="ar"] body {
+    font-family: Arial, "Noto Sans Arabic", sans-serif;
+    line-height: 1.8;
+}
+
+/* دعم اللغة الإنجليزية وتغيير الاتجاه تلقائياً */
+html[lang="en"], [dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+}
+
+body[dir="ltr"], html[lang="en"] body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+}
