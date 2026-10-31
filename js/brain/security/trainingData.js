@@ -1,0 +1,9 @@
+/* CHAOSOS Local Training Data Boundary — bounded, opt-in corpus handling. */
+(function(g){'use strict';
+ const MAX_RAW=1650000,MAX_EXAMPLES=500,MAX_TEXT=3000,MAX_TOTAL=1550000;
+ let lastIssue=null;
+ function cleanText(value){return String(value??'').normalize('NFC').replace(/[\u0000-\u001F\u007F-\u009F\u202A-\u202E\u2066-\u2069]/g,' ').replace(/\s+/g,' ').trim().slice(0,MAX_TEXT)}
+ function validateExample(value){const text=cleanText(value);if(text.length<3)return{ok:false,code:'TRAINING_TEXT_TOO_SHORT',message:'أدخل مثالًا تدريبيًا صالحًا لا يقل عن ثلاثة أحرف.'};return{ok:true,text}}
+ function parseCorpus(raw){lastIssue=null;if(raw==null||raw==='')return{ok:true,rows:[]};if(typeof raw!=='string'||raw.length>MAX_RAW){lastIssue='CORPUS_RAW_LIMIT';return{ok:false,code:lastIssue,rows:[]}}let parsed;try{parsed=JSON.parse(raw)}catch{lastIssue='CORPUS_INVALID_JSON';return{ok:false,code:lastIssue,rows:[]}}if(!Array.isArray(parsed)){lastIssue='CORPUS_NOT_ARRAY';return{ok:false,code:lastIssue,rows:[]}}let rows=parsed.slice(-MAX_EXAMPLES).filter(x=>x&&typeof x.text==='string').map(x=>({text:cleanText(x.text),source:String(x.source||'user').slice(0,64),at:Number.isFinite(Number(x.at))?Number(x.at):0})).filter(x=>x.text.length>=3);let total=rows.reduce((n,x)=>n+x.text.length+x.source.length+48,0);while(rows.length&&total>MAX_TOTAL){const removed=rows.shift();total-=removed.text.length+removed.source.length+48}return{ok:true,rows}}
+ g.CHAOSTrainingDataBoundary={version:'1.0.0',limits:{maxRawChars:MAX_RAW,maxExamples:MAX_EXAMPLES,maxExampleChars:MAX_TEXT,maxTotalChars:MAX_TOTAL},cleanText,validateExample,parseCorpus,status:()=>({lastIssue,limits:{maxRawChars:MAX_RAW,maxExamples:MAX_EXAMPLES,maxExampleChars:MAX_TEXT,maxTotalChars:MAX_TOTAL}})};
+})(typeof window!=='undefined'?window:globalThis);
