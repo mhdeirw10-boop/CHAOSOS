@@ -1,0 +1,25 @@
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const base = path.join(__dirname, '..');
+const localStorage = { getItem: () => null, setItem() {}, removeItem() {} };
+let mockResponse = { ok: true, data: { ok: true, accepted: 1, items: [] } };
+const window = { localStorage, CHAOSCloud: { status: () => ({ enabled: true, configured: true }), request: async (p, o) => { window.lastRequest = { path: p, options: o }; return mockResponse; } } };
+const ctx = vm.createContext({ window, localStorage, TextEncoder, Date, JSON, String, Number, Set, Array, Object, Math, RegExp });
+vm.runInContext(fs.readFileSync(path.join(base, 'js/cloud/syncEngine.js'), 'utf8'), ctx, { filename: 'syncEngine.js' });
+(async () => {
+  assert.equal(window.CHAOSSync.status().automaticSync, false);
+  assert.equal(window.CHAOSSync.prepare([{ key: 'system.settings.theme', value: 'dark' }]).code, 'CONSENT_REQUIRED');
+  const checked = window.CHAOSSync.prepare([{ key: 'system.settings.theme', value: 'dark' }, { key: 'chaos_chat_history', value: 'secret chat' }, { key: 'api-key', value: 'secret' }], { consent: true });
+  assert.equal(checked.ok, true); assert.equal(checked.items.length, 1); assert.equal(checked.rejected.length, 2);
+  assert.equal(checked.rawChatIncluded, false); assert.equal(checked.secretsIncluded, false);
+  assert.equal((await window.CHAOSSync.push([{ key: 'system.settings.theme', value: 'dark' }], { consent: false, sessionToken: 'secret', deviceId: 'device_123456' })).code, 'CONSENT_REQUIRED');
+  const pushed = await window.CHAOSSync.push([{ key: 'system.settings.theme', value: 'dark', baseRevision: 2 }], { consent: true, sessionToken: 'session-token', deviceId: 'device_123456' });
+  assert.equal(pushed.ok, true); assert.equal(window.lastRequest.path, '/sync/push'); assert.equal(window.lastRequest.options.body.items[0].baseRevision, 2);
+  assert.equal(window.lastRequest.options.body.items[0].key, 'system.settings.theme');
+  const pulled = await window.CHAOSSync.pull({ consent: true, sessionToken: 'session-token', deviceId: 'device_123456' });
+  assert.equal(pulled.ok, true); assert.equal(pulled.appliedAutomatically, false);
+  console.log('PASS: explicit cloud sync consent, strict allowlist, no automatic application of pulled data, and optimistic revision support');
+})().catch(e => { console.error(e); process.exitCode = 1; });

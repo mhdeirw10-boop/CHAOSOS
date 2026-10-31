@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const base=path.join(__dirname,'..'),data=new Map();
+const localStorage={getItem:k=>data.has(k)?data.get(k):null,setItem:(k,v)=>data.set(k,String(v)),removeItem:k=>data.delete(k)};
+const window={localStorage,addEventListener(){},dispatchEvent(){},speechSynthesis:null,isSecureContext:false};
+const context=vm.createContext({window,localStorage,navigator:{onLine:false,userAgent:'Android'},CustomEvent:function(type,options){this.type=type;this.detail=options?.detail},Date,URL,console,TextEncoder});
+for(const f of ['js/brain/security/trainingData.js','js/brain/localNgramModel.js','js/system-core.js'])vm.runInContext(fs.readFileSync(path.join(base,f),'utf8'),context,{filename:f});
+assert.ok(window.CHAOSLocalTextModel.status().ready);assert.equal(window.CHAOSLocalTextModel.status().onlineRequired,false);
+const out=window.VoidOS.generate('اكتب قصة رعب',28);assert.equal(typeof out,'string');assert.ok(out.length>10);
+const trained=window.VoidOS.train('هذا مثال محلي صالح يتحدث عن بيت قديم وغرفة غامضة في منتصف الليل.');assert.equal(trained.ok,true);assert.equal(window.VoidOS.corpus().length,1);assert.ok(window.CHAOSLocalTextModel.status().userExamples>=1);
+const cleaned=window.VoidOS.train('نص\u202E تدريب محلي');assert.equal(cleaned.ok,true);assert.equal(window.VoidOS.corpus().some(x=>x.text.includes('\u202E')),false);
+data.set('chaos_micro_model_corpus_v1','x'.repeat(1650001));assert.equal(window.CHAOSLocalTextModel.status().userExamples,0,'oversized corpus is ignored safely');
+console.log('PASS: CHAOSOS shared text generation, explicit bounded training, bidi-control cleanup and oversized-corpus rejection');

@@ -1,0 +1,21 @@
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const base = path.join(__dirname, '..');
+const mem = new Map();
+const window = { localStorage:{getItem:k=>mem.get(k)??null,setItem:(k,v)=>mem.set(k,String(v)),removeItem:k=>mem.delete(k)}, VoidAppCatalog:{apps:[{id:'void-game-manager',title:'مدير الألعاب',path:'apps/void-game-manager/index.html'}]}, VoidEventBus:{emit(){}}, CHAOSOSCore:{plan:q=>({ok:true,intent:{type:'conversation'},confidence:.72,algorithm:'test'}),invokeTool:async(id,args)=>id==='knowledge.search'?{ok:true,result:{answer:'إجابة معرفة اختبارية',module:'physics'}}:id==='apps.inventory'?{ok:true,result:window.VoidAppCatalog.apps}:{ok:true,result:{ok:true}}}, CHAOSKnowledgeRouter:{route:q=>q.includes('فيزياء')?{handled:true,module:'physics',title:'الفيزياء',source:'local',confidence:.9,answer:'إجابة معرفة اختبارية'}:null} };
+window.window=window;
+const ctx=vm.createContext({window,localStorage:window.localStorage,Date,Math,JSON,Object,Array,String,Number,RegExp,Map,Set,Promise,console});
+vm.runInContext(fs.readFileSync(path.join(base,'js/brain/cognition/adaptiveAgent.js'),'utf8'),ctx,{filename:'adaptiveAgent.js'});
+(async()=>{
+ const a=window.CHAOSAIAdaptiveAgent;
+ assert.equal(a.version,'3.0.0');
+ assert.equal(a.propose('').code,'EMPTY_GOAL');
+ assert.equal(a.propose('x'.repeat(4001)).code,'GOAL_TOO_LONG');
+ const p=a.propose('اشرح الفيزياء');assert.equal(p.ok,true);assert.equal(p.route,'knowledge.local');assert.ok(p.steps.length<=8);assert.equal(p.policies.generatedCodeExecution,false);
+ const r=await a.run('اشرح الفيزياء');assert.equal(r.ok,true);assert.match(r.answer,/إجابة معرفة اختبارية/);assert.equal(r.trace.rawGoalStored,false);assert.equal(r.trace.rawAnswerStored,false);assert.equal(JSON.stringify(r.trace).includes('اشرح الفيزياء'),false);
+ const bad=a.feedback('knowledge.local',7);assert.equal(bad.ok,false);const good=a.feedback('knowledge.local',5);assert.equal(good.ok,true);assert.equal(good.aggregate.average,5);assert.equal(good.rawTextStored,false);
+ const app=await a.run('افتح مدير الألعاب');assert.equal(app.ok,true);assert.match(app.answer,/apps\/void-game-manager\/index.html/);assert.equal(app.trace.rawGoalStored,false);const cloud=await a.run('افحص السحابة');assert.equal(cloud.ok,true);assert.match(cloud.answer,/لم أرسل أي بيانات/);a.feedback('system.cloud-status',5);a.feedback('system.cloud-status',5);a.feedback('system.cloud-status',5);const learned=a.propose('مهمة سحابة');assert.equal(learned.route,'system.cloud-status');assert.equal(learned.routeAnalysis.feedbackSamples,3);assert.equal(learned.routeAnalysis.feedbackBias,1.5);assert.equal(a.status().metrics.total,3);console.log('PASS: bounded planning, local knowledge retrieval, app inventory resolution, cloud summaries, feedback-weighted ambiguous routing, metadata-only traces, and no generated-code execution');
+})().catch(e=>{console.error(e);process.exitCode=1});

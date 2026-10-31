@@ -1,0 +1,18 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const base=path.join(__dirname,'..');
+const html=fs.readFileSync(path.join(base,'apps/void-game-manager/index.html'),'utf8');
+const logic=fs.readFileSync(path.join(base,'apps/void-game-manager/js/extracted-01.js'),'utf8');
+assert.match(html,/id="sortGames"/);
+assert.match(logic,/function readFavorites/);
+assert.match(logic,/function toggleFavorite/);
+assert.match(html,/Content-Security-Policy/);
+assert.match(html,/connect-src 'self'/);assert.match(html,/navigate-to 'self'/);assert.match(html,/frame-src 'self'/);
+assert.match(html,/unsafe-inline/);
+assert.match(logic,/الاستيراد يقبل ملفًا مستقلًا محليًا فقط/);
+assert.match(html,/sandbox/);
+const catalog=fs.readFileSync(path.join(base,'js/appCatalog.js'),'utf8');
+assert.match(catalog,/void-game-manager/);
+console.log('PASS: v3.1 game manager favorites/sorting, import network-reference policy, sandbox CSP, and catalog entry');

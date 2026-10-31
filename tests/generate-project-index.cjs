@@ -1,0 +1,5 @@
+'use strict';
+const fs=require('node:fs');const path=require('node:path');
+const base=path.resolve(__dirname,'..');const excluded=new Set(['.git','node_modules','platforms']);const files=[];
+function walk(dir){for(const ent of fs.readdirSync(dir,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name))){const full=path.join(dir,ent.name),rel=path.relative(base,full).split(path.sep).join('/');if(ent.isDirectory()){if(excluded.has(ent.name))continue;if(rel==='cordova-project'||rel==='cordova-project/www')continue;walk(full)}else if(ent.isFile()&&rel!=='project-index.json'){files.push({path:rel,name:path.basename(rel),ext:path.extname(rel).replace(/^\./,'')||'file',size:fs.statSync(full).size,folder:path.dirname(rel)==='.'?'':path.dirname(rel)})}}}
+walk(base);files.sort((a,b)=>a.path.localeCompare(b.path));const out={schema:1,project:'CHAOSOS v3.1.6 experimental web-first OS runtime release candidate',generatedAt:new Date().toISOString(),files};fs.writeFileSync(path.join(base,'project-index.json'),JSON.stringify(out,null,2)+'\n');process.stdout.write(`Generated project-index.json (${files.length} paths).\n`);

@@ -1,0 +1,24 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const base=path.join(__dirname,'..');
+const window={VoidEventBus:{emit(){}},CHAOSAI:{recordKnowledgeRoute(){}},VoidAppCatalog:{apps:[{id:'quantum-bench',title:'Quantum Bench',path:'apps/quantum-bench/index.html',tags:['quantum']}]}};
+const context=vm.createContext({window,console,Date,Math,Map,Set,Promise,Number,String,Object,Array,RegExp,JSON});
+function load(rel){vm.runInContext(fs.readFileSync(path.join(base,rel),'utf8'),context,{filename:rel});}
+load('js/brain/words/registry.js');load('js/brain/words/greetings.js');load('js/brain/words/identity.js');load('js/brain/words/aiTools.js');load('js/brain/words/ordinary.js');load('js/brain/words/relationships.js');load('js/brain/words/locations.js');load('js/brain/words/countries.js');load('js/brain/words/archive.js');load('js/brain/words/darkThemes.js');load('js/brain/words/banter.js');load('js/brain/words/stories.js');load('js/brain/words/jokes.js');load('js/brain/words/links.js');load('js/brain/words/knowledgeBase.js');load('js/brain/knowledgeModules/registry.js');
+for(const f of ['legacy.js','general.js','links.js','stories.js','biology.js','physics.js','chemistry.js','mathematics.js','calculator.js','astronomy.js','earthScience.js','computerScience.js','engineering.js','socialScience.js','scientificMethod.js','medicine.js','statistics.js','ecology.js','materialsScience.js','appAccess.js'])load('js/brain/knowledgeModules/'+f);
+load('js/kernel/intentEngine.js');
+load('js/brain/cognition/decisionEngine.js');
+let p=window.CHAOSAIDecisionEngine.plan('اشرح دورة الماء في علوم الأرض');
+assert.equal(p.intent.type,'knowledge.earth-science');
+assert.equal(p.route,'knowledge.local.earth-science');
+assert.equal(p.executionPlan.rawPromptPersisted,false);
+assert.equal(p.executionPlan.inputs.moduleId,'earth-science');
+assert.equal(typeof p.executionPlan.inputs.queryLength,'number');
+assert.ok(!JSON.stringify(p).includes('اشرح دورة الماء في علوم الأرض'),'planner must not embed raw query');
+p=window.CHAOSAIDecisionEngine.plan('افتح Quantum Bench');
+assert.equal(p.intent.type,'open','explicit app action must not be overwritten by specialist modules');
+assert.equal(p.action,'explicit-app-launch');
+p=window.CHAOSAIDecisionEngine.plan('احسب 12*(3+1)');
+assert.equal(p.intent.type,'calculator','explicit calculations must stay on safe calculator path');
+assert.equal(p.executionPlan.algorithm,'local.math.safe-evaluate');
+console.log('PASS: specialist cognition planning, aggregate-only query metadata, no raw prompt persistence, explicit open/calculator intent precedence.');

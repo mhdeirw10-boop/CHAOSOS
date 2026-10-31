@@ -1,0 +1,18 @@
+/* CHAOSOS v3.1.5 natural vocabulary + secret-persona routing regression tests. */
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const base=path.resolve(__dirname,'..');const window={console,Math,Date,Map,Set,Promise,Number,String,Object,Array,RegExp,JSON};const context=vm.createContext({window,console,Math,Date,Map,Set,Promise,Number,String,Object,Array,RegExp,JSON});
+function load(rel){vm.runInContext(fs.readFileSync(path.join(base,rel),'utf8'),context,{filename:rel});}
+const modules=['registry','greetings','identity','aiTools','ordinary','relationships','locations','countries','archive','darkThemes','banter','stories','jokes','links','knowledgeBase','courtesy','emotions','technology','philosophy','naturalConversation','secrets'];
+for(const m of modules)load(`js/brain/words/${m}.js`);load('js/brain/words/commands.js');
+const W=window.CHAOSWords;assert.ok(W);const total=Object.keys(W.entries()).length;assert.ok(total>=300,`expected at least 300 phrase entries, got ${total}`);
+assert.equal(W.normalize('مَرْحَباً'),W.normalize('مرحبا'));assert.equal(W.normalize('قصة'),W.normalize('قصه'));
+assert.equal(W.match('مرحبا').module,'greetings');assert.equal(W.match('من أنت').module,'identity');assert.equal(W.match('OpenAI').module,'aiTools');assert.equal(W.match('وش تبي تسوي').module,'ordinary');assert.equal(W.match('صديق').module,'relationships');assert.equal(W.match('هنا').module,'locations');assert.equal(W.match('العراق').module,'countries');assert.equal(W.match('سري').module,'archive');assert.equal(W.match('ظلام').module,'darkThemes');assert.equal(W.match('انت غبي').module,'banter');
+assert.equal(W.match('صباح الخير').module,'greetings');assert.equal(W.match('شكرا جزيلا').module,'courtesy');assert.equal(W.match('انا محتار').module,'emotions');assert.equal(W.match('نظام تشغيل').module,'technology');assert.equal(W.match('هل يمكن للآلة أن تفكر').module,'philosophy');
+assert.match(W.match('ماني فاهم').answer,/نفكك الفكرة/);assert.match(W.match('هل انت متأكد').answer,/أفرّق بين/);
+const first=W.resolveHandlers('شنو سرك');assert.equal(first.handled,true);assert.match(first.answer,/أنت والله غبي/);const second=W.resolveHandlers('اكشف اسرارك');assert.equal(second.handled,true);assert.match(second.answer,/تكرار السؤال/);assert.equal(window.CHAOSSecretGuard.status().probeCount,2);assert.equal(window.CHAOSSecretGuard.status().storesUserSecrets,false);
+const privacy=W.resolveHandlers('عندي سر اريد اقولك');assert.equal(privacy.handled,true);assert.match(privacy.answer,/لا ترسل كلمات مرور/);
+assert.equal(W.Commands.commandsList.help.action,'show_help');assert.deepEqual(Object.keys(W.Commands.commandsList).sort(),['about','clear','help','status']);assert.equal(W.resolve('احكي نكتة').handled,true);assert.equal(W.resolve('احكي قصة غامضة').handled,true);
+for(const html of ['index.html','terminal/index.html','apps/chaosai-center/index.html']){const s=fs.readFileSync(path.join(base,html),'utf8');assert.match(s,/words\/registry\.js/);assert.match(s,/words\/secrets\.js/);assert.doesNotMatch(s,/js\/brain\/commands\.js/);}
+const app=fs.readFileSync(path.join(base,'js/app.js'),'utf8');assert.match(app,/CHAOSWords\?\.resolveHandlers\?\.\(safeQuery\)/);assert.match(app,/CHAOSWords\?\.resolveHandlers\?\.\(q\)/);assert.match(app,/CHAOSWords\?\.match\?\.\(safeQuery\)/,'natural phrase match is wired into the orchestrated executor');assert.match(app,/CHAOSWords\?\.match\?\.\(q\)/,'natural phrase match is wired into the direct response path');
+console.log(`PASS: ${total} dictionary entries; ${modules.length} modules; natural phrase variants; in-character secret guard; privacy-sharing path; app/terminal/center integration.`);

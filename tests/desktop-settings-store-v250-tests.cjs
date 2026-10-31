@@ -1,0 +1,7 @@
+'use strict';const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const base=path.join(__dirname,'..');const read=p=>fs.readFileSync(path.join(base,p),'utf8');
+const shell=read('index.html'),desktop=read('css/desktop-workspace.css'),settings=read('js/settings-phone.js');
+for(const x of ['createDesktopWindow','focusDesktopWindow','isDesktopWorkspace','dataset.winMin','dataset.winMax','dataset.winClose','desktopWindows.size>=6'])assert.ok(shell.includes(x),`desktop window feature ${x}`);
+assert.match(desktop,/@media \(min-width:1000px\)/);assert.match(desktop,/resize:both/);assert.match(desktop,/is-maximized/);assert.match(settings,/phone-settings-overview/);assert.match(settings,/phoneSettingsSearch/);assert.match(settings,/const bar=top/);assert.match(settings,/chaosProjectReadToggle/);
+const storeHtml=read('apps/void-store/index.html'),storeJs=read('apps/void-store/js/app.js');assert.doesNotMatch(storeHtml,/id=["']accountModal["']/);assert.doesNotMatch(storeHtml,/إنشاء حساب|تسجيل حساب|إنشاء حساب جديد/i);assert.doesNotMatch(storeJs,/accountModal|createAccount|signUp/i);assert.match(storeJs,/setView\('library'\)/);
+const tube=read('apps/voidtube/js/app.js'),engine=read('apps/voidtube/js/recommendationEngine.js');assert.match(tube,/VoidTubeRecommendationEngine/);assert.match(tube,/recommended\(videos\)/);assert.match(engine,/profile\(videos,signals\)/);assert.match(engine,/channelCount/);
+console.log('PASS desktop multi-window, settings IA, account-flow removal and local recommender integration');
