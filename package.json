@@ -1,0 +1,14 @@
+{
+  "name": "chaosos-source",
+  "version": "3.1.6",
+  "private": true,
+  "description": "CHAOSOS v3.1.6 source tests and release preparation",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node tests/run-all-tests.cjs",
+    "audit": "node tests/release-audit.cjs",
+    "release:consistency": "node tests/release-consistency-tests.cjs",
+    "prepare:release": "node scripts/prepare-release.cjs",
+    "check": "npm run prepare:release && npm test && npm run release:consistency"
+  }
+}

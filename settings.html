@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAOSOS — إعدادات النظام</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/lang.css">
+    <link rel="stylesheet" href="css/settings-enhancements.css">
+    <link rel="stylesheet" href="css/settings-phone.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#090a10">
+</head>
+<body class="dark-theme">
+
+    <!-- تطبيق الثيم المحفوظ مسبقاً فوراً لمنع الوميض البصري -->
+    <script>
+        if (localStorage.getItem('chaosTheme') === 'light-text') {
+            document.body.classList.add('theme-light-text');
+        }
+    </script>
+
+    <!-- القائمة الجانبية (البرغر) -->
+    <div id="sidebar" class="sidebar">
+        <button id="closeSidebar" class="close-btn">&times;</button>
+        <div class="sidebar-links">
+            <a href="index.html" data-shell-action="home">⌂ الرئيسية</a>
+            <a href="terminal/index.html" data-shell-action="terminal">⌘ CHAOS SYSTEM</a>
+            <a href="settings.html" data-shell-action="settings" class="active">⚙ الإعدادات</a>
+            <a href="apps/void-manager/index.html" data-shell-action="manager">▦ مدير التطبيقات</a>
+            <a href="index.html?voidosAction=control" data-shell-action="controls">☷ مركز التحكم</a>
+        </div>
+        <p style="padding:16px 12px;color:#8d93a4;font-size:11px;line-height:1.7">تتحكم هذه القائمة بتنقل CHAOSOS عندما تكون الإعدادات مفتوحة داخل النظام.</p>
+    </div>
+
+    <!-- زر القائمة الجانبية -->
+    <button id="openSidebar" class="menu-btn" aria-controls="sidebar" aria-expanded="false">&#9776; القائمة</button>
+
+    <!-- محتوى صفحة الإعدادات -->
+    <main class="settings-container">
+        <h1>[ وحدة تحكم CHAOSOS ]</h1>
+        <p class="subtitle">إعدادات CHAOSOS وCHAOS SYSTEM · ابحث عن خيار أو افتح قائمة الهمبركر للتنقل بين وحدات النظام.</p>
+
+        <!-- خيار الذاكرة الحية -->
+        <div class="setting-card">
+            <h3>الذاكرة الحية والتطور الذاتي (Adaptive Memory)</h3>
+            <p>السماح للكيان بتخزين التفاعلات والتعلم المستمر وتطوير إصداراته.</p>
+            <label class="switch">
+                <input type="checkbox" id="memoryToggle" checked>
+                <span class="slider">تفعيل الذاكرة</span>
+            </label>
+        </div>
+
+        <!-- خيار تغيير الثيم (الأبيض البارد) -->
+        <div class="setting-card" style="margin-top: 20px;">
+            <h3>وضع القراءة المريح (أبيض بارد)</h3>
+            <p>تغيير لون النصوص إلى أبيض بارد بوضوح عالٍ لسهولة القراءة وتقليل إجهاد العين.</p>
+            <label class="switch">
+                <input type="checkbox" id="themeToggle">
+                <span class="slider">تفعيل النص الأبيض</span>
+            </label>
+        </div>
+
+        <!-- خيار تطهير الذاكرة -->
+        <div class="setting-card" style="margin-top: 20px;">
+            <h3>تطهير الذاكرة</h3>
+            <p>مسح كافة السجلات المؤقتة وإعادة تعيين إصدار الذاكرة إلى v1.0.</p>
+            <button id="clearMemoryBtn" class="danger-btn">تفريغ الذاكرة فوراً</button>
+        </div>
+        
+        <div id="statusLog" class="status-log" style="margin-top: 20px;">حالة النظام: مستقر وجاهز.</div>
+
+
+        <section class="setting-card" id="chaososLocalLanguageSettings" data-settings-searchable="true" data-settings-key="CHAOSOS محرك اللغة المحلية نكات سوداء كوميديا دموية دون إنترنت" style="margin-top:20px;border:1px solid #a78bfa66;padding:16px;border-radius:14px">
+          <h2>نواة اللغة المحلية — CHAOSOS</h2>
+          <p>محادثة عربية تعمل دون اتصال بخدمة ذكاء اصطناعي سحابية. تتضمن أكثر من 1,200 نمط وعبارة عربية محلية، ونكات يومية وكوميديا سوداء ورعب دموية كرتونية. هذا محرك استرجاع وقواعد محلي، وليس نموذجًا عصبيًا عامًا.</p>
+          <label for="chaosHumorMode">أسلوب الفكاهة</label>
+          <select id="chaosHumorMode" style="display:block;width:100%;margin:8px 0 12px;padding:10px;background:#14131d;color:#f3efff;border:1px solid #49405f;border-radius:8px">
+            <option value="mixed">مزيج: نكات عادية وسوداء ورعب ودموية كرتونية</option>
+            <option value="light">نكات يومية عادية وخفيفة</option>
+            <option value="dark">كوميديا سوداء فقط</option>
+            <option value="blood">كوميديا رعب دموية كرتونية</option>
+            <option value="off">إيقاف النكات</option>
+          </select>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button id="saveChaosHumorMode" type="button" class="primary-btn">حفظ أسلوب الفكاهة</button><button id="inspectChaosLanguage" type="button" class="secondary-btn">تشخيص محرك اللغة</button></div>
+          <pre id="chaosLanguageStatus" class="status-log" style="white-space:pre-wrap;overflow-wrap:anywhere;margin-top:12px">المحرك المحلي جاهز عند تحميل الصفحة.</pre>
+        </section>
+
+        <section class="setting-card" id="voidosGlobalSettings" data-settings-searchable="true" data-settings-key="اللغة المظهر الصوت التعلم حجم النص التباين" style="margin-top:20px;border:1px solid #a78bfa55;padding:16px;border-radius:14px;">
+          <h2>CHAOSOS · الإعدادات المركزية</h2><p>خيارات مشتركة للتطبيقات التي تدعم طبقة خدمات النظام.</p>
+          <label>لغة الواجهة <select id="globalLanguage"><option value="en">English / Global</option><option value="ar">العربية</option></select></label>
+          <label>المظهر <select id="globalTheme"><option value="dark">داكن</option><option value="light">فاتح</option><option value="system">تلقائي</option></select></label>
+          <label><input type="checkbox" id="globalVoice"> السماح بالصوت المولّد برمجيًا</label>
+          <label><input type="checkbox" id="globalLearning"> السماح بالتعلّم المحلي بعد موافقة المستخدم فقط</label>
+          <label><input type="checkbox" id="globalParticles"> المؤثرات والجزيئات</label>
+          <label><input type="checkbox" id="globalMotion"> الحركة والمؤثرات الانتقالية</label>
+          <label><input type="checkbox" id="globalContrast"> تباين مرتفع</label>
+          <label>حجم النص <input type="range" id="globalFontScale" min="0.85" max="1.3" step="0.05"></label>
+          <div id="globalIdentityStatus" class="status-log" style="margin-top:12px"></div>
+          <button type="button" id="globalSaveSettings" class="primary-btn">حفظ الإعدادات المشتركة</button>
+          <button type="button" id="globalRefreshIdentity" class="secondary-btn">تحديث الحساب الموحّد</button>
+        </section>
+<section class="setting-card" id="advancedVoidTools" data-settings-searchable="true" data-settings-key="التخزين تصدير استيراد سجل المتصفح JSON" style="margin-top:20px;border:1px solid #60a5fa55;padding:16px;border-radius:14px"><h2>أدوات النظام المتقدمة</h2><p>نسخ الإعدادات واستعراض مساحة البيانات المحلية. هذه الأدوات لا تمسح بيانات التطبيقات الأخرى دون اختيارك.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" id="exportVoidSettings" class="primary-btn">تصدير إعدادات CHAOSOS</button><button type="button" id="importVoidSettings" class="secondary-btn">استيراد إعدادات</button><button type="button" id="inspectVoidStorage" class="secondary-btn">فحص التخزين المحلي</button><button type="button" id="clearBrowserHistory" class="danger-btn">مسح سجل المتصفح</button></div><input type="file" id="voidSettingsFile" accept="application/json" hidden><pre id="voidAdvancedStatus" class="status-log" style="white-space:pre-wrap;overflow-wrap:anywhere;margin-top:12px">جاهز.</pre></section>
+    </main>
+
+    <!-- ربط ملفات الإعدادات والذاكرة بالترتيب الهندسي الصحيح -->
+    <script src="js/config.js"></script>
+    <script src="js/brain/hippocampus/longTerm.js"></script>
+    <script src="js/brain/hippocampus/hippocampus.js"></script>
+    
+    <script>
+        const memoryToggle = document.getElementById('memoryToggle');
+        const themeToggle = document.getElementById('themeToggle');
+        const clearMemoryBtn = document.getElementById('clearMemoryBtn');
+        const statusLog = document.getElementById('statusLog');
+
+        // 1. إدارة الذاكرة الحية
+        const isMemoryEnabled = localStorage.getItem('chaosMemoryEnabled') !== 'false';
+        memoryToggle.checked = isMemoryEnabled;
+
+        memoryToggle.addEventListener('change', function() {
+            if (this.checked) {
+                localStorage.setItem('chaosMemoryEnabled', 'true');
+                statusLog.textContent = "حالة النظام: تم تفعيل الذاكرة الحية بنجاح.";
+            } else {
+                localStorage.setItem('chaosMemoryEnabled', 'false');
+                statusLog.textContent = "حالة النظام: تم إيقاف الذاكرة (لن يتم حفظ التفاعلات الجديدة).";
+            }
+        });
+
+        // 2. إدارة الثيم (الأبيض البارد)
+        if (localStorage.getItem('chaosTheme') === 'light-text') {
+            themeToggle.checked = true;
+        }
+
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('theme-light-text');
+                localStorage.setItem('chaosTheme', 'light-text');
+                statusLog.textContent = "حالة النظام: تم تفعيل وضع القراءة (الأبيض البارد).";
+            } else {
+                document.body.classList.remove('theme-light-text');
+                localStorage.setItem('chaosTheme', 'default');
+                statusLog.textContent = "حالة النظام: العودة للثيم الداكن الافتراضي.";
+            }
+        });
+
+        // 3. تفريغ الذاكرة فوراً عبر Hippocampus أو LongTermMemory
+        clearMemoryBtn.addEventListener('click', function() {
+            let resultMsg = "";
+            
+            if (typeof Hippocampus !== 'undefined' && typeof Hippocampus.purgeAll === 'function') {
+                resultMsg = Hippocampus.purgeAll();
+            } else if (typeof LongTermMemory !== 'undefined' && typeof LongTermMemory.forcePurge === 'function') {
+                resultMsg = LongTermMemory.forcePurge();
+            } else {
+                localStorage.removeItem('chaos_persistent_long_term');
+                localStorage.removeItem('chaos_long_term_memory');
+                resultMsg = "HIPPOCAMPUS_PURGE: تمت إزالة كافة السجلات العصبية بنجاح.";
+            }
+
+            statusLog.textContent = resultMsg;
+        });
+
+        // تفعيل القائمة الجانبية (Sidebar)
+        const sidebar = document.getElementById('sidebar');
+        const openSidebar = document.getElementById('openSidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        if (openSidebar && sidebar) {
+            openSidebar.addEventListener('click', () => sidebar.classList.add('active'));
+        }
+        if (closeSidebar && sidebar) {
+            closeSidebar.addEventListener('click', () => sidebar.classList.remove('active'));
+        }
+    </script>
+    <script src="js/brain/hippocampus/savedMemory.js"></script>
+    <script src="js/brain/hauntingPersona.js"></script>
+    <script src="js/brain/diagnostics.js"></script>
+    <script src="js/appCatalog.js"></script>
+<script src="js/brain/security/trainingData.js"></script>    <script src="js/brain/localNgramModel.js"></script>
+    <script src="js/brain/dailyLanguage.js"></script>
+    <script src="js/settingsEnhancements.js"></script>
+
+<script>
+// Progressive Web App support is available on HTTPS/localhost; file:// previews skip it safely.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(error => console.warn('[Eye of Chaos] Offline cache unavailable:', error)));
+}
+</script>
+<script src="js/brain/security/policy.js"></script>
+<script src="js/brain/security/input.js"></script>
+<script src="js/brain/security/storage.js"></script>
+<script src="js/brain/security/rateLimit.js"></script>
+<script src="js/brain/security/navigation.js"></script>
+<script src="js/brain/security/storageLimits.js"></script>
+<script src="js/brain/security/index.js"></script>
+<script src="js/kernel/eventBus.js"></script><script src="js/kernel/resultBus.js"></script><script src="js/kernel/serviceRegistry.js"></script><script src="js/kernel/permissionManager.js"></script><script src="js/kernel/appManager.js"></script><script src="js/kernel/browserPolicy.js"></script><script src="js/kernel/intentEngine.js"></script><script src="js/kernel/taskRouter.js"></script><script src="js/kernel/diagnostics.js"></script><script src="js/kernel/kernel.js"></script><script src="js/chaos-layer.js"></script>
+
+<script src="js/cloud/syncEngine.js"></script>
+<script src="js/brain/cognition/languageEngine.js"></script>
+<script src="js/kernel/unifiedCore.js"></script>
+<script src="js/system-core.js"></script><script src="js/accountManager.js"></script><script>
+(()=>{const $=id=>document.getElementById(id);const defaults={language:'en',theme:'dark',motion:true,voice:true,learning:false,particles:true,fontScale:1,contrast:false};function load(){const p={...defaults,...VoidOS.prefs()};for(const k of ['language','theme'])$('global'+k[0].toUpperCase()+k.slice(1)).value=p[k];for(const [k,id] of [['voice','globalVoice'],['learning','globalLearning'],['particles','globalParticles'],['motion','globalMotion'],['contrast','globalContrast']])$(id).checked=!!p[k];$('globalFontScale').value=p.fontScale||1;identity()};function identity(){const i=VoidOS.getIdentity();$('globalIdentityStatus').textContent=i?`الحساب المحلي المشترك: ${i.username} · ${i.email||'بلا بريد'} · هذا الجهاز فقط`:'لا توجد هوية محلية مسجّلة؛ يمكنك استخدام وضع الزائر أو ملف مستخدم محلي.'} $('globalSaveSettings').addEventListener('click',()=>{const p={language:$('globalLanguage').value,theme:$('globalTheme').value,voice:$('globalVoice').checked,learning:$('globalLearning').checked,particles:$('globalParticles').checked,motion:$('globalMotion').checked,contrast:$('globalContrast').checked,fontScale:Number($('globalFontScale').value)};VoidOS.write(VoidOS.keys.prefs,p);window.dispatchEvent(new CustomEvent('voidos:settings',{detail:p}));document.documentElement.style.fontSize=(16*p.fontScale)+'px';document.body.style.filter=p.contrast?'contrast(1.12)':'';$('globalIdentityStatus').textContent='حُفظت الإعدادات محليًا. بعض الخيارات تحتاج دعمًا من التطبيق نفسه لتغيير مظهره.'});$('globalRefreshIdentity').addEventListener('click',identity);load()})();
+</script>
+
+<script id="void-advanced-settings-js">(()=>{'use strict';const $=id=>document.getElementById(id),out=$('voidAdvancedStatus');if(!out)return;const keys=['voidos_global_settings_v1','voidos_shell_settings_v1','chaosMemoryEnabled','chaosTheme','chaos_micro_model_corpus_v1','chaos_generated_lexicon_v1','chaosos_local_language_v1','chaosos_humor_mode'];$('exportVoidSettings').addEventListener('click',()=>{const data={format:'VoidOS-settings-backup',version:1,createdAt:new Date().toISOString(),items:{}};keys.forEach(k=>{const v=localStorage.getItem(k);if(v!==null)data.items[k]=v});const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='chaosos-settings-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);out.textContent='تم تصدير '+Object.keys(data.items).length+' مفاتيح إعدادات/بيانات مدعومة.'});$('importVoidSettings').addEventListener('click',()=>$('voidSettingsFile').click());$('voidSettingsFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>1_000_000)throw new Error('ملف النسخة الاحتياطية أكبر من 1 MB.');const d=JSON.parse(await f.text());if(d.format!=='VoidOS-settings-backup'||!d.items||typeof d.items!=='object')throw new Error('ملف النسخة الاحتياطية غير معروف.');let n=0;for(const k of keys)if(typeof d.items[k]==='string'&&d.items[k].length<=131072){localStorage.setItem(k,d.items[k]);n++}out.textContent='تم استيراد '+n+' عناصر مسموحة. أعد تحميل الصفحة لتطبيق جميع الإعدادات.'}catch(err){out.textContent='فشل الاستيراد: '+err.message}e.target.value=''});$('inspectVoidStorage').addEventListener('click',()=>{let n=0,bytes=0;for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i),v=localStorage.getItem(k)||'';n++;bytes+=(k.length+v.length)*2}out.textContent='عدد مفاتيح localStorage: '+n+'\nحجم نصي تقريبي: '+(bytes/1024).toFixed(1)+' KB\nالنطاق: هذا الموقع/المتصفح فقط؛ لا يشمل ملفات الهاتف أو قواعد خادم.'});$('clearBrowserHistory').addEventListener('click',()=>{if(!confirm('مسح سجل VoidBrowserX المحلي؟'))return;localStorage.removeItem('voidbrowserx_history_v2');localStorage.removeItem('voidbrowserx_history_v1');out.textContent='تم مسح مفاتيح سجل المتصفح المعروفة. الإشارات المرجعية والحسابات لم تُمس.'})})();</script>
+
+<script id="chaosos-local-language-settings-js">(()=>{'use strict';const $=id=>document.getElementById(id);const select=$('chaosHumorMode'),status=$('chaosLanguageStatus');if(!select||!status)return;try{const saved=localStorage.getItem('chaosos_humor_mode');if(['mixed','light','dark','blood','off'].includes(saved))select.value=saved}catch{};function describe(){const m=window.CHAOSLocalLanguage?.report?.();status.textContent=m?`الاسم: ${m.name}\nالإصدار: ${m.version}\nالوضع: ${m.mode}\nاتصال تلقائي بالإنترنت: لا\nأنماط وعبارات: ${m.phraseCount}\nنكات يومية خفيفة: ${m.jokeCounts.light}\nنكات الرعب السوداء: ${m.jokeCounts.dark}\nنكات الرعب الدموية الكرتونية: ${m.jokeCounts.blood}\nنكات سوداء عامة: ${m.jokeCounts.black}\nإجمالي النكات: ${m.jokeCounts.total}\nالنموذج الإحصائي جاهز: ${m.localTextModel?.ready?'نعم':'لا'}\nأمثلة التدريب المحلية: ${m.localTextModel?.examples||0}\nالذاكرة القصيرة: ${m.historyCount}\nالحد: قواعد واسترجاع + مولّد إحصائي اختياري من أمثلة المستخدم؛ ليس نموذجًا عصبيًا عامًا.`:'ملف محرك اللغة غير محمّل.'} $('saveChaosHumorMode').addEventListener('click',()=>{const ok=window.CHAOSLocalLanguage?.setStyle?.(select.value);status.textContent=ok?'تم حفظ أسلوب الفكاهة محليًا، وسيُستخدم في الطرفية على هذا المتصفح.':'تعذّر الحفظ؛ تحقق من توفر التخزين المحلي.'});$('inspectChaosLanguage').addEventListener('click',describe);describe()})();</script>
+
+<script src="js/settings-phone.js"></script>
+<script src="js/brain/cognition/adaptiveAgent.js"></script><script src="js/chaosPresence.js"></script></body>
+</html>

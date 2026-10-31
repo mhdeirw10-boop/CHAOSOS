@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>الفصول | عين الفوضى</title>
+
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/lang.css">
+
+    <style>
+        /* ==========================================
+           EYE OF CHAOS
+           CHAPTERS / MANGA READER
+           ========================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+
+        /* ==========================================
+           الحاوية الرئيسية
+           ========================================== */
+
+        .chapters-page {
+            width: min(1100px, 94%);
+            margin: 0 auto;
+            padding: 30px 0 60px;
+        }
+
+
+        /* ==========================================
+           رأس الصفحة
+           ========================================== */
+
+        .chapters-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .chapters-header h1 {
+            margin: 0 0 10px;
+            font-size: 2rem;
+        }
+
+        .chapters-header p {
+            margin: 0;
+            line-height: 1.8;
+            opacity: 0.75;
+        }
+
+
+        /* ==========================================
+           قائمة الفصول
+           ========================================== */
+
+        .chapters-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 16px;
+        }
+
+        .chapter-card {
+            padding: 18px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.10);
+
+            border-radius: 14px;
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-3px);
+
+            border-color:
+                rgba(255, 255, 255, 0.25);
+        }
+
+        .chapter-number {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .chapter-title {
+            margin: 7px 0;
+
+            font-size: 1.15rem;
+        }
+
+        .chapter-description {
+            margin: 0;
+
+            line-height: 1.7;
+
+            font-size: 0.9rem;
+
+            opacity: 0.7;
+        }
+
+
+        /* ==========================================
+           عارض المانجا
+           ========================================== */
+
+        .reader {
+            display: none;
+
+            margin-top: 30px;
+        }
+
+        .reader.active {
+            display: block;
+        }
+
+
+        /* ==========================================
+           رأس العارض
+           ========================================== */
+
+        .reader-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-bottom: 15px;
+        }
+
+        .reader-title {
+            margin: 0;
+
+            font-size: 1.3rem;
+        }
+
+        .reader-close {
+            padding: 8px 13px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.15);
+
+            border-radius: 8px;
+
+            background: transparent;
+
+            color: inherit;
+
+            cursor: pointer;
+        }
+
+
+        /* ==========================================
+           معلومات الصفحة الحالية
+           ========================================== */
+
+        .reader-status {
+            text-align: center;
+
+            margin-bottom: 15px;
+
+            font-size: 0.85rem;
+
+            opacity: 0.65;
+        }
+
+
+        /* ==========================================
+           صفحة المانجا
+           ========================================== */
+
+        .reader-image-container {
+            display: flex;
+
+            justify-content: center;
+
+            width: 100%;
+        }
+
+        .reader-image {
+            display: block;
+
+            width: 100%;
+
+            max-width: 850px;
+
+            height: auto;
+
+            border-radius: 4px;
+
+            background:
+                rgba(255, 255, 255, 0.03);
+
+            user-select: none;
+
+            -webkit-user-drag: none;
+        }
+
+
+        /* ==========================================
+           أدوات التنقل
+           ========================================== */
+
+        .reader-controls {
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .reader-button {
+            min-width: 100px;
+
+            padding: 11px 15px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.15);
+
+            border-radius: 8px;
+
+            background:
+                rgba(255, 255, 255, 0.04);
+
+            color: inherit;
+
+            cursor: pointer;
+        }
+
+        .reader-button:hover {
+            background:
+                rgba(255, 255, 255, 0.09);
+        }
+
+        .reader-button:disabled {
+            opacity: 0.3;
+
+            cursor: not-allowed;
+        }
+
+
+        /* ==========================================
+           رقم الصفحة
+           ========================================== */
+
+        .page-number {
+            min-width: 80px;
+
+            text-align: center;
+
+            opacity: 0.75;
+        }
+
+
+        /* ==========================================
+           الهاتف
+           ========================================== */
+
+        @media (max-width: 600px) {
+
+            .chapters-page {
+                width: 96%;
+
+                padding-top: 20px;
+            }
+
+            .chapters-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .chapters-list {
+                grid-template-columns: 1fr;
+            }
+
+            .reader-image {
+                width: 100%;
+
+                border-radius: 0;
+            }
+
+            .reader-controls {
+                position: sticky;
+
+                bottom: 10px;
+
+                padding: 8px;
+
+                border-radius: 10px;
+
+                background:
+                    rgba(0, 0, 0, 0.75);
+            }
+
+            .reader-button {
+                flex: 1;
+            }
+        }
+
+    </style>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#090a10">
+<script>
+try { if (localStorage.getItem('chaosTheme') === 'light-text') document.addEventListener('DOMContentLoaded', () => document.body.classList.add('theme-light-text'), { once: true }); } catch (_) {}
+</script>
+
+</head>
+
+
+<body>
+
+    <main class="chapters-page">
+
+
+        <!-- ======================================
+             رأس الصفحة
+             ====================================== -->
+
+        <header class="chapters-header">
+
+            <h1>
+                الفصول
+            </h1>
+
+            <p>
+                صفحات القصة والمانجا من عالم أسطورة الفوضى.
+            </p>
+
+        </header>
+
+
+        <!-- ======================================
+             قائمة الفصول
+             ====================================== -->
+
+        <section
+            id="chaptersList"
+            class="chapters-list"
+        >
+
+            <!--
+                ستُنشأ الفصول هنا بواسطة JavaScript.
+            -->
+
+        </section>
+
+
+        <!-- ======================================
+             عارض المانجا
+             ====================================== -->
+
+        <section
+            id="reader"
+            class="reader"
+        >
+
+            <header class="reader-header">
+
+                <h2
+                    id="readerTitle"
+                    class="reader-title"
+                >
+                    الفصل
+                </h2>
+
+                <button
+                    id="closeReader"
+                    class="reader-close"
+                    type="button"
+                >
+                    العودة للفصول
+                </button>
+
+            </header>
+
+
+            <div
+                id="readerStatus"
+                class="reader-status"
+            >
+                الصفحة 1
+            </div>
+
+
+            <div class="reader-image-container">
+
+                <img
+                    id="readerImage"
+                    class="reader-image"
+                    src=""
+                    alt="صفحة من المانجا"
+                    draggable="false"
+                >
+
+            </div>
+
+
+            <!-- ==================================
+                 أزرار الصفحات
+                 ================================== -->
+
+            <div class="reader-controls">
+
+                <button
+                    id="previousPage"
+                    class="reader-button"
+                    type="button"
+                >
+                    الصفحة السابقة
+                </button>
+
+                <span
+                    id="pageNumber"
+                    class="page-number"
+                >
+                    1 / 1
+                </span>
+
+                <button
+                    id="nextPage"
+                    class="reader-button"
+                    type="button"
+                >
+                    الصفحة التالية
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         بيانات الفصول
+         ========================================== -->
+
+    <script src="js/chapters.js"></script>
+
+
+    <!-- ==========================================
+         محرك صفحة الفصول
+         ========================================== -->
+
+    <script>
+
+        /* =========================================
+           حالة القارئ
+           ========================================= */
+
+        let currentChapter = null;
+
+        let currentPage = 0;
+
+
+        /* =========================================
+           عناصر الصفحة
+           ========================================= */
+
+        const chaptersList =
+            document.getElementById(
+                "chaptersList"
+            );
+
+        const reader =
+            document.getElementById(
+                "reader"
+            );
+
+        const readerTitle =
+            document.getElementById(
+                "readerTitle"
+            );
+
+        const readerImage =
+            document.getElementById(
+                "readerImage"
+            );
+
+        const readerStatus =
+            document.getElementById(
+                "readerStatus"
+            );
+
+        const pageNumber =
+            document.getElementById(
+                "pageNumber"
+            );
+
+        const previousPage =
+            document.getElementById(
+                "previousPage"
+            );
+
+        const nextPage =
+            document.getElementById(
+                "nextPage"
+            );
+
+        const closeReader =
+            document.getElementById(
+                "closeReader"
+            );
+
+
+        /* =========================================
+           إنشاء بطاقات الفصول
+           ========================================= */
+
+        function renderChapters() {
+
+            if (
+                typeof ChaptersData === "undefined"
+            ) {
+                chaptersList.innerHTML =
+                    "<p>تعذر تحميل بيانات الفصول.</p>";
+
+                return;
+            }
+
+            const chapters =
+                ChaptersData.getAll();
+
+            chaptersList.innerHTML = "";
+
+
+            chapters.forEach(function(chapter) {
+
+                const card =
+                    document.createElement("article");
+
+                card.className =
+                    "chapter-card";
+
+
+                card.innerHTML = `
+                    <div class="chapter-number">
+                        الفصل ${chapter.number}
+                    </div>
+
+                    <h2 class="chapter-title">
+                        ${chapter.title}
+                    </h2>
+
+                    <p class="chapter-description">
+                        ${chapter.description}
+                    </p>
+                `;
+
+
+                card.addEventListener(
+                    "click",
+                    function() {
+
+                        openChapter(
+                            chapter.id
+                        );
+
+                    }
+                );
+
+
+                chaptersList.appendChild(card);
+
+            });
+
+        }
+
+
+        /* =========================================
+           فتح فصل
+           ========================================= */
+
+        function openChapter(id) {
+
+            const chapter =
+                ChaptersData.getById(id);
+
+            if (!chapter) {
+                return;
+            }
+
+            currentChapter = chapter;
+
+            currentPage = 0;
+
+
+            readerTitle.textContent =
+                `الفصل ${chapter.number}: ${chapter.title}`;
+
+
+            reader.classList.add("active");
+
+
+            chaptersList.style.display =
+                "none";
+
+
+            updateReader();
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        /* =========================================
+           تحديث صفحة المانجا
+           ========================================= */
+
+        function updateReader() {
+
+            if (!currentChapter) {
+                return;
+            }
+
+
+            const pages =
+                currentChapter.pages || [];
+
+
+            if (pages.length === 0) {
+
+                readerImage.removeAttribute("src");
+
+                readerStatus.textContent =
+                    "لا توجد صفحات متاحة حاليًا.";
+
+                pageNumber.textContent =
+                    "0 / 0";
+
+                previousPage.disabled =
+                    true;
+
+                nextPage.disabled =
+                    true;
+
+                return;
+            }
+
+
+            const page =
+                pages[currentPage];
+
+
+            readerImage.src =
+                page.image;
+
+
+            readerImage.alt =
+                `${currentChapter.title} - الصفحة ${currentPage + 1}`;
+
+
+            readerStatus.textContent =
+                `الصفحة ${currentPage + 1} من ${pages.length}`;
+
+
+            pageNumber.textContent =
+                `${currentPage + 1} / ${pages.length}`;
+
+
+            previousPage.disabled =
+                currentPage === 0;
+
+
+            nextPage.disabled =
+                currentPage === pages.length - 1;
+
+        }
+
+
+        /* =========================================
+           الصفحة السابقة
+           ========================================= */
+
+        previousPage.addEventListener(
+            "click",
+            function() {
+
+                if (!currentChapter) {
+                    return;
+                }
+
+                if (currentPage <= 0) {
+                    return;
+                }
+
+                currentPage--;
+
+                updateReader();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =========================================
+           الصفحة التالية
+           ========================================= */
+
+        nextPage.addEventListener(
+            "click",
+            function() {
+
+                if (!currentChapter) {
+                    return;
+                }
+
+                const pages =
+                    currentChapter.pages || [];
+
+
+                if (
+                    currentPage >=
+                    pages.length - 1
+                ) {
+                    return;
+                }
+
+
+                currentPage++;
+
+                updateReader();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =========================================
+           العودة إلى قائمة الفصول
+           ========================================= */
+
+        closeReader.addEventListener(
+            "click",
+            function() {
+
+                reader.classList.remove(
+                    "active"
+                );
+
+
+                chaptersList.style.display =
+                    "";
+
+
+                currentChapter = null;
+
+                currentPage = 0;
+
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        /* =========================================
+           لوحة المفاتيح
+           ========================================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (!currentChapter) {
+                    return;
+                }
+
+
+                if (event.key === "ArrowLeft") {
+
+                    previousPage.click();
+
+                }
+
+
+                if (event.key === "ArrowRight") {
+
+                    nextPage.click();
+
+                }
+
+
+                if (event.key === "Escape") {
+
+                    closeReader.click();
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           تشغيل الصفحة
+           ========================================= */
+
+        renderChapters();
+
+    </script>
+
+
+<script>
+// Progressive Web App support is available on HTTPS/localhost; file:// previews skip it safely.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(error => console.warn('[Eye of Chaos] Offline cache unavailable:', error)));
+}
+</script>
+<script src="js/brain/security/policy.js"></script>
+<script src="js/brain/security/input.js"></script>
+<script src="js/brain/security/storage.js"></script>
+<script src="js/brain/security/index.js"></script>
+<script src="js/kernel/eventBus.js"></script><script src="js/kernel/resultBus.js"></script><script src="js/kernel/serviceRegistry.js"></script><script src="js/kernel/intentEngine.js"></script><script src="js/kernel/taskRouter.js"></script><script src="js/kernel/diagnostics.js"></script><script src="js/kernel/kernel.js"></script><script src="js/chaos-layer.js"></script>
+<script src="js/cloud/syncEngine.js"></script>
+<script src="js/brain/cognition/languageEngine.js"></script>
+<script src="js/kernel/unifiedCore.js"></script>
+<script src="js/system-core.js"></script>
+<script src="js/brain/cognition/adaptiveAgent.js"></script><script src="js/chaosPresence.js"></script></body>
+
+</html>
