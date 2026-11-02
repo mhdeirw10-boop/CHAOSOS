@@ -1,6 +1,6 @@
 /* Eye of Chaos offline shell. This is a cache, not a server or AI model. */
 'use strict';
-const CACHE_NAME = 'chaosos-shell-v3-1-6-os-evolution-experimental';
+const CACHE_NAME = 'chaosos-shell-v3-1-7-native-platform-evolution';
 const SHELL = [
   "./js/brain/voice/voiceStudio.js",
   "./js/brain/voice/hybridVoice.js",

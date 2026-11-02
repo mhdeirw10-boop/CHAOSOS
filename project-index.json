@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "project": "CHAOSOS v3.1.6 experimental web-first OS runtime release candidate",
-  "generatedAt": "2026-10-31T17:58:21.835Z",
+  "project": "CHAOSOS v3.1.7 native-platform evolution release candidate",
+  "generatedAt": "2026-11-02T09:12:18.714Z",
   "files": [
     {
       "path": ".gitattributes",
@@ -914,6 +914,13 @@
       "folder": ""
     },
     {
+      "path": "CHANGELOG_v3_1_7_NATIVE_PLATFORM_BRIDGE.md",
+      "name": "CHANGELOG_v3_1_7_NATIVE_PLATFORM_BRIDGE.md",
+      "ext": "md",
+      "size": 1384,
+      "folder": ""
+    },
+    {
       "path": "CHAOS_COMMAND_CENTER_AND_BOOT_UPDATE.md",
       "name": "CHAOS_COMMAND_CENTER_AND_BOOT_UPDATE.md",
       "ext": "md",
@@ -1253,7 +1260,7 @@
       "path": "index.html",
       "name": "index.html",
       "ext": "html",
-      "size": 98143,
+      "size": 98178,
       "folder": ""
     },
     {
@@ -2240,7 +2247,7 @@
       "path": "js/kernel/permissionManager.js",
       "name": "permissionManager.js",
       "ext": "js",
-      "size": 2365,
+      "size": 2679,
       "folder": "js/kernel"
     },
     {
@@ -2310,7 +2317,7 @@
       "path": "js/platform/androidBridge.js",
       "name": "androidBridge.js",
       "ext": "js",
-      "size": 2658,
+      "size": 3250,
       "folder": "js/platform"
     },
     {
@@ -2387,7 +2394,7 @@
       "path": "package.json",
       "name": "package.json",
       "ext": "json",
-      "size": 492,
+      "size": 505,
       "folder": ""
     },
     {
@@ -2401,14 +2408,35 @@
       "path": "project-source/cordova-project/config.xml",
       "name": "config.xml",
       "ext": "xml",
-      "size": 1591,
+      "size": 1702,
       "folder": "project-source/cordova-project"
+    },
+    {
+      "path": "project-source/cordova-project/native-plugins/cordova-plugin-void-native/plugin.xml",
+      "name": "plugin.xml",
+      "ext": "xml",
+      "size": 1018,
+      "folder": "project-source/cordova-project/native-plugins/cordova-plugin-void-native"
+    },
+    {
+      "path": "project-source/cordova-project/native-plugins/cordova-plugin-void-native/src/android/VoidNativePlugin.java",
+      "name": "VoidNativePlugin.java",
+      "ext": "java",
+      "size": 4923,
+      "folder": "project-source/cordova-project/native-plugins/cordova-plugin-void-native/src/android"
+    },
+    {
+      "path": "project-source/cordova-project/native-plugins/cordova-plugin-void-native/www/VoidNative.js",
+      "name": "VoidNative.js",
+      "ext": "js",
+      "size": 437,
+      "folder": "project-source/cordova-project/native-plugins/cordova-plugin-void-native/www"
     },
     {
       "path": "project-source/cordova-project/package.json",
       "name": "package.json",
       "ext": "json",
-      "size": 740,
+      "size": 770,
       "folder": "project-source/cordova-project"
     },
     {
@@ -2524,10 +2552,17 @@
       "folder": "README"
     },
     {
+      "path": "README/15_NATIVE_PLATFORM_EVOLUTION.txt",
+      "name": "15_NATIVE_PLATFORM_EVOLUTION.txt",
+      "ext": "txt",
+      "size": 1791,
+      "folder": "README"
+    },
+    {
       "path": "README/README.txt",
       "name": "README.txt",
       "ext": "txt",
-      "size": 2535,
+      "size": 2629,
       "folder": "README"
     },
     {
@@ -2716,7 +2751,7 @@
       "path": "tests/generate-project-index.cjs",
       "name": "generate-project-index.cjs",
       "ext": "cjs",
-      "size": 1130,
+      "size": 1122,
       "folder": "tests"
     },
     {
@@ -2776,6 +2811,13 @@
       "folder": "tests"
     },
     {
+      "path": "tests/native-platform-v317-tests.cjs",
+      "name": "native-platform-v317-tests.cjs",
+      "ext": "cjs",
+      "size": 3286,
+      "folder": "tests"
+    },
+    {
       "path": "tests/natural-vocabulary-v315-tests.cjs",
       "name": "natural-vocabulary-v315-tests.cjs",
       "ext": "cjs",
@@ -2793,7 +2835,7 @@
       "path": "tests/release-audit.cjs",
       "name": "release-audit.cjs",
       "ext": "cjs",
-      "size": 10945,
+      "size": 11798,
       "folder": "tests"
     },
     {

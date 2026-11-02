@@ -1,8 +1,8 @@
 {
   "name": "chaosos-source",
-  "version": "3.1.6",
+  "version": "3.1.7",
   "private": true,
-  "description": "CHAOSOS v3.1.6 source tests and release preparation",
+  "description": "CHAOSOS v3.1.7 native platform bridge evolution source and tests",
   "license": "Apache-2.0",
   "scripts": {
     "test": "node tests/run-all-tests.cjs",
